@@ -10,10 +10,10 @@ function Calculadora(){
     function handleSubmit(e){
         e.preventDefault();
         const operacion = e.target.value;
-        fetch(`http://localhost:3500/v1/calculadora/${operacion}`, {
+        fetch(`http://localhost:3500/v2/calculadora/operacion`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({number1, number2})
+            body: JSON.stringify({number1, number2, operacion })
         })
             .then(res =>res.json())
             .then(responseData => {
