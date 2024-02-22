@@ -8,7 +8,7 @@ function sumar(req, res) {
     
     const {
         number1,
-        number2
+        number2,
     } = req;
     const result = add(number1, number2);
     return result;
