@@ -10,10 +10,10 @@ function Calculadora(){
     function handleSubmit(e){
         e.preventDefault();
         const operacion = e.target.value;
-        fetch(`${import.meta.env.VITE_BASE_API}/calculadora/${operacion}`, {
+        fetch(`${import.meta.env.VITE_BASE_API}/calculadora/operar`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({number1, number2})
+            body: JSON.stringify({operacion, number1, number2})
         })
             .then(res =>res.json())
             .then(responseData => {
