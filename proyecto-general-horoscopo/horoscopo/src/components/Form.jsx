@@ -9,10 +9,10 @@ function Form({callback}){
  
     const validateUser = (event)=>{
         event.preventDefault();
-        if(username === 'user' && password === 'user2023'){
+        if(username === 'user' && password === 'user'){
             callback("user");
             goTo("/userHome");
-        }else if(username === 'admin' && password==='admin2023'){
+        }else if(username === 'admin' && password==='admin'){
             callback("admin");
             goTo("/adminHome");
         }

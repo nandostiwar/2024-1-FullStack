@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const signoController = require('./controllers/signoController.js');
-router
-    .get('/', signoController.getAllSignos)
-    .get('/:signo', signoController.getOneSigno)
-    .patch('/:signoEditar', signoController.updateSigno)
+
+// Obtener signos 
+router.get('/', signoController.getAllSignos)
+
+// Obtener signo por tipo
+router.get('/:tipo/:signo', signoController.ObtenerSignoPorTipo)
+
+// Actualizar signo
+router.patch('/:signoEditar', signoController.updateSigno)
 
 module.exports = router;

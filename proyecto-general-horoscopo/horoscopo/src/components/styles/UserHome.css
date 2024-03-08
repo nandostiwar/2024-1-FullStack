@@ -4,26 +4,32 @@
     place-items: center;
 }
 
+#selectTipos,
 #selectSignos{
-    margin-top: 0px;
-    margin: 100px;
+    
+    margin: 10px;
     width: 400px;
     padding: 5px 50px 5px 10px;
     border-radius: 10px;
     background-color: rgb(71, 63, 63);
     color: white;
+    
 }
 
 #txtSeleccionPage{
-    padding: 50px;
+
+    padding: 40px;
     padding-bottom: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic  ;
+    color: white;
+    display: flex;
+    
 }
 
 #btnHome{
-    margin-top: 100px;
-    background-color: blue;
+    margin-top: 10px;
+    background-color:rgb(71, 63, 63);
     color: white;
     padding: 50px;
     padding-bottom: 5px;
