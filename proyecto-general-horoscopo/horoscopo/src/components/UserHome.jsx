@@ -40,6 +40,14 @@ function UserHome({user}){
                 <option value="Acuario">Acuario</option>
                 <option value="Piscis">Piscis</option>
             </select>
+            <select id="selectSexo" onClick={handleSelect}>
+                <option value="0">Seleciona tu sexo</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Niño">Niño</option>
+                <option value="Niña">Niña</option>                     
+                
+            </select>
             <TextSigno texto={textoSigno}/>
             <button id="btnHome" onClick={goHome}>Home</button>
         </div>
