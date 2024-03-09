@@ -1,19 +1,18 @@
 {
-  "Hombre":
-  {"Aries": "Suerte de Aries",
-  "Geminis": "SUERTE DE GEMINIS CAMBIADA",
-  "Cancer": "Suerte de Cancer",
-  "Leo": "SUERTE DE LEO POSITIVA",
-  "Virgo": "Suerte de Virgo",
-  "Libra": "UNA LIBRA DE ARROZ",
-  "Escorpio": "Suerte de Escorpio",
-  "Sagitario": "Suerte de Sagitario",
-  "Capricornio": "Suerte de Capricornio",
-  "Acuario": "Suerte de Acuario",
-  "Piscis": "Suerte de Piscis"},
-
-  "Mujer":
-  {
+  "Hombre": {
+    "Aries": "la vida es bella ",
+    "Geminis": "SUERTE DE GEMINIS CAMBIADA",
+    "Cancer": "Suerte de Cancer",
+    "Leo": "SUERTE DE LEO POSITIVA",
+    "Virgo": "Suerte de Virgo",
+    "Libra": "UNA LIBRA DE ARROZ",
+    "Escorpio": "Suerte de Escorpio",
+    "Sagitario": "Suerte de Sagitario",
+    "Capricornio": "Suerte de Capricornio",
+    "Acuario": "Suerte de Acuario",
+    "Piscis": "Suerte de Piscis"
+  },
+  "Mujer": {
     "Aries": "Tu semana estará llena de energía y nuevas oportunidades",
     "Geminis": "Este es un buen momento para cambiar tu enfoque en la vida",
     "Cancer": "Tu intuición te guiará hacia el éxito esta semana",
@@ -26,9 +25,8 @@
     "Acuario": "Mantén una mente abierta y sé receptivo a nuevas ideas",
     "Piscis": "Confía en tu intuición para tomar decisiones importantes"
   },
-  
-  "Niño":
-  {"Aries": "¡Prepárate para aventuras emocionantes y diversión sin límites!",
+  "Niño": {
+    "Aries": "¡Prepárate para aventuras emocionantes y diversión sin límites!",
     "Geminis": "Tu curiosidad te llevará a descubrir un mundo lleno de sorpresas",
     "Cancer": "Tu sensibilidad te ayudará a cuidar y proteger a tus seres queridos",
     "Leo": "Deja que tu valentía y creatividad te lleven a grandes logros",
@@ -40,8 +38,7 @@
     "Acuario": "Deja volar tu imaginación y descubre nuevas formas de divertirte",
     "Piscis": "Confía en tus instintos y sigue tu corazón en todo lo que hagas"
   },
-  "Niña":
-  {
+  "Niña": {
     "Aries": "Tu valentía te llevará a emocionantes aventuras y nuevos descubrimientos",
     "Geminis": "Deja que tu imaginación vuele y descubre un mundo lleno de posibilidades",
     "Cancer": "Tu ternura y cuidado harán brillar la luz en el corazón de quienes te rodean",
@@ -54,5 +51,4 @@
     "Acuario": "Sé única, sé tú misma, y verás cómo el mundo se maravilla con tu originalidad",
     "Piscis": "Deja que tu intuición y compasión guíen tus pasos hacia un futuro lleno de amor y bondad"
   }
-  
 }
