@@ -7,6 +7,17 @@ const getAllSignos = async (req, res)=>{
     res.json(signosJson);
 }
 
+const consultarSigno = async (req, res) => {
+    console.log(req.body);
+    const allSignos = await fs.readFile(path.join(__dirname, '../../db/signos.json'));
+    const objSignos = JSON.parse(allSignos);
+    const signo = objSignos[req.body.textoGenero][req.body.signo]
+    res.json({
+        signo
+    })
+    console.log(objSignos[req.body.textoGenero][req.body.signo])
+}
+
 const getOneSigno = async (req, res)=>{
     const oneSigno = req.params.signo;
     const allSignos = await fs.readFile(path.join(__dirname,'../../db/signos.json'));
@@ -16,14 +27,17 @@ const getOneSigno = async (req, res)=>{
 }
 
 const updateSigno = async (req, res)=>{
-    const signoEditar = req.params.signoEditar;
-    const {textoEditar} = req.body;
+    const {signoEditar,textoGenero,textoEditar} = req.body;
+    console.log(req.body)
     const allSignos = await fs.readFile(path.join(__dirname,'../../db/signos.json'));
     const objSignos = JSON.parse(allSignos);
 
     const objUpdate = {
         ...objSignos,
-        [signoEditar]: textoEditar
+        [textoGenero]: {
+            ...objSignos[textoGenero],
+            [signoEditar]:textoEditar
+        }
     }
 
     // console.log(objUpdate);
@@ -37,5 +51,6 @@ const updateSigno = async (req, res)=>{
 module.exports = {
     getAllSignos,
     getOneSigno,
-    updateSigno
+    updateSigno,
+    consultarSigno
 }

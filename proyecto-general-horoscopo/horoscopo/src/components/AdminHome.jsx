@@ -1,6 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import './styles/AdminHome.css'
 import { useState } from "react";
+import axios from "axios";
 
 function AdminHome({user}){
     if(user!=='admin' || !user){
@@ -9,6 +10,7 @@ function AdminHome({user}){
     const home = useNavigate();
     const [textoEditar, setTextoEditar] = useState("");
     const [signoEditar, setSignoEditar] = useState("");
+    const [textoGenero, genero] = useState('');
 
     function handleSelect(event){
         const signo = event.target.value;
@@ -21,20 +23,25 @@ function AdminHome({user}){
         home("/");
     }
 
-    function handleClick(e){
-        // console.log(signoEditar);
-        // console.log(textoEditar);
-        e.preventDefault();
-        fetch(`http://localhost:4000/v1/signos/${signoEditar}`, {
-            method: 'PATCH',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"textoEditar": textoEditar})
-        })
+    async function handleClick(e){
+        const datos = {
+            signoEditar,textoGenero,textoEditar
+        }
+        const response = await axios.post('http://localhost:4000/v1/signos/signoEditar', datos)
+            console.log(response)
     }
 
     return (
         <div class="container">
             <h2 id="textoAdmin">Edita un Signo Zodiacal</h2>
+
+            <select id="editarSexo" onClick={(e)=>genero(e.target.value)}>
+                <option value="0">Seleciona tu sexo</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Niño">Niño</option>                    
+            </select>
+
             <select id="editSignos" onClick={handleSelect}>
                 <option value="0">Seleciona un signo zodiacal</option>
                 <option value="Aries">Aries</option>
@@ -50,12 +57,10 @@ function AdminHome({user}){
                 <option value="Piscis">Piscis</option>
             </select>
             <textarea id="textoEditar" cols="50" rows="10" onChange={(e)=> setTextoEditar(e.target.value)}>
-
             </textarea>
             <button id="btnEditar" onClick={handleClick}>Editar</button>
             <button id="btnHomeAdmin" onClick={goHome}>Home</button>
         </div>
     )
 }
-
 export default AdminHome;
