@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function Form({callback}){
     const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
+    const [Type, setType] = useState(null);
     const goTo = useNavigate();
  
     const validateUser = (event)=>{

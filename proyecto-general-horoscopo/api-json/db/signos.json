@@ -1,13 +1,57 @@
 {
-  "Aries": "Suerte de Aries",
-  "Geminis": "SUERTE DE GEMINIS CAMBIADA",
-  "Cancer": "Suerte de Cancer",
-  "Leo": "SUERTE DE LEO POSITIVA",
-  "Virgo": "Suerte de Virgo",
-  "Libra": "UNA LIBRA DE ARROZ",
-  "Escorpio": "Suerte de Escorpio",
-  "Sagitario": "Suerte de Sagitario",
-  "Capricornio": "Suerte de Capricornio",
-  "Acuario": "Suerte de Acuario",
-  "Piscis": "Suerte de Piscis"
+  "Aries": {
+    "Hombre": "Suerte de Aries para hombres",
+    "Mujer": "Suerte de Aries para mujeres",
+    "Niño": "Suerte de Aries para niños"
+  },
+  "Geminis": {
+    "Hombre": "Suerte de Geminis para hombres",
+    "Mujer": "Suerte de Geminis para mujeres",
+    "Niño": "Suerte de Geminis para niños"
+  },
+  "Cancer": {
+    "Hombre": "Suerte de Cancer para hombres",
+    "Mujer": "Suerte de Cancer para mujeres",
+    "Niño": "Suerte de Cancer para niños"
+  },
+  "Leo": {
+    "Hombre": "Suerte de Leo positiva para hombres",
+    "Mujer": "Suerte de Leo positiva para mujeres",
+    "Niño": "Suerte de Leo positiva para niños"
+  },
+  "Virgo": {
+    "Hombre": "Suerte de Virgo para hombres",
+    "Mujer": "Suerte de Virgo para mujeres",
+    "Niño": "Suerte de Virgo para niños"
+  },
+  "Libra": {
+    "Hombre": "Una libra de arroz para hombres",
+    "Mujer": "Una libra de arroz para mujeres",
+    "Niño": "Una libra de arroz para niños"
+  },
+  "Escorpio": {
+    "Hombre": "Suerte de Escorpio para hombres",
+    "Mujer": "Suerte de Escorpio para mujeres",
+    "Niño": "Suerte de Escorpio para niños"
+  },
+  "Sagitario": {
+    "Hombre": "Suerte de Sagitario para hombres",
+    "Mujer": "Suerte de Sagitario para mujeres",
+    "Niño": "Suerte de Sagitario para niños"
+  },
+  "Capricornio": {
+    "Hombre": "Suerte de Capricornio para hombres",
+    "Mujer": "Suerte de Capricornio para mujeres",
+    "Niño": "Suerte de Capricornio para niños"
+  },
+  "Acuario": {
+    "Hombre": "Suerte de Acuario para hombres",
+    "Mujer": "Suerte de Acuario para mujeres",
+    "Niño": "Suerte de Acuario para niños"
+  },
+  "Piscis": {
+    "Hombre": "Suerte de Piscis para hombres",
+    "Mujer": "Suerte de Piscis para mujeres",
+    "Niño": "Suerte de Piscis para niños"
+  }
 }
