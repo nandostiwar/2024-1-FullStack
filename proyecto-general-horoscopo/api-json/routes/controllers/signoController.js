@@ -33,9 +33,8 @@ const ObtenerSignoPorTipo = async (req, res) => {
                 res.json(Nresult)
                 break;
             default:
-                //break;
                 res.status(400).json("Message: asdasd")
-            break
+            break ;
             }
 
     } catch (error) {

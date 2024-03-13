@@ -4,7 +4,20 @@
     place-items: center;
 }
 
-#selectTipos,
+.select_tipo{
+
+    margin: 10px;
+    width: 400px;
+    padding: 5px 50px 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(71, 63, 63);
+    color: white;
+    
+
+
+
+
+}
 #selectSignos{
     
     margin: 10px;
