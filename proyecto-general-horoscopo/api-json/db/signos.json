@@ -1,13 +1,43 @@
-{
-  "Aries": "Suerte de Aries",
-  "Geminis": "SUERTE DE GEMINIS CAMBIADA",
-  "Cancer": "Suerte de Cancer",
-  "Leo": "SUERTE DE LEO POSITIVA",
-  "Virgo": "Suerte de Virgo",
-  "Libra": "UNA LIBRA DE ARROZ",
-  "Escorpio": "Suerte de Escorpio",
-  "Sagitario": "Suerte de Sagitario",
-  "Capricornio": "Suerte de Capricornio",
-  "Acuario": "Suerte de Acuario",
-  "Piscis": "Suerte de Piscis"
-}
+
+  {
+    "Mujer": {
+      "Aries": "La valiente guerrera",
+      "Geminis": "La versátil siempre en dos lugares",
+      "Cancer": "La sensible soñadora",
+      "Leo": "El brillo del sol en la oscuridad",
+      "Virgo": "La organizada perfeccionista",
+      "Libra": "Siempre buscando armonía",
+      "Escorpio": "El enigma personificado",
+      "Sagitario": "La intrépida en busca de aventuras",
+      "Capricornio": "La escaladora de montañas hacia el éxito",
+      "Acuario": "La rebelde con causa",
+      "Piscis": "El mar de emociones"
+    },
+    "Hombre": {
+      "Aries": "El valiente conquistador",
+      "Geminis": "El carismático conversador",
+      "Cancer": "El protector con corazón noble",
+      "Leo": "El líder que irradia luz propia",
+      "Virgo": "El meticuloso analista",
+      "Libra": "Siempre buscando equilibrio",
+      "Escorpio": "El misterioso seductor",
+      "Sagitario": "El aventurero sin fronteras",
+      "Capricornio": "El constructor de sueños firmes",
+      "Acuario": "El visionario que desafía lo convencional",
+      "Piscis": "El poeta de los mares"
+    },
+    "Nine": {
+      "Aries": "¡El héroe siempre listo para la acción!",
+      "Geminis": "¡El mago de las travesuras y sorpresas!",
+      "Cancer": "¡El amigo más abrazable y cariñoso!",
+      "Leo": "¡El rey o reina del patio de recreo!",
+      "Virgo": "¡El pequeño detective que encuentra soluciones creativas!",
+      "Libra": "¡El experto en equilibrio y amistades!",
+      "Escorpio": "¡El intrépido explorador de mundos misteriosos!",
+      "Sagitario": "¡El aventurero en busca de tesoros!",
+      "Capricornio": "¡El constructor de castillos de sueños en la arena!",
+      "Acuario": "¡El genio inventor que imagina nuevos mundos!",
+      "Piscis": "¡El artista del mar que pinta sueños con colores brillantes!"
+    }
+  }
+  
