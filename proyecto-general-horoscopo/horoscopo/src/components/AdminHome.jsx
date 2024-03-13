@@ -1,5 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import './styles/AdminHome.css'
+import axios from "axios";
 import { useState } from "react";
 
 function AdminHome({user}){
@@ -9,6 +10,7 @@ function AdminHome({user}){
     const home = useNavigate();
     const [textoEditar, setTextoEditar] = useState("");
     const [signoEditar, setSignoEditar] = useState("");
+    const [textoGenero, setTextoGenero] = useState('');
 
     function handleSelect(event){
         const signo = event.target.value;
@@ -21,21 +23,22 @@ function AdminHome({user}){
         home("/");
     }
 
-    function handleClick(e){
-        // console.log(signoEditar);
-        // console.log(textoEditar);
-        e.preventDefault();
-        fetch(`http://localhost:4000/v1/signos/${signoEditar}`, {
-            method: 'PATCH',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"textoEditar": textoEditar})
-        })
+    async function handleClick(e){
+        const getsignos = await axios.post("http://localhost:4000/v1/signos/tres",{signoEditar, textoGenero, textoEditar})
+            console.log(getsignos);
     }
 
     return (
         <div class="container">
             <h2 id="textoAdmin">Edita un Signo Zodiacal</h2>
-            <select id="editSignos" onClick={handleSelect}>
+            <div><select id="selectGenero" onChange={(e) => setTextoGenero(e.target.value)}>
+                <option value="0">Selecciona un genero</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Niño">Niño</option>
+                <option value="Niña">Niña</option>
+                </select></div>
+            <div><select id="editSignos" onClick={handleSelect}>
                 <option value="0">Seleciona un signo zodiacal</option>
                 <option value="Aries">Aries</option>
                 <option value="Geminis">Géminis</option>
@@ -48,7 +51,7 @@ function AdminHome({user}){
                 <option value="Capricornio">Capricornio</option>
                 <option value="Acuario">Acuario</option>
                 <option value="Piscis">Piscis</option>
-            </select>
+            </select></div>
             <textarea id="textoEditar" cols="50" rows="10" onChange={(e)=> setTextoEditar(e.target.value)}>
 
             </textarea>

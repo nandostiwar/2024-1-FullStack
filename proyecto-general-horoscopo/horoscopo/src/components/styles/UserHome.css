@@ -1,32 +1,32 @@
-.container{
+.container {
     height: 300px;
     display: grid;
     place-items: center;
 }
 
-#selectSignos{
-    margin-top: 0px;
-    margin: 100px;
+#selectGenero,
+#selectSignos {
     width: 400px;
-    padding: 5px 50px 5px 10px;
     border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
     background-color: rgb(71, 63, 63);
     color: white;
+    text-align: center;
 }
 
-#txtSeleccionPage{
+#txtSeleccionPage {
     padding: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
+    margin: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic  ;
+    font-style: italic;
 }
 
-#btnHome{
-    margin-top: 100px;
+#btnHome {
+    margin-top: 40px; /* Increased margin-top for more separation */
     background-color: blue;
     color: white;
-    padding: 50px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 10px 50px; /* Adjusted padding for better balance */
     border-radius: 10px;
 }

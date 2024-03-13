@@ -1,0 +1,21 @@
+{
+    "Mujer": {
+        "Aries": "Mucho amor",
+        "Geminis": "Mucho amor"
+    },
+
+    "Hombre": {
+        "Cancer": "Mucho dadwa",
+        "Leo": "Mucho dawdwadwdaw"
+    },
+
+    "Niño": {
+        "Virgo": "Mucho adawdaw",
+        "Libra": "Mucho aadawdamor"
+    },
+
+    "Niña": {
+        "Escorpio": "Mucho aawdawdawdmor",
+        "Sagitario": "Mucho addwadad"
+    }
+}

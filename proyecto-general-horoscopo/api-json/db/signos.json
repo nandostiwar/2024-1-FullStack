@@ -1,13 +1,54 @@
 {
-  "Aries": "Suerte de Aries",
-  "Geminis": "SUERTE DE GEMINIS CAMBIADA",
-  "Cancer": "Suerte de Cancer",
-  "Leo": "SUERTE DE LEO POSITIVA",
-  "Virgo": "Suerte de Virgo",
-  "Libra": "UNA LIBRA DE ARROZ",
-  "Escorpio": "Suerte de Escorpio",
-  "Sagitario": "Suerte de Sagitario",
-  "Capricornio": "Suerte de Capricornio",
-  "Acuario": "Suerte de Acuario",
-  "Piscis": "Suerte de Piscis"
+  "Mujer": {
+    "Aries": "La guerrera audaz",
+    "Geminis": "Siempre en dos lugares a la vez",
+    "Cancer": "La soñadora sensible",
+    "Leo": "El sol brillante en cualquier día nublado",
+    "Virgo": " La perfeccionista organizada",
+    "Libra": "Siempre balanceando la vida",
+    "Escorpio": " El misterio hecho persona",
+    "Sagitario": " Siempre buscando nuevas aventuras",
+    "Capricornio": "La escaladora de montañas hacia el éxito",
+    "Acuario": "La rebelde con causa",
+    "Piscis": "El océano de emociones"
+  },
+  "Hombre": {
+    "Aries": "nuevo genero",
+    "Geminis": "Siempre en dos lugares a la vez",
+    "Cancer": "La soñadora sensible",
+    "Leo": "El sol brillante en cualquier día nublado",
+    "Virgo": " La perfeccionista organizada",
+    "Libra": "Siempre balanceando la vida",
+    "Escorpio": " El misterio hecho persona",
+    "Sagitario": " Siempre buscando nuevas aventuras",
+    "Capricornio": "La escaladora de montañas hacia el éxito",
+    "Acuario": "La rebelde con causa",
+    "Piscis": "El océano de emociones"
+  },
+  "Niño": {
+    "Aries": "La guerrera audaz",
+    "Geminis": "Siempre en dos lugares a la vez",
+    "Cancer": "La soñadora sensible",
+    "Leo": "El sol brillante en cualquier día nublado",
+    "Virgo": " La perfeccionista organizada",
+    "Libra": "Siempre balanceando la vida",
+    "Escorpio": " El misterio hecho persona",
+    "Sagitario": " Siempre buscando nuevas aventuras",
+    "Capricornio": "La escaladora de montañas hacia el éxito",
+    "Acuario": "La rebelde con causa",
+    "Piscis": "El océano de emociones"
+  },
+  "Niña": {
+    "Aries": "La guerrera audaz",
+    "Geminis": "Siempre en dos lugares a la vez",
+    "Cancer": "La soñadora sensible",
+    "Leo": "El sol brillante en cualquier día nublado",
+    "Virgo": " La perfeccionista organizada",
+    "Libra": "Siempre balanceando la vida",
+    "Escorpio": " El misterio hecho persona",
+    "Sagitario": " Siempre buscando nuevas aventuras",
+    "Capricornio": "La escaladora de montañas hacia el éxito",
+    "Acuario": "La rebelde con causa",
+    "Piscis": "El océano de emociones"
+  }
 }
