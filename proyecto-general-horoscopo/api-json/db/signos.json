@@ -1,13 +1,45 @@
 {
-  "Aries": "Suerte de Aries",
-  "Geminis": "SUERTE DE GEMINIS CAMBIADA",
-  "Cancer": "Suerte de Cancer",
-  "Leo": "SUERTE DE LEO POSITIVA",
-  "Virgo": "Suerte de Virgo",
-  "Libra": "UNA LIBRA DE ARROZ",
-  "Escorpio": "Suerte de Escorpio",
-  "Sagitario": "Suerte de Sagitario",
-  "Capricornio": "Suerte de Capricornio",
-  "Acuario": "Suerte de Acuario",
-  "Piscis": "Suerte de Piscis"
+  "Hombre":
+  {
+    "Aries": "Con tu valentía y liderazgo, ningún desafío es demasiado grande, hombre Aries.",
+    "Tauro": "Tu fuerza y ​​determinación son tu mayor fortaleza, hombre Tauro. ¡Nada puede detenerte!",
+    "Géminis": "Tu mente ágil y adaptable te hace destacar, hombre Géminis.",
+    "Cáncer": "Con tu sensibilidad y protección, iluminas la vida de quienes te rodean, hombre Cáncer.",
+    "Leo": "Brilla con tu confianza y carisma, hombre Leo. El mundo te espera con ansias.",
+    "Virgo": "Tu inteligencia y meticulosidad te hacen excepcional, hombre Virgo.",
+    "Libra": "Busca el equilibrio y la justicia en todo lo que haces, hombre Libra.",
+    "Escorpio": "Tu pasión y determinación te guiarán hacia el éxito, hombre Escorpio.",
+    "Sagitario": "Explora el mundo con tu espíritu aventurero y optimista, hombre Sagitario.",
+    "Capricornio": "Con tu ambición y disciplina, puedes lograr cualquier cosa, hombre Capricornio.",
+    "Acuario": "Sé auténtico, sé visionario, hombre Acuario. Tu originalidad es tu mayor virtud.",
+    "Piscis": "Deja que tu intuición y compasión guíen tu camino, hombre Piscis. El mundo necesita tu empatía."
+  },
+  "Niño": {
+    "Aries": "¡Explora el mundo con valentía y energía, pequeño Aries!",
+    "Tauro": "Construye tus sueños con paciencia y determinación, dulce Tauro.",
+    "Géminis": "¡Tu curiosidad es tu mayor tesoro, pequeño Géminis!",
+    "Cáncer": "Con amor y protección, conquistarás el mundo, pequeño Cáncer.",
+    "Leo": "¡Brilla con todo tu esplendor, valiente Leo!",
+    "Virgo": "Cada detalle importa, ingenioso Virgo. ¡Explora y aprende!",
+    "Libra": "Busca la armonía y la justicia en todo lo que hagas, encantador Libra.",
+    "Escorpio": "Tu pasión y determinación te llevarán lejos, pequeño Escorpio.",
+    "Sagitario": "¡Explora el mundo con alegría y optimismo, intrépido Sagitario!",
+    "Capricornio": "Con esfuerzo y perseverancia, alcanzarás las estrellas, pequeño Capricornio.",
+    "Acuario": "Sé único, sé tú mismo, brillante Acuario.",
+    "Piscis": "Deja volar tu imaginación y sigue tu intuición, pequeño Piscis."
+  },
+  "Mujer": {
+    "Aries": "Con coraje y determinación, conquistarás tus metas, mujer Aries.",
+    "Tauro": "Tu fuerza interior es tu mayor fortaleza, mujer Tauro. ¡Nada puede detenerte!",
+    "Géminis": "Tu mente brillante y versátil te llevará lejos, mujer Géminis.",
+    "Cáncer": "Con tu ternura y sensibilidad, iluminarás el mundo, mujer Cáncer.",
+    "Leo": "Brilla con confianza y orgullo, mujer Leo. El mundo espera tu grandeza.",
+    "Virgo": "Tu atención al detalle y tu sabiduría te hacen única, mujer Virgo.",
+    "Libra": "Busca la armonía y la belleza en todo lo que haces, mujer Libra.",
+    "Escorpio": "Tu pasión y determinación son tus mayores aliados, mujer Escorpio.",
+    "Sagitario": "Explora el mundo con tu espíritu libre y aventurero, mujer Sagitario.",
+    "Capricornio": "Con tu disciplina y ambición, alcanzarás tus sueños, mujer Capricornio.",
+    "Acuario": "Sé auténtica, sé revolucionaria, mujer Acuario. Tu originalidad es tu poder.",
+    "Piscis": "Deja volar tu intuición y tu compasión, mujer Piscis. El mundo necesita tu amor."
+  }
 }

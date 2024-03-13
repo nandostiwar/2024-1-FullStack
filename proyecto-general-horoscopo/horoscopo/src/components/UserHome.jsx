@@ -25,12 +25,19 @@ function UserHome({user}){
 
     return (
         <div className="container">
-            <div id="txtSeleccionPage"><h3>Selecciona tu signo zodiacal</h3></div>
+            <div id="txtSeleccionPage"><h1>Selecciona tu signo zodiacal</h1></div>
+            <select id="selectSignos" onClick={handleSelect}>
+                <option value="0">Selecciona un sexo sexoso</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Niño">Niño</option>
+                <option value="Mujer">Mujer</option>
+            </select>
             <select id="selectSignos" onClick={handleSelect}>
                 <option value="0">Seleciona un signo zodiacal</option>
                 <option value="Aries">Aries</option>
-                <option value="Geminis">Géminis</option>
-                <option value="Cancer">Cáncer</option>
+                <option value="Tauro">Tauro</option>
+                <option value="Géminis">Géminis</option>
+                <option value="Cáncer">Cáncer</option>
                 <option value="Leo">Leo</option>
                 <option value="Virgo">Virgo</option>
                 <option value="Libra">Libra</option>
