@@ -1,0 +1,54 @@
+/* LoginForm.css */
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el contenedor tenga al menos el alto de la ventana */
+    flex-direction: column; /* Organiza los elementos internos en una columna */
+    background-color: #240e52; /* Color de fondo suave */
+  }
+  
+  .form-group {
+    margin-bottom: 15px; /* Espacio entre los campos del formulario */
+  }
+  
+  form {
+    padding: 20px;
+    border-radius: 3px;
+    background: rgb(103, 4, 241);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    display: flex;
+    flex-direction: column; /* Asegura que los inputs se apilen verticalmente */
+    width: 200px; /* Ancho fijo para el formulario */
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    color: rgb(7, 7, 7);
+    margin-top: 15px; /* Espacio entre el label y el input */
+    border: 1px solid #0b0b0b;
+    border-radius: 30px; /* Bordes redondeados para los inputs */
+  }
+  
+  button[type="submit"] {
+    background-color: #ce258a; /* Color azul para el botón */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px; /* Espacio entre el último input y el botón */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #064c02; /* Oscurece el botón al pasar el mouse */
+  }
+  
+  .login-form h2 {
+    color: #f4f2f1; /* Un azul claro que da sensación de alegría */
+    font-family: 'Arial Rounded MT Bold', sans-serif; /* Una fuente redondeada y amigable */
+    text-align: center;
+    margin-bottom: 20px; /* Más espacio debajo del título para respirar */
+    text-shadow: 1px 1px 0px #070707; /* Un suave efecto de sombra para dar profundidad */
+  }
