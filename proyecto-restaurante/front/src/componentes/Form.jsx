@@ -11,12 +11,18 @@ function Form({callback}){
     const validateUser = (event)=>{
         event.preventDefault();
         if(username === 'juan' && password === '123'){
-            callback("user");
-            goTo("/userHome");
+            callback("mesero");
+            goTo("/meseroHome");
         }else if(username === 'admin' && password==='123'){
             callback("admin");
             goTo("/adminHome");
+        }else if(username === 'sebas' && password==="123"){
+            callback("cocina");
+            goTo("/cocinaHome");
+        } else {
+            console.log("Credenciales invalidas");
         }
+        
     }
     return (
         <form onSubmit={validateUser}>

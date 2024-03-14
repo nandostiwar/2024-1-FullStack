@@ -1,35 +1,43 @@
-body{
-    justify-content: center;
-    text-align: center;
-}
 
-.entry{
-    border-radius: 10px;
-    padding: 10px 20px 10px 35px;
-}
-
-form{
+form {
+    width: 600px; /* Ajusta el ancho del formulario */
     padding: 20px;
-    padding-top: 10%;
+    border-radius: 10px;
+    background-color: #fff; /* Agrega un color de fondo al formulario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega un efecto de sombra sutil */
 }
 
-#btnEnviar{
-    margin-top: 20px;
+.entry {
+    width: 100%;
+    margin-bottom: 10px; /* Agrega algo de espacio entre los campos de entrada */
+    padding: 10px;
+    border: 1px solid #ccc; /* Agrega un borde para una mejor visibilidad */
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto total del elemento */
+}
+
+#btnEnviar {
+    width: 100%;
     background-color: rgb(48, 27, 238);
-    padding: 5px;
-    padding-left: 35px;
-    padding-right: 35px;
-    border-radius: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
     color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Agrega un efecto de transición suave */
 }
 
-.txt{
+#btnEnviar:hover {
+    background-color: rgb(230, 29, 56); /* Oscurece el color del botón al pasar el cursor sobre él */
+}
+
+.txt {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#txtBienvenida{
+#txtBienvenida {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
-    color: white;
+    color: #333; /* Cambia el color para mejorar la legibilidad */
 }

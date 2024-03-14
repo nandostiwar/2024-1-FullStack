@@ -1,3 +1,8 @@
-body{
-  background-color: rgb(235, 114, 15);
-}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0a0a0a; /* Establece un color de fondo para una mejor legibilidad */
+  }
