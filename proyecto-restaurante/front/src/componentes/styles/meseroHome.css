@@ -34,6 +34,8 @@
     padding: 10px;
     margin-bottom: 10px;
     background-color: #f9f9f9;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 .pedidos-container h2 {
