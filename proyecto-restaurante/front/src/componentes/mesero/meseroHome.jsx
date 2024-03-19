@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/meseroHome.css';
+import '../styles/meseroHome.css';
 
 const MeseroHome = () => {
     const [mesa, setMesa] = useState('');

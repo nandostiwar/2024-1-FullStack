@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Form from './componentes/Form';
+import Form from './componentes/login/Form';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'; 
-import MeseroHome from './componentes/meseroHome';
+import MeseroHome from './componentes/mesero/meseroHome';
 
 
 function App() {
