@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #007bff;
+  background-color: #ffffff;
 }
 
 .App {
@@ -45,17 +45,21 @@ h2 {
   background-color: #f0f0f0;
 }
 
-button {
+.btn-login {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
-  color: #fff;
+  background: white;
+  color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: bolder;
+  border: 2px solid #007bff;
+  transition: background 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.btn-login:hover {
+  background: #007bff;
+  color: white;
 }

@@ -17,7 +17,7 @@ function Login(){
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    goTo("/adminHome")
+    goTo("/platos")
     // alert(`Username: ${username}\nPassword: ${password}`);
     // Aquí puedes enviar los datos a tu backend para autenticación
   };
@@ -49,7 +49,7 @@ function Login(){
               required
             />
           </div>
-          <button type="submit">Login</button>
+          <button className='btn-login' type="submit">Login</button>
         </form>
       </div>
     </div>
