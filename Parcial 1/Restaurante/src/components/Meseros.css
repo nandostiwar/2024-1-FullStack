@@ -1,0 +1,18 @@
+body{
+    background-color: rgba(230, 197, 31, 0.581);
+}
+
+.table-selector .table-button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .table-selector .table-button.selected {
+    background-color: #4CAF50; /* Cambia el color para la mesa seleccionada */
+    color: white;
+  }
+  

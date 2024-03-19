@@ -1,0 +1,29 @@
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-card {
+    border: 1px solid #272525;
+    background-color: burlywood;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-card h3,
+.menu-card p {
+    margin: 10px;
+}
+
+.price {
+    font-weight: bold;
+}

@@ -1,0 +1,309 @@
+{
+  "Comidas": [
+    {
+      "id": 1,
+      "name": "Hamburguesa Clásica",
+      "description": "Carne de res, queso, lechuga, tomate, cebolla, y salsa especial",
+      "price": "$10.99",
+      "imageUrl": "url-a-la-imagen-de-la-hamburguesa.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Margarita",
+      "description": "Masa tradicional, salsa de tomate, mozzarella fresca, y albahaca",
+      "price": "$12.50",
+      "imageUrl": "url-a-la-imagen-de-la-pizza-margarita.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Tacos al Pastor",
+      "description": "Carne adobada, piña, cebolla, cilantro, y salsa de chile",
+      "price": "$8.99",
+      "imageUrl": "url-a-la-imagen-de-los-tacos-al-pastor.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Sushi California Roll",
+      "description": "Cangrejo, aguacate, pepino, y semillas de sésamo",
+      "price": "$15.00",
+      "imageUrl": "url-a-la-imagen-del-sushi-california-roll.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Lasagna Bolognese",
+      "description": "Capas de pasta, salsa boloñesa, bechamel, y queso parmesano",
+      "price": "$13.75",
+      "imageUrl": "url-a-la-imagen-de-la-lasagna-bolognese.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Paella Valenciana",
+      "description": "Arroz, conejo, pollo, judías verdes, garrofó, y azafrán",
+      "price": "$20.00",
+      "imageUrl": "url-a-la-imagen-de-la-paella-valenciana.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Pad Thai",
+      "description": "Tallarines de arroz, camarones, tofu, brotes de soja, huevo, y cacahuetes",
+      "price": "$14.99",
+      "imageUrl": "url-a-la-imagen-del-pad-thai.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Ceviche Peruano",
+      "description": "Pescado fresco, limón, cebolla roja, cilantro, y ají",
+      "price": "$12.00",
+      "imageUrl": "url-a-la-imagen-del-ceviche-peruano.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Falafel con Hummus",
+      "description": "Bolitas de garbanzo, servidas con salsa tahini, hummus, y pan pita",
+      "price": "$9.50",
+      "imageUrl": "url-a-la-imagen-del-falafel-con-hummus.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Ramen Tradicional",
+      "description": "Caldo de carne, fideos, huevo cocido, nori, y cebolla verde",
+      "price": "$11.00",
+      "imageUrl": "url-a-la-imagen-del-ramen-tradicional.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Ensalada César",
+      "description": "Lechuga romana, crutones, parmesano, y aderezo César",
+      "price": "$7.99",
+      "imageUrl": "url-a-la-imagen-de-la-ensalada-cesar.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Pollo Tandoori",
+      "description": "Pollo marinado en especias y yogurt, cocido en horno tandoor",
+      "price": "$13.50",
+      "imageUrl": "url-a-la-imagen-del-pollo-tandoori.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Risotto de Setas",
+      "description": "Arroz arborio, setas variadas, caldo de verduras, parmesano, y un toque de vino blanco",
+      "price": "$14.25",
+      "imageUrl": "url-a-la-imagen-del-risotto-de-setas.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Bibimbap Coreano",
+      "description": "Arroz con carne, vegetales surtidos, huevo, y salsa gochujang",
+      "price": "$16.00",
+      "imageUrl": "url-a-la-imagen-del-bibimbap-coreano.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Quiche Lorraine",
+      "description": "Masa brisa, crema fresca, huevos, bacon, y queso",
+      "price": "$9.75",
+      "imageUrl": "url-a-la-imagen-de-la-quiche-lorraine.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Empanadas Argentinas",
+      "description": "Carne cortada a cuchillo, aceitunas, huevo, y especias en masa crujiente",
+      "price": "$8.50",
+      "imageUrl": "url-a-la-imagen-de-las-empanadas-argentinas.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Poke Bowl",
+      "description": "Base de arroz, pescado crudo, aguacate, mango, edamames, y salsa de soja",
+      "price": "$17.99",
+      "imageUrl": "url-a-la-imagen-del-poke-bowl.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Gazpacho Andaluz",
+      "description": "Sopa fría de tomate, pimiento, pepino, ajo, y vinagre",
+      "price": "$6.50",
+      "imageUrl": "url-a-la-imagen-del-gazpacho-andaluz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Curry Verde Tailandés",
+      "description": "Pollo o tofu con leche de coco, bambú, berenjenas, y pasta de curry verde",
+      "price": "$15.50",
+      "imageUrl": "url-a-la-imagen-del-curry-verde-tailandes.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Moussaka Griega",
+      "description": "Capas de berenjena, carne picada, salsa bechamel, y queso",
+      "price": "$14.00",
+      "imageUrl": "url-a-la-imagen-de-la-moussaka-griega.jpg"
+    }
+  ],
+  "Bebidas": [
+    {
+      "id": 1,
+      "name": "Limonada Natural",
+      "description": "Jugo de limón fresco, agua, y un toque de azúcar",
+      "price": "$3.50",
+      "imageUrl": "url-a-la-imagen-de-la-limonada-natural.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Té Verde Frío",
+      "description": "Té verde servido frío con hielo y rodajas de limón",
+      "price": "$4.00",
+      "imageUrl": "url-a-la-imagen-del-te-verde-frio.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Café Americano",
+      "description": "Café filtrado servido caliente",
+      "price": "$2.75",
+      "imageUrl": "url-a-la-imagen-del-cafe-americano.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Batido de Fresa",
+      "description": "Fresas frescas, helado de vainilla, y leche",
+      "price": "$5.50",
+      "imageUrl": "url-a-la-imagen-del-batido-de-fresa.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mojito",
+      "description": "Ron blanco, azúcar, lima, menta, y agua con gas",
+      "price": "$7.00",
+      "imageUrl": "url-a-la-imagen-del-mojito.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Cerveza Artesanal",
+      "description": "Cerveza rubia de fermentación alta con notas cítricas y amargas",
+      "price": "$6.00",
+      "imageUrl": "url-a-la-imagen-de-la-cerveza-artesanal.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Sangría Tradicional",
+      "description": "Vino tinto, brandy, frutas de temporada, y un toque de soda",
+      "price": "$8.00",
+      "imageUrl": "url-a-la-imagen-de-la-sangria-tradicional.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Agua de Horchata",
+      "description": "Agua fresca de arroz, canela, y vainilla, con leche y azúcar",
+      "price": "$4.25",
+      "imageUrl": "url-a-la-imagen-del-agua-de-horchata.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Smoothie de Mango y Maracuyá",
+      "description": "Mango, maracuyá, yogurt natural, y miel",
+      "price": "$5.75",
+      "imageUrl": "url-a-la-imagen-del-smoothie-de-mango-y-maracuya.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Espresso Doble",
+      "description": "Doble dosis de café espresso fuerte y aromático",
+      "price": "$3.00",
+      "imageUrl": "url-a-la-imagen-del-espresso-doble.jpg"
+    }
+  ],
+  
+  "Usuarios": [
+    {
+      "id": 1,
+      "Nombre": "Juan",
+      "Apellidos": "Pérez López",
+      "Rol": "Admin",
+      "Usuario": "juanperez",
+      "Password": "contraseñaSegura123"
+    },
+    {
+      "id": 2,
+      "Nombre": "María",
+      "Apellidos": "González Ramírez",
+      "Rol": "Mesero",
+      "Usuario": "mariagonzalez",
+      "Password": "miContraseña456"
+    },
+    {
+      "id": 3,
+      "Nombre": "Carlos",
+      "Apellidos": "Martínez Herrera",
+      "Rol": "Cosinero",
+      "Usuario": "carlosmartinez",
+      "Password": "otraContraseña789"
+    }
+  ],
+
+  "Pedidos": [
+    {
+      "idPedido": 1,
+      "idMesa": 5,
+      "items": [
+        {
+          "idItem": 5,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "precioUnitario": 10.00
+        },
+        {
+          "idItem": 1,
+          "tipo": "Bebida",
+          "cantidad": 1,
+          "precioUnitario": 5.00
+        }
+      ],
+      "fecha": "2024-03-18",
+      "estado": "En preparación",
+      "total": "$25.00"
+    },
+    {
+      "idPedido": 2,
+      "idMesa": 8,
+      "items": [
+        {
+          "idItem": 12,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "precioUnitario": 10.00
+        },
+        {
+          "idItem": 9,
+          "tipo": "Bebida",
+          "cantidad": 2,
+          "precioUnitario": 5.00
+        }
+      ],
+      "fecha": "2024-03-18",
+      "estado": "Entregado",
+      "total": "$20.00"
+    },
+    {
+      "idPedido": 3,
+      "idMesa": 3,
+      "items": [
+        {
+          "idItem": 20,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "precioUnitario": 10.00
+        },
+        {
+          "idItem": 7,
+          "tipo": "Bebida",
+          "cantidad": 1,
+          "precioUnitario": 5.00
+        }
+      ],
+      "fecha": "2024-03-17",
+      "estado": "Cancelado",
+      "total": "$15.00"
+    }
+  ]
+}
