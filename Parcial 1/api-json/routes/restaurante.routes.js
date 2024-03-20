@@ -14,14 +14,15 @@ router.put('/comidas/:id', comidaController.updateFood); // PUT o PATCH según t
 
 // Rutas para bebidas
 router.get('/bebidas', bebidaController.listDrinks);
-//router.post('/bebidas', bebidaController.createDrinks);
-//router.put('/bebidas/:id', bebidaController.updatedrinks); // PUT o PATCH según tu implementación
+router.post('/bebidas', bebidaController.createDrinks);
+router.put('/bebidas/:id', bebidaController.updatedrinks); // PUT o PATCH según tu implementación
 
 // Rutas para usuarios
+router.post('/Login', usuarioController.loginUser)
 router.get('/usuarios/:id', usuarioController.getUser);
-//router.post('/usuarios', usuarioController.createUser);
-//router.put('/usuarios/:id', usuarioController.updateUser); // PUT o PATCH según tu implementación
-//router.delete('/usuarios/:id', usuarioController.deleteUser);
+router.post('/usuarios', usuarioController.createUser);
+router.put('/usuarios/:id', usuarioController.updateUser); // PUT o PATCH según tu implementación
+router.delete('/usuarios/:id', usuarioController.deleteUser);
 
 // Rutas para pedidos
 router.get('/pedidos', pedidoController.listarPedidos);
