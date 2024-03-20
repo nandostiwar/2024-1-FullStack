@@ -1,0 +1,45 @@
+.user-module {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-module  h2 {
+  text-align: center;
+  color: #007bff;
+}
+
+.crearUsuario {
+  margin-bottom: 15px;
+}
+
+.crearUsuario label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.crearUsuario select,
+.crearUsuario input[type="text"],
+.crearUsuario input[type="password"] {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-crearUsuario {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-crearUsuario:hover {
+  background-color: #0056b3;
+}
