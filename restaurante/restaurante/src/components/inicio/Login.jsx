@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SweetAlerts } from "../../core/SweetAlertServices";
 import "./Login.css";
+import axios from "axios";
+import { useStore } from "../../core/store";
 
 function Login() {
   const goTo = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const [usuario, setUsuario] = useState("");
+  const { setDataUser} = useStore();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -15,11 +20,35 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    goTo("/platos");
-    // alert(`Username: ${username}\nPassword: ${password}`);
-    // Aquí puedes enviar los datos a tu backend para autenticación
+    const data = {
+      username,
+      password
+    }
+
+    axios.post('http://localhost:4000/restaurant/auth', data).then((response) =>{
+      console.log(response);
+      if (response.data.status === 200) {
+        setDataUser(response.data.payload);
+        console.log(response.data.payload);
+        localStorage.setItem('dataUser', response.data.payload);
+        switch (response.data.payload.rol) {
+          case 1:
+            goTo('/platos');
+            break;
+          case 2:
+            goTo('/mesero');
+            break;
+          case 3:
+            goTo('/cocina');
+            break;
+        }
+      } else {
+        SweetAlerts.errorAlert("Credenciales invalidas.");
+      }
+    })
+
   };
 
   return (
@@ -48,3 +77,4 @@ function Login() {
 }
 
 export default Login;
+    

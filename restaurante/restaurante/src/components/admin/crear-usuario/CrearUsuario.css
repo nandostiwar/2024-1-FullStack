@@ -1,9 +1,20 @@
+.contenedor-newUsers {
+  display: flex;flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  width: 70%;
+  position: relative;
+  top: 100px;
+}
+
 .user-module {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  
 }
 
 .user-module  h2 {
@@ -42,4 +53,29 @@
 
 .btn-crearUsuario:hover {
   background-color: #0056b3;
+}
+
+
+/* COM Tabla */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 5rem;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+}
+
+.user-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-row:hover {
+  background-color: #ddd;
 }

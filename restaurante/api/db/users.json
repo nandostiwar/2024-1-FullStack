@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "username": "mesero",
+      "password": "123",
+      "rol": 2
+    },
+    {
+      "username": "admin",
+      "password": "321",
+      "rol": 1
+    },
+    {
+      "username": "ssssss",
+      "password": "ssssss",
+      "rol": 2
+    },
+    {
+      "username": "aaaaaaa",
+      "password": "aaaaaaaaaa",
+      "rol": 2
+    }
+  ]
+}
