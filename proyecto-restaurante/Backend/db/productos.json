@@ -1,0 +1,6 @@
+{
+    "product": [
+      {"comida": "pizza", "precio": "20000" },
+      {"comida": "hamburguesa", "precio": "30000" }
+    ]
+  }
