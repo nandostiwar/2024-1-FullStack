@@ -24,7 +24,7 @@ function CrearUsuario() {
       }
     };
     getUsers();
-  }, [setobjUsers]);
+  }, []);
 
   // console.log(Object.keys(objUsers).length);
   const handleChange = (e) => {
@@ -42,7 +42,7 @@ function CrearUsuario() {
     console.log(crearNuevoUsuario.data);
     SweetAlerts.successAlert(crearNuevoUsuario.data.message);
     setUserData(initialVal);
-    setobjUsers(crearNuevoUsuario.data.payload.users);
+    setobjUsers([...crearNuevoUsuario.data.payload.users]);
   };
 
   console.log(objUsers);

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Admin.css";
 import Sidebar from "../../shared/sidebar/Sidebar";
+import axios from "axios";
+import { SweetAlerts } from "../../../core/SweetAlertServices";
 
 function Admin() {
   const [platos, setPlatos] = useState([]); // Estado para almacenar los platos de comida
@@ -9,8 +11,7 @@ function Admin() {
     plato_id: "",
     nombre: "",
     precio: "",
-    descripcion: "",
-    imagen: null,
+    descripcion: ""
   });
 
   const [editIndex, setEditIndex] = useState(null); // Estado para el índice del plato en edición
@@ -23,7 +24,7 @@ function Admin() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Datos del plato:", plato);
     if (editIndex !== null) {
@@ -32,7 +33,15 @@ function Admin() {
       setPlatos(updatedPlatos);
       setEditIndex(null);
     } else {
-      setPlatos([...platos, plato]);
+      for (let key in plato) {
+        if (plato[key] === null || plato[key].trim() === "") {
+            SweetAlerts.errorAlert("Verifica los datos del formulario.");
+        }
+      }
+      console.log((Object.keys(plato)).trim());
+      const crearPlato = await axios.post('http://localhost:4000/restaurant/newdish', plato);
+      console.log("crearPlato");
+      console.log(crearPlato);
     }
     setPlato({
       plato_id: "",
