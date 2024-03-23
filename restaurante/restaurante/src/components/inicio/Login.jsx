@@ -21,6 +21,8 @@ function Login() {
   };
 
   const handleSubmit = async (event) => {
+    goTo('/platos');
+
     event.preventDefault();
     const data = {
       username,

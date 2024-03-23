@@ -13,8 +13,6 @@ const newDish = async (req, res) => {
             console.log(dishesJson);
         }
 
-
-
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
