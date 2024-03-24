@@ -5,7 +5,7 @@ router
     .post('/consultarUsuario', restauranteControladores.consultarUsuario)
     .get('/productosOb', restauranteControladores.obtenerProductos)
     .post('/productosAg', restauranteControladores.agregarProducto)
-    // .put('/productos/:id', restauranteControladores.actualizarProducto);
-    // .delete('/productos/:id', restauranteControladores.eliminarProducto);
+    .post('/productosEdit', restauranteControladores.actualizarProducto)
+    .delete('/productosEli/:id', restauranteControladores.eliminarProducto)
 
 module.exports = router;
