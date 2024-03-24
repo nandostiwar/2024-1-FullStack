@@ -1,8 +1,27 @@
 {
-  "users": [
-    {"username": "juan", "password": "123", "role": "mesero" },
-    {"username": "jhonier", "password": "123", "role": "mesero" },
-    {"username": "jhon", "password": "123", "role": "admin" },
-    {"username": "sebas", "password": "123", "role": "cocina" }
+  "users": [{
+      "id": "1",
+      "username": "juan",
+      "password": "123",
+      "role": "mesero"
+    },
+    {
+      "id": "2",
+      "username": "jhonier",
+      "password": "123",
+      "role": "mesero"
+    },
+    {
+      "id": "3",
+      "username": "jhon",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "4",
+      "username": "sebas",
+      "password": "123",
+      "role": "cocina"
+    }
   ]
 }

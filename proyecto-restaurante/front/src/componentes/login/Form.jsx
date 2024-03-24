@@ -34,7 +34,7 @@ function Form({ callback }) {
         goTo("/meseroHome");
         break;
       case "admin":
-        goTo("/adminHome");
+        goTo("/Menu");
         break;
       case "cocina":
         goTo("/cocinaHome");

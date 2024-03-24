@@ -34,8 +34,43 @@ const consultarUsuario = async (req, res) => {
     }
 };
 
+const obtenerProductos = async (req, res) => {
+    try {
+        const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'));
+        const productosJson = JSON.parse(productos);
+        res.json(productosJson);
+    } catch (error) {
+        console.error('Error al obtener los productos:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+const agregarProducto = async (req, res) => {
+    try {
+        const { name, price } = req.body;
+        const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'));
+        const productosJson = JSON.parse(productos);
+        const id = productosJson.productos.length+1;
+        const nuevoProducto = { name, price, id };
+        
+
+        productosJson.productos.push(nuevoProducto);
+        await fs.writeFile(path.join(__dirname, '../../db/productos.json'), JSON.stringify(productosJson, null, 2));
+        res.status(201).send(productosJson);
+        
+    } catch (error) {
+        console.error('Error al agregar el producto:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+// Agregar funciones para actualizar y eliminar productos según sea necesario
+
 module.exports = {
-    consultarUsuario
+    consultarUsuario,
+    obtenerProductos,
+    agregarProducto
+    // Agregar funciones para actualizar y eliminar productos según sea necesario
 };
 
 
