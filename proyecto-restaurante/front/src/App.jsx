@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import MeseroHome from './componentes/mesero/meseroHome';
 import AdminHome from './componentes/admin/adminHome';
 import Menu from './componentes/admin/menu';
+import UsuariosHome from './componentes/admin/usuariosHome';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Menu' element={<Menu/>}></Route>
         <Route path='/meseroHome' element={<MeseroHome user={user}/>}></Route>
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
+        <Route path='/usuariosHome' element={<UsuariosHome user={user}/>}></Route>
       </Routes>
     </BrowserRouter>
   )

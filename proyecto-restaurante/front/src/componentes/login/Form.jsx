@@ -45,26 +45,28 @@ function Form({ callback }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1 id="txtBienvenida">Bienvenido a nuestro restaurante</h1>
-      <h4 className="txt">Nombre de Usuario</h4>
-      <input
-        type="text"
-        className="entry"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br />
-      <h4 className="txt">Contraseña</h4>
-      <input
-        type="password"
-        className="entry"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <input type="submit" value="Ingresar" id="btnEnviar" />
-    </form>
+    <div className="fondo-login">
+      <form onSubmit={handleSubmit}>
+        <h1 id="txtBienvenida">Bienvenido a nuestro restaurante</h1>
+        <h4 className="txt">Nombre de Usuario</h4>
+        <input
+          type="text"
+          className="entry"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <br />
+        <h4 className="txt">Contraseña</h4>
+        <input
+          type="password"
+          className="entry"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <input type="submit" value="Ingresar" id="btnEnviar" />
+      </form>
+    </div>
   );
 }
 

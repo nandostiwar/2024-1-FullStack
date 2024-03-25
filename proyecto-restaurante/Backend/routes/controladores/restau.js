@@ -12,7 +12,7 @@ const consultarUsuario = async (req, res) => {
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
         const usuariosJson = JSON.parse(usuarios)
         const { username, password } = req.body;
-        const user = usuariosJson.users.find((usuario) => {return (usuario.username == username && usuario.password == password)});
+        const user = usuariosJson.usuarios.find((usuario) => {return (usuario.username == username && usuario.password == password)});
         
         
 
@@ -33,7 +33,97 @@ const consultarUsuario = async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
+// ---------------------------------------------------------------------------------------------------------------------------------------
+const obtenerUsuarios = async (req, res) => {
+    try {
+        const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
+        const usuariosJson = JSON.parse(usuarios);
+        res.json(usuariosJson);
+    } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
 
+const agregarUsuario = async (req, res) => {
+    try {
+        const { username, password, role } = req.body;
+        const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
+        const usuariosJson = JSON.parse(usuarios);
+        const id = usuariosJson.usuarios.length + 1;
+        const nuevoUsuario = { username, password, role, id };
+
+        usuariosJson.usuarios.push(nuevoUsuario);
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
+        res.status(201).send(usuariosJson);
+    } catch (error) {
+        console.error('Error al agregar el usuario:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+const actualizarUsuario = async (req, res) => {
+    try {
+        const { username, password, role, id } = req.body; // Obtener los nuevos datos del usuario del cuerpo de la solicitud
+
+        // Leer el archivo JSON que contiene los usuarios
+        const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
+        const usuariosJson = JSON.parse(usuarios);
+
+        // Buscar el índice del usuario que se va a actualizar
+        const index = usuariosJson.usuarios.findIndex(usuario => usuario.id == id);
+
+        // Si el usuario no se encuentra, devolver un error 404
+        if (index === -1) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        // Actualizar los datos del usuario en el array
+        usuariosJson.usuarios[index].username = username;
+        usuariosJson.usuarios[index].password = password;
+        usuariosJson.usuarios[index].role = role;
+
+        // Escribir los datos actualizados en el archivo JSON
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
+
+        // Devolver una respuesta exitosa con los datos actualizados del usuario
+        res.status(200).json({ message: 'Usuario actualizado correctamente', usuario: usuariosJson.usuarios[index] });
+    } catch (error) {
+        console.error('Error al actualizar el usuario:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+const eliminarUsuario = async (req, res) => {
+    const { id } = req.params;
+    try {
+        // Leer el contenido del archivo usuarios.json
+        const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'), 'utf-8');
+        const usuariosJson = JSON.parse(usuarios);
+
+        // Obtener la lista de usuarios
+        const listaUsuarios = usuariosJson.usuarios;
+
+        // Encontrar el índice del usuario a eliminar
+        const index = listaUsuarios.findIndex(usuario => usuario.id === parseInt(id));
+        if (index === -1) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        // Eliminar el usuario del array
+        listaUsuarios.splice(index, 1);
+
+        // Escribir los cambios de vuelta al archivo
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
+
+        res.json({ message: 'Usuario eliminado correctamente' });
+    } catch (error) {
+        console.error('Error al eliminar el usuario:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+// ---------------------------------------------------------------------------------------------------------------------------------------
 const obtenerProductos = async (req, res) => {
     try {
         const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'));
@@ -124,16 +214,25 @@ const eliminarProducto = async (req, res) => {
       res.status(500).json({ error: 'Error interno del servidor' });
     }
   };
-  
+// --------------------------------------------------------------------------------------------------------------------------------------- 
 
 
 module.exports = {
+
+    // consultarUsuario,
+    obtenerUsuarios,
+    agregarUsuario,
+    actualizarUsuario,
+    eliminarUsuario,
+
+    // ---------------------------------------------------------------------------------------------------------------------------------------
     consultarUsuario,
     obtenerProductos,
     agregarProducto,
     actualizarProducto,
     eliminarProducto
-    // Agregar funciones para actualizar y eliminar productos según sea necesario
+
+    // ---------------------------------------------------------------------------------------------------------------------------------------
 };
 
 

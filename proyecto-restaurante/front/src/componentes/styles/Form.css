@@ -1,18 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Old+South+Arabian&family=Workbench&display=swap');
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #131111; /* Establece un color de fondo para una mejor legibilidad */
   }
+
+.fondo-login {
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/620/658/desktop-wallpaper-mia-khalifa-backgrounds-mia-khalifa.jpg');
+    background-size: cover;
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 form {
     width: 600px; /* Ajusta el ancho del formulario */
     padding: 20px;
     border-radius: 10px;
-    background-color: #fff; /* Agrega un color de fondo al formulario */
+    /* background-color: #fff; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega un efecto de sombra sutil */
+    backdrop-filter: blur(50px);
 }
 
 .entry {
@@ -31,7 +44,7 @@ form {
     border-radius: 5px;
     padding: 10px;
     color: white;
-    font-size: 16px;
+
     cursor: pointer;
     transition: background-color 0.3s ease; /* Agrega un efecto de transición suave */
 }
@@ -40,12 +53,17 @@ form {
     background-color: rgb(230, 29, 56); /* Oscurece el color del botón al pasar el cursor sobre él */
 }
 
-.txt {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+#txtBienvenida {
+    color: #333; /* Cambia el color para mejorar la legibilidad */
 }
 
-#txtBienvenida {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: oblique;
-    color: #333; /* Cambia el color para mejorar la legibilidad */
+.txt {
+    /* font-family: "Workbench", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 0; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
