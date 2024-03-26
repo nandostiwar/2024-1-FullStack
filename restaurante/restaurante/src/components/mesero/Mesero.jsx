@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Mesero.css";
 import Sidebar from "../shared/sidebar/Sidebar";
+import axios from "axios";
 
 function MeseroModule() {
   const [platos] = useState([
