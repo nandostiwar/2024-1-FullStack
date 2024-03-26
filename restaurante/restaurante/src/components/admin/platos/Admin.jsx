@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Admin.css";
 import Sidebar from "../../shared/sidebar/Sidebar";
 import axios from "axios";
 import { SweetAlerts } from "../../../core/SweetAlertServices";
 
 function Admin() {
-  const [platos, setPlatos] = useState([]); // Estado para almacenar los platos de comida
-
+  const [platos, setPlatos] = useState([]);
   const [plato, setPlato] = useState({
-    plato_id: "",
-    nombre: "",
-    precio: "",
-    descripcion: ""
+    id: "",
+    name: "",
+    price: "",
+    description: ""
   });
 
-  const [editIndex, setEditIndex] = useState(null); // Estado para el índice del plato en edición
+  const [editIndex, setEditIndex] = useState(null);
+
+  useEffect(() => {
+    getDishes()
+  }, [])
+
+  const getDishes = async () => {
+    const dbDisehs = await axios.get("http://localhost:4000/restaurant/getDishes");
+    console.log(dbDisehs);
+    setPlatos(dbDisehs.data.payload.dishes)
+
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,28 +37,38 @@ function Admin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Datos del plato:", plato);
+    console.log(editIndex);
+
     if (editIndex !== null) {
-      const updatedPlatos = [...platos];
-      updatedPlatos[editIndex] = plato;
-      setPlatos(updatedPlatos);
-      setEditIndex(null);
-    } else {
+      const actualizarPlato = await axios.post('http://localhost:4000/restaurant/updateDish', plato);
+      console.log(actualizarPlato);
+      if (actualizarPlato.data.status === 200) {
+        SweetAlerts.successAlert(actualizarPlato.data.message)
+        setPlatos(actualizarPlato.data.payload.dishes);
+        setEditIndex(null);
+      }
+    } 
+    else {
+      console.log('else');
       for (let key in plato) {
+        if(key == 'id') continue;
         if (plato[key] === null || plato[key].trim() === "") {
             SweetAlerts.errorAlert("Verifica los datos del formulario.");
+            return;
         }
       }
-      console.log((Object.keys(plato)).trim());
       const crearPlato = await axios.post('http://localhost:4000/restaurant/newdish', plato);
-      console.log("crearPlato");
-      console.log(crearPlato);
+      console.log(crearPlato.data);
+      if (crearPlato.data.status === 200) {
+        SweetAlerts.successAlert(crearPlato.data.message)
+        setPlatos(crearPlato.data.payload.dishes)
+      }
     }
     setPlato({
-      plato_id: "",
-      nombre: "",
-      precio: "",
-      descripcion: "",
-      imagen: null,
+      id: "",
+      name: "",
+      price: "",
+      description: ""
     });
   };
 
@@ -57,9 +77,14 @@ function Admin() {
     setEditIndex(index);
   };
 
-  const handleDelete = (id) => {
-    console.log(id);
-    setPlatos(platos.filter((plato) => plato.id !== id));
+  const handleDelete = async (id) => {
+
+    const eliminarPlato = await axios.get(`http://localhost:4000/restaurant/deleteDish/${id}`);
+    console.log(eliminarPlato.data.payload);
+    if (eliminarPlato.data.message === 200) {
+      SweetAlerts.successAlert(eliminarPlato.data.status);
+      setPlatos(eliminarPlato.data.payload.disehs);
+    }
   };
 
   return (
@@ -70,20 +95,16 @@ function Admin() {
           <h2>Crear Nuevo Plato de Comida</h2>
           <form onSubmit={handleSubmit} className="form-platos">
             <div className="platos-group">
-              <label htmlFor="plato_id">ID del Plato:</label>
-              <input type="text" id="plato_id" name="plato_id" value={plato.plato_id} onChange={handleChange} required />
-            </div>
-            <div className="platos-group">
               <label htmlFor="nombre">Nombre del Plato:</label>
-              <input type="text" id="nombre" name="nombre" value={plato.nombre} onChange={handleChange} required />
+              <input type="text" id="name" name="name" value={plato.name} onChange={handleChange} required />
             </div>
             <div className="platos-group">
               <label htmlFor="precio">Precio:</label>
-              <input type="number" id="precio" name="precio" value={plato.precio} onChange={handleChange} min="0" step="0.01" required />
+              <input type="number" id="price" name="price" value={plato.price} onChange={handleChange} min="0" step="0.01" required />
             </div>
             <div className="platos-group">
               <label htmlFor="descripcion">Descripción:</label>
-              <textarea id="descripcion" name="descripcion" value={plato.descripcion} onChange={handleChange} rows="4" required />
+              <textarea id="descripcion" name="description" value={plato.description} onChange={handleChange} rows="4" required />
             </div>
             <button type="submit" className="btn-crear-plato">
               Guardar
@@ -105,15 +126,14 @@ function Admin() {
                 <tbody>
                   {platos.map((plato, index) => (
                     <tr key={index}>
-                      <td>{plato.plato_id}</td>
-                      <td>{plato.nombre}</td>
-                      <td>{plato.precio}</td>
-                      <td>{plato.descripcion}</td>
+                      <td>{plato.id}</td>
+                      <td>{plato.name}</td>
+                      <td>{plato.price}</td>
+                      <td>{plato.description}</td>
                       <td>
-                        <a className="btn-editar">
-                          <i onClick={() => handleEdit(index)} className="editar fas fa-edit fa-lg">
-                            <i onClick={() => handleDelete(plato.plato_id)} className="eliminar fas fa-trash-alt fa-sm"></i>
-                          </i>
+                        <a className="btn-opciones">
+                          <i onClick={() => handleEdit(index)} className="editar fas fa-edit fa-lg"></i>
+                          <i onClick={() => handleDelete(plato.id)} className="eliminar fas fa-trash-alt fa-sm"></i>
                         </a>
                       </td>
                     </tr>

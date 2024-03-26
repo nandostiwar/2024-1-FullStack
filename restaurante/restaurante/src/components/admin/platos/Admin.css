@@ -33,7 +33,7 @@
 
 .form-platos {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 4rem;
   text-align: start;
 }
@@ -102,21 +102,21 @@ button {
   font-weight: bold;
 }
 
-.btn-editar {
-    width: 100px;
-    cursor: pointer;
+.btn-opciones {
     text-align: center;
+    display: flex;
 }
 
-.btn-editar i {
-  display: flex;
-  justify-content: space-around;
+.btn-opciones i {
+  width: 100%;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
-.btn-editar .editar {
+.btn-opciones .editar {
   color: #007bff;
 }
 
-.btn-editar .eliminar {
+.btn-opciones .eliminar {
   color: rgb(223, 0, 0);
 }

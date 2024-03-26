@@ -1,16 +1,28 @@
 {
-    "dishes": [
-        {
-            "id": 1,
-            "name": "Beff",
-            "price": "1200",
-            "description": "carne"
-        },
-        {
-            "id": 2,
-            "name": "chiken",
-            "price": "1200",
-            "description": "carne"
-        }
-    ]
+  "dishes": [
+    {
+      "id": 4,
+      "name": "Beff",
+      "price": "1200",
+      "description": "carne"
+    },
+    {
+      "id": 2,
+      "name": "chiken",
+      "price": "1200",
+      "description": "carne"
+    },
+    {
+      "id": 5,
+      "name": "pan italiano",
+      "price": "2000",
+      "description": "Pan traido de italia"
+    },
+    {
+      "id": 6,
+      "name": "quijano especial del dia",
+      "price": "100",
+      "description": "Carne fresca del mercado"
+    }
+  ]
 }

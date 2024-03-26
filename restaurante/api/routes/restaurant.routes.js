@@ -10,5 +10,8 @@ router
     .get('/getUsers', userController.getUsers)
     .post('/crateUser', userController.createUser)
     .post('/newDish', dishesController.newDish)
+    .get('/getDishes', dishesController.getDishes)
+    .post('/updateDish', dishesController.updateDish)
+    .get('/deleteDish/:id', dishesController.deleteDish)
 
 module.exports = router;
