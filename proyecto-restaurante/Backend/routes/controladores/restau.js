@@ -349,6 +349,38 @@ const obtenerPedidos = async (req, res) => {
         });
     }
 };
+const marcarPedidoListo = async (req, res) => {
+    try {
+        const pedidoId = parseInt(req.params.id);
+        // Leer el archivo JSON que contiene los pedidos
+        const pedidos = await fs.readFile(path.join(__dirname, '../../db/pedidos.json'));
+        const pedidosJson = JSON.parse(pedidos);
+
+        // Encuentra el pedido en el array de pedidos
+        const pedido = pedidosJson.pedidos.find(pedido => pedido.id === pedidoId);
+        if (!pedido) {
+            return res.status(404).json({ error: 'Pedido no encontrado' });
+        }
+
+        // Marcar el pedido como listo
+        pedido.estado = 'listo';
+
+        // Escribir los datos actualizados en el archivo JSON
+        await fs.writeFile(path.join(__dirname, '../../db/pedidos.json'), JSON.stringify(pedidosJson, null, 2));
+
+        // Devolver una respuesta exitosa
+        res.status(200).json({
+            message: 'Pedido marcado como listo',
+            pedido: pedido
+        });
+    } catch (error) {
+        console.error('Error al marcar el pedido como listo:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
+    }
+};
+
 // --------------------------------------------------------------------------------------------------------------------------------------- 
 
 
@@ -360,6 +392,7 @@ module.exports = {
     eliminarUsuario,
     guardarPedido,
     obtenerPedidos,
+    marcarPedidoListo,
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
     consultarUsuario,

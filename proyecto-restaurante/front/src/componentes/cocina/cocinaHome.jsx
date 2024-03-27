@@ -21,13 +21,16 @@ const Cocina = () => {
     const marcarPedidoListo = async (id) => {
         try {
             // Envía una solicitud al backend para marcar el pedido como listo
-            await axios.put(`http://localhost:3000/restaurante/pedidos/${id}`, { estado: 'listo' });
-            // Actualiza la lista de pedidos para reflejar el cambio
-            setPedidos(pedidos.filter(pedido => pedido.id !== id));
+            await axios.post(`http://localhost:3000/restaurante/pedidosAc/${id}`, { estado: 'listo' });
+            
+            // Después de que la solicitud se complete con éxito, actualiza la lista de pedidos
+            const updatedPedidos = pedidos.filter(pedido => pedido.id !== id);
+            setPedidos(updatedPedidos);
         } catch (error) {
             console.error("Error marking pedido as listo:", error);
         }
     };
+    
 
     return (
         <div>

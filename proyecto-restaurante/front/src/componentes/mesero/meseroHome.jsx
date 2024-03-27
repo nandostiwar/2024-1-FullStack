@@ -42,7 +42,7 @@ const MeseroHome = () => {
         
         try {
           // Enviar el pedido al servidor backend
-          const response = await axios.post("http://localhost:3000/restaurante/pedidos", nuevoPedido);
+          const response = await axios.post("http://localhost:3000/restaurante/pedidosGu", nuevoPedido);
           console.log("Pedido guardado:", response.data);
           // Agregar el nuevo pedido a la lista de pedidos en el estado local
           setPedidos([...pedidos, nuevoPedido]);

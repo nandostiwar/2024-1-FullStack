@@ -2,11 +2,11 @@
   "pedidos": [
     {
       "id": 1,
-      "mesa": "3",
+      "mesa": "2",
       "producto": "peperoni",
-      "cantidad": "2",
-      "precioTotal": 20000,
-      "estado": "pendiente",
+      "cantidad": "3",
+      "precioTotal": 30000,
+      "estado": "listo",
       "mesero": "juan"
     }
   ]
