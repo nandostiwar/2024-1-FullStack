@@ -8,14 +8,18 @@ const Menu = () => {
         <div className="hoola">
           <div>
             <NavLink to="/adminHome" activeClassName="active">
-              Admin
+              Productos
             </NavLink>
           </div>
           <div>
-            <h1>hola</h1>
+          <NavLink to="/usuariosHome" activeClassName="active">
+              usuarios
+            </NavLink>
           </div>
           <div>
-            <h1>hola</h1>
+          <NavLink to="/ventasHome" activeClassName="active">
+              ventas
+            </NavLink>
           </div>
         </div>
       </div>
