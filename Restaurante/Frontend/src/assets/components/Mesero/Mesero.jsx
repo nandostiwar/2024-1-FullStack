@@ -102,8 +102,9 @@ const PerfilMesero = ({}) => {
   
       // Construir el objeto de pedido con la lista de productos
       const pedidoData = {
+        id:null,
         mesa: mesa,
-        mesero: nombreMesero, // Aquí debes incluir el nombre del mesero, si es fijo o proviene de algún otro lugar
+        mesero: localStorage.getItem('nameUser'), // Aquí debes incluir el nombre del mesero, si es fijo o proviene de algún otro lugar
         productos: productosPedido,
         total: totalVenta,
         estado: estadoPedido

@@ -10,7 +10,8 @@ const login = async (req, res) => {
 
         // Buscar el usuario en la lista de usuarios
         const usuario = usuariosData.usuarios.find(user => user.username === username);
-                
+        console.log('usuario');
+        console.log(usuario);
 
 
         if (!usuario) {
@@ -24,7 +25,6 @@ const login = async (req, res) => {
 
         // Autenticación exitosa
         res.status(200).json({ mensaje: "Autenticación exitosa", usuario, rol: usuario.rol });
-        console.log()
 
     } catch (error) {
         console.error("Error al procesar la solicitud:", error);
@@ -245,9 +245,9 @@ const eliminarProducto = async (req, res) => {
         const nuevoPedido = req.body; // El cuerpo de la solicitud debe contener la información del pedido
         const pedidosFile = await fs.readFile(path.join(__dirname, '../db/pedidos.json'));
         const pedidosData = JSON.parse(pedidosFile);
-        const nuevoId = pedidosData.pedidos.length + 1;
+        const nuevoId = pedidosData.length + 1;
         nuevoPedido.id = nuevoId;
-        pedidosData.pedidos.push(nuevoPedido);
+        pedidosData.push(nuevoPedido);
         await fs.writeFile(path.join(__dirname, '../db/pedidos.json'), JSON.stringify(pedidosData, null, 2));
         res.status(201).json({ mensaje: "Pedido creado exitosamente", pedido: nuevoPedido });
     } catch (error) {

@@ -20,8 +20,11 @@ const Logueo = () => {
       body: JSON.stringify({ username, password })
     });
 
+    
     try {
       const data = await response.json();
+      localStorage.setItem('nameUser', data.usuario.username)
+      console.log(data.usuario.username)
     
       if (response.ok) {
         setSuccessMessage('Iniciando sesión...');
