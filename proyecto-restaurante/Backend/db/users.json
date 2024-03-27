@@ -1,16 +1,16 @@
 {
   "usuarios": [
     {
-      "username": "juan",
-      "password": "123",
-      "role": "mesero",
-      "id": 3
-    },
-    {
       "username": "admin",
       "password": "123",
       "role": "admin",
       "id": 3
+    },
+    {
+      "username": "sebas",
+      "password": "123",
+      "role": "mesero",
+      "id": 2
     }
   ]
 }
