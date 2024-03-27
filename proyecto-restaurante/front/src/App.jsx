@@ -6,6 +6,7 @@ import MeseroHome from './componentes/mesero/meseroHome';
 import AdminHome from './componentes/admin/adminHome';
 import Menu from './componentes/admin/menu';
 import UsuariosHome from './componentes/admin/usuariosHome';
+import CocinaHome from './componentes/cocina/cocinaHome';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/meseroHome' element={<MeseroHome user={user}/>}></Route>
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
         <Route path='/usuariosHome' element={<UsuariosHome user={user}/>}></Route>
+        <Route path='/cocinaHome' element={<CocinaHome user={user}/>}></Route>
       </Routes>
     </BrowserRouter>
   )

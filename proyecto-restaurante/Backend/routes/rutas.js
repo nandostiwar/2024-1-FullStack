@@ -15,6 +15,7 @@ router
     .post('/productosAg', restauranteControladores.agregarProducto)
     .post('/productosEdit', restauranteControladores.actualizarProducto)
     .delete('/productosEli/:id', restauranteControladores.eliminarProducto)
+    .get('/pedidos', restauranteControladores.obtenerPedidos)
     .post('/pedidos', restauranteControladores.guardarPedido);
 // ---------------------------------------------------------------------------------------------------------------------------------------
 module.exports = router;

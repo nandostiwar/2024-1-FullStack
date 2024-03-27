@@ -2,7 +2,7 @@
   "pedidos": [
     {
       "id": 1,
-      "mesa": "2",
+      "mesa": "3",
       "producto": "peperoni",
       "cantidad": "2",
       "precioTotal": 20000,

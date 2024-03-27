@@ -332,6 +332,23 @@ const guardarPedido = async (req, res) => {
         });
     }
 };
+const obtenerPedidos = async (req, res) => {
+    try {
+        // Leer el archivo JSON que contiene los pedidos
+        const pedidos = await fs.readFile(path.join(__dirname, '../../db/pedidos.json'));
+        const pedidosJson = JSON.parse(pedidos);
+
+        // Devolver los pedidos como respuesta
+        res.status(200).json({
+            pedidos: pedidosJson.pedidos
+        });
+    } catch (error) {
+        console.error('Error al obtener los pedidos:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
+    }
+};
 // --------------------------------------------------------------------------------------------------------------------------------------- 
 
 
@@ -342,6 +359,7 @@ module.exports = {
     actualizarUsuario,
     eliminarUsuario,
     guardarPedido,
+    obtenerPedidos,
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
     consultarUsuario,
