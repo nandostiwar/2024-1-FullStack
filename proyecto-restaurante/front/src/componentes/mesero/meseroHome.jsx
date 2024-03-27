@@ -11,6 +11,18 @@ const MeseroHome = () => {
 
     useEffect(() => {
         fetchProducts();
+        fetchPedidos()
+
+        const intervalId = setInterval(() => {
+            fetchProducts();
+            fetchPedidos(); // Actualiza también la lista de pedidos cada vez que se actualizan los productos
+        }, 1000);
+
+        // Limpia el intervalo al desmontar el componente para evitar fugas de memoria
+        return () => clearInterval(intervalId);
+
+
+
       }, []);
     
       const fetchProducts = async () => {
@@ -21,6 +33,15 @@ const MeseroHome = () => {
           console.error("Error fetching products:", error);
         }
       };
+
+      const fetchPedidos = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/restaurante/pedidos");
+            setPedidos(response.data.pedidos);
+        } catch (error) {
+            console.error("Error fetching pedidos:", error);
+        }
+    };
 
       const handleSubmit = async (event) => {
         event.preventDefault();
@@ -59,6 +80,8 @@ const MeseroHome = () => {
     const handleChange = (event, setter) => {
         setter(event.target.value);
     };
+    
+
 
     return (
         <div> 
@@ -87,6 +110,7 @@ const MeseroHome = () => {
                 <h2>Pedidos:</h2>
                 <ul>
                     {pedidos.map((pedido, index) => (
+                        pedido.estado === 'pendiente' && (
                         <li key={index} className="pedido-item">
                             <div>Mesero: {pedido.mesero}</div>
                             <div>Mesa: {pedido.mesa}</div>
@@ -94,7 +118,10 @@ const MeseroHome = () => {
                             <div>Cantidad: {pedido.cantidad}</div>
                             <div>Precio Total: {pedido.precioTotal}</div>
                             <div className="estado-pendiente">Estado: {pedido.estado}</div>
+                            
                         </li>
+
+                        )
                     ))}
                 </ul>
             </div>

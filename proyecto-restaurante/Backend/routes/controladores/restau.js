@@ -380,6 +380,24 @@ const marcarPedidoListo = async (req, res) => {
         });
     }
 };
+const obtenerPedidosPorMesero = async (req, res) => {
+    try {
+        const mesero = req.params.mesero;
+        const pedidos = await fs.readFile(path.join(__dirname, '../../db/pedidos.json'));
+        const pedidosJson = JSON.parse(pedidos);
+
+        // Filtrar los pedidos por el nombre del mesero
+        const pedidosPorMesero = pedidosJson.pedidos.filter(pedido => pedido.mesero === mesero);
+
+        // Devolver los pedidos encontrados
+        res.status(200).json({ pedidos: pedidosPorMesero });
+    } catch (error) {
+        console.error('Error al obtener pedidos por mesero:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
+    }
+};
 
 // --------------------------------------------------------------------------------------------------------------------------------------- 
 
@@ -393,6 +411,7 @@ module.exports = {
     guardarPedido,
     obtenerPedidos,
     marcarPedidoListo,
+    obtenerPedidosPorMesero,
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
     consultarUsuario,

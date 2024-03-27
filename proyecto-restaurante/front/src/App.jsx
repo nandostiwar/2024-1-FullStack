@@ -7,6 +7,7 @@ import AdminHome from './componentes/admin/adminHome';
 import Menu from './componentes/admin/menu';
 import UsuariosHome from './componentes/admin/usuariosHome';
 import CocinaHome from './componentes/cocina/cocinaHome';
+import VentasHome from './componentes/admin/ventasHome';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
         <Route path='/usuariosHome' element={<UsuariosHome user={user}/>}></Route>
         <Route path='/cocinaHome' element={<CocinaHome user={user}/>}></Route>
+        <Route path='/ventasHome' element={<VentasHome user={user}/>}></Route>
       </Routes>
     </BrowserRouter>
   )

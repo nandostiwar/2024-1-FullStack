@@ -18,5 +18,7 @@ router
     .get('/pedidos', restauranteControladores.obtenerPedidos)
     .post('/pedidosGu', restauranteControladores.guardarPedido)
     .post('/pedidosAc/:id', restauranteControladores.marcarPedidoListo)
+    .get('/pedidos/:mesero', restauranteControladores.obtenerPedidosPorMesero)
+    
 // ---------------------------------------------------------------------------------------------------------------------------------------
 module.exports = router;
