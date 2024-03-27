@@ -6,7 +6,7 @@ const path = require('path');
 
 
 const consultarUsuario = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
@@ -27,7 +27,7 @@ const consultarUsuario = async (req, res) => {
                 error: 'Credenciales inválidas'
             });
         }
-        console.log(user);
+        // console.log(user);
 
         // Aquí puedes realizar acciones adicionales si las credenciales son válidas,
         // como generar un token de sesión, guardar información en una cookie, etc.
@@ -68,12 +68,23 @@ const agregarUsuario = async (req, res) => {
         } = req.body;
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
         const usuariosJson = JSON.parse(usuarios);
-        const id = usuariosJson.usuarios.length + 1;
+        // const id = usuariosJson.usuarios.length + 1;
+        let maxId = 0;
+
+        // Itera sobre cada producto y actualiza el ID máximo si encuentras uno mayor
+        usuariosJson.usuarios.forEach(usuario => {
+            if (usuario.id > maxId) {
+                maxId = usuario.id;
+
+            }
+        });
+        maxId+= 1;
+        
         const nuevoUsuario = {
             username,
             password,
             role,
-            id
+            id:maxId
         };
 
         usuariosJson.usuarios.push(nuevoUsuario);
@@ -265,7 +276,7 @@ const eliminarProducto = async (req, res) => {
     const {
         id
     } = req.params;
-    console.log(id);
+    // console.log(id);
 
     try {
         // Leer el contenido del archivo productos.json

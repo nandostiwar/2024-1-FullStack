@@ -22,14 +22,14 @@ function Form({ callback }) {
     );
     const responseData = await response.json();
     localStorage.setItem('usuario', responseData.payload.username)
-    console.log("response");
-    console.log(responseData);
+    // console.log("response");
+    // console.log(responseData);
     callback(responseData.payload.role); // Llamar al callback con el rol del usuario
     redirectToHomePage(responseData.payload.role); // Redireccionar al usuario según su rol
   };
 
   const redirectToHomePage = (role) => {
-    console.log(role);
+    // console.log(role);
     switch (role) {
       case "mesero":
         goTo("/meseroHome");

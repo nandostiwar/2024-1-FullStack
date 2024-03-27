@@ -33,7 +33,7 @@ const UsuariosHome = () => {
         "http://localhost:3000/restaurante/usuariosAg",
         newUser
       );
-      console.log(user);
+      // console.log(user);
       setUsers([user.data.usuarios]);
       setNewUser({ username: "", password: "", role: "" });
     } catch (error) {
@@ -42,7 +42,7 @@ const UsuariosHome = () => {
   };
 
   const updateUser = async (user) => {
-    console.log(user);
+    // console.log(user);
     setNewUser({
       ...newUser,
       id: user.id,
@@ -82,7 +82,7 @@ const UsuariosHome = () => {
   const handleEditUser = (user) => {
     setEditingUser({ ...user });
   };
-  console.log(users);
+  // console.log(users);
   return (
     <div className="admin-container">
       <h2>User Management</h2>

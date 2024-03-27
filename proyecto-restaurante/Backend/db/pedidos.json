@@ -44,6 +44,15 @@
       "precioTotal": 60000,
       "estado": "listo",
       "mesero": "sebas"
+    },
+    {
+      "id": 6,
+      "mesa": "3",
+      "producto": "jamon",
+      "cantidad": "3",
+      "precioTotal": 90000,
+      "estado": "pendiente",
+      "mesero": "sebas"
     }
   ]
 }
