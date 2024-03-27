@@ -9,7 +9,6 @@ function Login() {
   const goTo = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [usuario, setUsuario] = useState("");
   const { setDataUser} = useStore();
 
   const handleUsernameChange = (event) => {
@@ -21,7 +20,7 @@ function Login() {
   };
 
   const handleSubmit = async (event) => {
-    goTo('/platos');
+    // goTo('/platos');
 
     event.preventDefault();
     const data = {
@@ -33,8 +32,8 @@ function Login() {
       console.log(response);
       if (response.data.status === 200) {
         setDataUser(response.data.payload);
-        console.log(response.data.payload);
-        localStorage.setItem('dataUser', response.data.payload);
+        console.log(response.data.payload.username);
+        localStorage.setItem('dataUser', response.data.payload.username);
         switch (response.data.payload.rol) {
           case 1:
             goTo('/platos');

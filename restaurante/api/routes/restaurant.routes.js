@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('./controllers/userController.js');
 const dishesController = require('./controllers/dishesController.js');
+const salesController = require('./controllers/salesController.js');
 
 // COM Restaurante
 
@@ -13,5 +14,7 @@ router
     .get('/getDishes', dishesController.getDishes)
     .post('/updateDish', dishesController.updateDish)
     .get('/deleteDish/:id', dishesController.deleteDish)
+    .post('/addSale', salesController.addSales)
+    .get('/getSales', salesController.getSales)
 
 module.exports = router;

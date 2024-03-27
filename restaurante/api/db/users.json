@@ -9,16 +9,6 @@
       "username": "admin",
       "password": "321",
       "rol": 1
-    },
-    {
-      "username": "ssssss",
-      "password": "ssssss",
-      "rol": 2
-    },
-    {
-      "username": "aaaaaaa",
-      "password": "aaaaaaaaaa",
-      "rol": 2
     }
   ]
 }

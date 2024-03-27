@@ -1,68 +1,77 @@
 import { useState, useEffect } from "react";
 import "./Mesero.css";
 import Sidebar from "../shared/sidebar/Sidebar";
+import axios from "axios";
 
 function MeseroModule() {
-  const [platos] = useState([
-    { id: 1, nombre: "Hamburguesa", precio: 10 },
-    { id: 2, nombre: "Pizza", precio: 12 },
-    { id: 3, nombre: "Ensalada César", precio: 8 },
-    { id: 4, nombre: "Sopa de Tomate", precio: 6 },
-    { id: 5, nombre: "Consome", precio: 10 },
-    { id: 6, nombre: "Pizza Jamon", precio: 12 },
-    { id: 7, nombre: "Ensalada", precio: 8 },
-    { id: 8, nombre: "Sopa", precio: 6 },
-  ]);
-
-  const [pedido, setPedido] = useState({});
+  const [mesaSeleccionada, setMesaSeleccionada] = useState("");
+  const [platos, setplatos] = useState([]);
+  const [pedido, setPedido] = useState([]);
   const [totalPedido, setTotalPedido] = useState(0);
 
   useEffect(() => {
+    getProducts();
+
     let total = 0;
-    Object.entries(pedido).forEach(([id, cantidad]) => {
-      const plato = platos.find((p) => p.id === parseInt(id));
-      total += plato.precio * cantidad;
+
+    pedido.forEach(item => {
+      total += item.plato.price * item.cantidad;
     });
     setTotalPedido(total);
-  }, [pedido, platos]);
+
+  }, [pedido]);
+
+
+  const getProducts = async () => {
+    const getPlatos = await axios.get('http://localhost:4000/restaurant/getDishes');
+    setplatos(getPlatos.data.payload.dishes)
+  } 
+
 
   const agregarPlato = (plato) => {
-    const nuevoPedido = { ...pedido };
-    if (nuevoPedido[plato.id]) {
-      nuevoPedido[plato.id] += 1;
+    const pedidoActualizado = [...pedido];
+
+    console.log('pedidoActualizado');
+    console.log(pedidoActualizado);
+
+    const itemExistente = pedidoActualizado.find(item => item.plato.id === plato.id);
+
+    if (itemExistente) {
+      itemExistente.cantidad += 1;
     } else {
-      nuevoPedido[plato.id] = 1;
+      pedidoActualizado.push({ plato, cantidad: 1 });
     }
-    setPedido(nuevoPedido);
+
+    setPedido(pedidoActualizado);
   };
 
-  const eliminarPlato = (id) => {
-    const nuevoPedido = { ...pedido };
-    if (nuevoPedido[id] > 1) {
-      nuevoPedido[id] -= 1;
-    } else {
-      delete nuevoPedido[id];
-    }
-    setPedido(nuevoPedido);
+  const eliminarPlato = (plato) => {
+    const pedidoActualizado = pedido.filter(item => item.plato.id !== plato.id);
+    setPedido(pedidoActualizado);
   };
 
-  const enviarPedido = () => {
-    console.log(pedido);
-    fetch("url", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ pedido }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error al enviar el pedido");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+  const enviarPedido = async () => {
+
+    console.log(localStorage.getItem('dataUser'));
+    console.log(localStorage.getItem('dataUser'));
+    const enviarPedido = {
+      id:null,
+      usuario: localStorage.getItem('dataUser'),
+      total: totalPedido,
+      mesa: mesaSeleccionada,
+      items: pedido.map(item => item)
+    };
+
+    console.log('enviarPedido');
+    console.log(enviarPedido);
+
+    const guardarPedido = await axios.post('http://localhost:4000/restaurant/addSale', enviarPedido);
+    console.log(guardarPedido.data);
+  };
+
+  const handleMesa = (event) => {
+    const valorSeleccionado = event.target.value;
+    setMesaSeleccionada(valorSeleccionado); 
   };
 
   return (
@@ -72,28 +81,32 @@ function MeseroModule() {
         <div className="platos-lista">
           {platos.map((plato) => (
             <div className="plato-card" key={plato.id}>
-              <h3>{plato.nombre}</h3>
-              <p>Precio: ${plato.precio}</p>
+              <h3>{plato.name}</h3>
+              <p>Precio: ${plato.price}</p>
               <button onClick={() => agregarPlato(plato)}>Agregar al Pedido</button>
             </div>
           ))}
         </div>
         <div className="pedido-lista">
           <h2>Pedido del Cliente</h2>
-          {Object.keys(pedido).length > 0 ? (
+          <label htmlFor="mesa">Mesa:</label>
+          <select id="mesa" name="mesa" onChange={handleMesa} value={mesaSeleccionada}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          {pedido.length > 0 ? (
             <>
               <ul>
-                {Object.entries(pedido).map(([id, cantidad]) => {
-                  const plato = platos.find((p) => p.id === parseInt(id));
-                  return (
-                    <li key={id}>
-                      {plato.nombre} - ${plato.precio} x {cantidad}
-                      <a onClick={() => eliminarPlato(id)}>
-                        <i className="icon-menos fas fa-minus-circle"></i>
-                      </a>
-                    </li>
-                  );
-                })}
+                {pedido.map((item, index) => (
+                  <li key={index}>
+                    {item.plato.name} - ${item.plato.price} x {item.cantidad}
+                    <a onClick={() => eliminarPlato(item.plato)}>
+                      <i className="icon-menos fas fa-minus-circle"></i>
+                    </a>
+                  </li>
+                ))}
               </ul>
               <p className="total-pedido">Total del Pedido: ${totalPedido}</p>
               <button onClick={enviarPedido}>Enviar Pedido</button>
