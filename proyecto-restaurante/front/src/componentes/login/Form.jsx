@@ -21,6 +21,7 @@ function Form({ callback }) {
       }
     );
     const responseData = await response.json();
+    localStorage.setItem('usuario', responseData.payload.username)
     console.log("response");
     console.log(responseData);
     callback(responseData.payload.role); // Llamar al callback con el rol del usuario

@@ -8,6 +8,7 @@ const MeseroHome = () => {
     const [cantidad, setCantidad] = useState('');
     const [pedidos, setPedidos] = useState([]);
     const [productos, setProductos] = useState([]); // Nuevo estado para almacenar los productos
+    
 
     useEffect(() => {
         fetchProducts();
@@ -23,7 +24,7 @@ const MeseroHome = () => {
         }
       };
 
-    const handleSubmit = (event) => {
+      const handleSubmit = (event) => {
         event.preventDefault();
         
         // Validación básica del formulario
@@ -31,19 +32,19 @@ const MeseroHome = () => {
             alert("Por favor, llene todos los campos correctamente");
             return;
         }
-
+    
         // Encontrar el producto seleccionado
         const selectedProduct = productos.find(producto => producto.name === productoSeleccionado);
         if (!selectedProduct) {
             alert("El producto seleccionado no está disponible.");
             return;
         }
-
+    
         // Calcular el precio total del pedido
         const precioTotal = selectedProduct.price * cantidad;
-
-        // Crear un nuevo pedido con los datos actuales
-        const nuevoPedido = { mesa, producto: productoSeleccionado, cantidad, precioTotal, estado: 'pendiente' };
+    
+        // Crear un nuevo pedido con los datos actuales y el nombre del mesero
+        const nuevoPedido = { mesa, producto: productoSeleccionado, cantidad, precioTotal, estado: 'pendiente', mesero: localStorage.getItem('usuario') };
         
         // Agregar el nuevo pedido a la lista de pedidos
         setPedidos([...pedidos, nuevoPedido]);
@@ -53,6 +54,7 @@ const MeseroHome = () => {
         setProductoSeleccionado('');
         setCantidad('');
     };
+    
 
     const handleChange = (event, setter) => {
         setter(event.target.value);
@@ -87,6 +89,7 @@ const MeseroHome = () => {
                 <ul>
                     {pedidos.map((pedido, index) => (
                         <li key={index} className="pedido-item">
+                            <div>Mesero: {pedido.mesero}</div>
                             <div>Mesa: {pedido.mesa}</div>
                             <div>Producto: {pedido.producto}</div>
                             <div>Cantidad: {pedido.cantidad}</div>
