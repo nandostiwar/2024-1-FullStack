@@ -1,19 +1,14 @@
 {
   "productos": [
     {
+      "name": "jaja",
+      "price": "123",
+      "id": 1
+    },
+    {
       "name": "juju",
       "price": "123",
       "id": 2
-    },
-    {
-      "name": "jijiji",
-      "price": "123",
-      "id": 3
-    },
-    {
-      "name": "jaja",
-      "price": "123",
-      "id": 3
     }
   ]
 }

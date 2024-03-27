@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/meseroHome.css';
+import axios from "axios";
 
 const MeseroHome = () => {
     const [mesa, setMesa] = useState('');
     const [producto, setProducto] = useState('');
     const [cantidad, setCantidad] = useState('');
     const [pedidos, setPedidos] = useState([]);
+    const [productos, setProductos] = useState([]); // Nuevo estado para almacenar los productos
+
+    useEffect(() => {
+        fetchProducts();
+      }, []);
+    
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get("http://localhost:3000/restaurante/productosOb");
+           console.log(response)
+           setProductos(response.data.productos);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -35,14 +51,23 @@ const MeseroHome = () => {
     return (
         <div> 
             <form onSubmit={handleSubmit} className="form-container">
-            <h1>Meseros</h1>    
+                <h1>Meseros</h1>    
                 <label>
                     Mesa:
                     <input type="text" value={mesa} onChange={(event) => handleChange(event, setMesa)} />
                 </label>
                 <label>
                     Producto:
-                    <input type="text" value={producto} onChange={(event) => handleChange(event, setProducto)} />
+                    {/* Mostrar lista de productos en un select */}
+                    <select value={producto} onChange={(event) => handleChange(event, setProducto)}>
+                        <option value="">Seleccione un producto</option>
+                        {productos.map(product => (
+                            
+                        
+                            <option key={product.id} value={product.name}>{product.name}</option>
+                            
+                        ))}
+                    </select>
                 </label>
                 <label>
                     Cantidad:
@@ -68,4 +93,5 @@ const MeseroHome = () => {
 };
 
 export default MeseroHome;
+
 

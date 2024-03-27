@@ -53,8 +53,8 @@ const UsuariosHome = () => {
   };
 
   const edit = async () => {
-    console.log(newUser);
-    console.log(users);
+    // console.log(newUser);
+    // console.log(users);
     try {
       // newProduct lo envie al backend
       await axios.post(

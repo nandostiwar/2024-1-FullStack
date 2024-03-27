@@ -11,14 +11,21 @@ const consultarUsuario = async (req, res) => {
     try {
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
         const usuariosJson = JSON.parse(usuarios)
-        const { username, password } = req.body;
-        const user = usuariosJson.usuarios.find((usuario) => {return (usuario.username == username && usuario.password == password)});
-        
-        
+        const {
+            username,
+            password
+        } = req.body;
+        const user = usuariosJson.usuarios.find((usuario) => {
+            return (usuario.username == username && usuario.password == password)
+        });
+
+
 
 
         if (!user) {
-            return res.status(401).json({ error: 'Credenciales inválidas' });
+            return res.status(401).json({
+                error: 'Credenciales inválidas'
+            });
         }
         console.log(user);
 
@@ -26,11 +33,16 @@ const consultarUsuario = async (req, res) => {
         // como generar un token de sesión, guardar información en una cookie, etc.
 
         // Por ejemplo, si quieres devolver los datos del usuario:
-        res.json({status:200, payload: user });
+        res.json({
+            status: 200,
+            payload: user
+        });
 
     } catch (error) {
         console.error('Error al consultar el usuario:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -41,30 +53,48 @@ const obtenerUsuarios = async (req, res) => {
         res.json(usuariosJson);
     } catch (error) {
         console.error('Error al obtener los usuarios:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
 const agregarUsuario = async (req, res) => {
     try {
-        const { username, password, role } = req.body;
+        const {
+            username,
+            password,
+            role
+        } = req.body;
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
         const usuariosJson = JSON.parse(usuarios);
         const id = usuariosJson.usuarios.length + 1;
-        const nuevoUsuario = { username, password, role, id };
+        const nuevoUsuario = {
+            username,
+            password,
+            role,
+            id
+        };
 
         usuariosJson.usuarios.push(nuevoUsuario);
         await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
         res.status(201).send(usuariosJson);
     } catch (error) {
         console.error('Error al agregar el usuario:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
 const actualizarUsuario = async (req, res) => {
     try {
-        const { username, password, role, id } = req.body; // Obtener los nuevos datos del usuario del cuerpo de la solicitud
+        const {
+            username,
+            password,
+            role,
+            id
+        } = req.body; // Obtener los nuevos datos del usuario del cuerpo de la solicitud
 
         // Leer el archivo JSON que contiene los usuarios
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'));
@@ -75,7 +105,9 @@ const actualizarUsuario = async (req, res) => {
 
         // Si el usuario no se encuentra, devolver un error 404
         if (index === -1) {
-            return res.status(404).json({ error: 'Usuario no encontrado' });
+            return res.status(404).json({
+                error: 'Usuario no encontrado'
+            });
         }
 
         // Actualizar los datos del usuario en el array
@@ -87,15 +119,22 @@ const actualizarUsuario = async (req, res) => {
         await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
 
         // Devolver una respuesta exitosa con los datos actualizados del usuario
-        res.status(200).json({ message: 'Usuario actualizado correctamente', usuario: usuariosJson.usuarios[index] });
+        res.status(200).json({
+            message: 'Usuario actualizado correctamente',
+            usuario: usuariosJson.usuarios[index]
+        });
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
 const eliminarUsuario = async (req, res) => {
-    const { id } = req.params;
+    const {
+        id
+    } = req.params;
     try {
         // Leer el contenido del archivo usuarios.json
         const usuarios = await fs.readFile(path.join(__dirname, '../../db/users.json'), 'utf-8');
@@ -107,7 +146,9 @@ const eliminarUsuario = async (req, res) => {
         // Encontrar el índice del usuario a eliminar
         const index = listaUsuarios.findIndex(usuario => usuario.id === parseInt(id));
         if (index === -1) {
-            return res.status(404).json({ error: 'Usuario no encontrado' });
+            return res.status(404).json({
+                error: 'Usuario no encontrado'
+            });
         }
 
         // Eliminar el usuario del array
@@ -116,10 +157,14 @@ const eliminarUsuario = async (req, res) => {
         // Escribir los cambios de vuelta al archivo
         await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(usuariosJson, null, 2));
 
-        res.json({ message: 'Usuario eliminado correctamente' });
+        res.json({
+            message: 'Usuario eliminado correctamente'
+        });
     } catch (error) {
         console.error('Error al eliminar el usuario:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
@@ -131,31 +176,56 @@ const obtenerProductos = async (req, res) => {
         res.json(productosJson);
     } catch (error) {
         console.error('Error al obtener los productos:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
 const agregarProducto = async (req, res) => {
     try {
-        const { name, price } = req.body;
+        const {
+            name,
+            price
+        } = req.body;
         const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'));
         const productosJson = JSON.parse(productos);
-        const id = productosJson.productos.length+1;
-        const nuevoProducto = { name, price, id };
-        
+        // const id = productosJson.productos.length+1;
+        let maxId = 0;
+
+        // Itera sobre cada producto y actualiza el ID máximo si encuentras uno mayor
+        productosJson.productos.forEach(producto => {
+            if (producto.id > maxId) {
+                maxId = producto.id;
+
+            }
+        });
+        maxId+= 1;
+        const nuevoProducto = {
+            name,
+            price,
+            id:maxId
+        };
+
 
         productosJson.productos.push(nuevoProducto);
         await fs.writeFile(path.join(__dirname, '../../db/productos.json'), JSON.stringify(productosJson, null, 2));
         res.status(201).send(productosJson);
-        
+
     } catch (error) {
         console.error('Error al agregar el producto:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 const actualizarProducto = async (req, res) => {
     try {
-        const { name, price, id } = req.body; // Obtener los nuevos datos del producto del cuerpo de la solicitud
+        const {
+            name,
+            price,
+            id
+        } = req.body; // Obtener los nuevos datos del producto del cuerpo de la solicitud
 
         // Leer el archivo JSON que contiene los productos
         const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'));
@@ -166,7 +236,9 @@ const actualizarProducto = async (req, res) => {
 
         // Si el producto no se encuentra, devolver un error 404
         if (index === -1) {
-            return res.status(404).json({ error: 'Producto no encontrado' });
+            return res.status(404).json({
+                error: 'Producto no encontrado'
+            });
         }
 
         // Actualizar los datos del producto en el array
@@ -177,43 +249,56 @@ const actualizarProducto = async (req, res) => {
         await fs.writeFile(path.join(__dirname, '../../db/productos.json'), JSON.stringify(productosJson, null, 2));
 
         // Devolver una respuesta exitosa con los datos actualizados del producto
-        res.status(200).json({ message: 'Producto actualizado correctamente', producto: productosJson.productos[index] });
+        res.status(200).json({
+            message: 'Producto actualizado correctamente',
+            producto: productosJson.productos[index]
+        });
     } catch (error) {
         console.error('Error al actualizar el producto:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
 };
 
 const eliminarProducto = async (req, res) => {
-    const { id } = req.params;
+    const {
+        id
+    } = req.params;
     console.log(id);
-  
+
     try {
-      // Leer el contenido del archivo productos.json
-      const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'), 'utf-8');
-      const productosJson = JSON.parse(productos);
-  
-      // Obtener la lista de productos
-      const listaProductos = productosJson.productos;
-  
-      // Encontrar el índice del producto a eliminar
-      const index = listaProductos.findIndex(producto => producto.id === parseInt(id));
-      if (index === -1) {
-        return res.status(404).json({ error: 'Producto no encontrado' });
-      }
-  
-      // Eliminar el producto del array
-      listaProductos.splice(index, 1);
-  
-      // Escribir los cambios de vuelta al archivo
-      await fs.writeFile(path.join(__dirname, '../../db/productos.json'), JSON.stringify(productosJson, null, 2));
-  
-      res.json({ message: 'Producto eliminado correctamente' });
+        // Leer el contenido del archivo productos.json
+        const productos = await fs.readFile(path.join(__dirname, '../../db/productos.json'), 'utf-8');
+        const productosJson = JSON.parse(productos);
+
+        // Obtener la lista de productos
+        const listaProductos = productosJson.productos;
+
+        // Encontrar el índice del producto a eliminar
+        const index = listaProductos.findIndex(producto => producto.id === parseInt(id));
+        if (index === -1) {
+            return res.status(404).json({
+                error: 'Producto no encontrado'
+            });
+        }
+
+        // Eliminar el producto del array
+        listaProductos.splice(index, 1);
+
+        // Escribir los cambios de vuelta al archivo
+        await fs.writeFile(path.join(__dirname, '../../db/productos.json'), JSON.stringify(productosJson, null, 2));
+
+        res.json({
+            message: 'Producto eliminado correctamente'
+        });
     } catch (error) {
-      console.error('Error al eliminar el producto:', error);
-      res.status(500).json({ error: 'Error interno del servidor' });
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
     }
-  };
+};
 // --------------------------------------------------------------------------------------------------------------------------------------- 
 
 
@@ -234,5 +319,3 @@ module.exports = {
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
 };
-
-

@@ -1,15 +1,9 @@
 {
   "usuarios": [
     {
-      "username": "calderon",
-      "password": "123",
-      "role": "mesero",
-      "id": 2
-    },
-    {
       "username": "juan",
       "password": "123",
-      "role": "cocina",
+      "role": "mesero",
       "id": 3
     },
     {
@@ -17,12 +11,6 @@
       "password": "123",
       "role": "admin",
       "id": 3
-    },
-    {
-      "username": "juan",
-      "password": "123",
-      "role": "cocina",
-      "id": 4
     }
   ]
 }
