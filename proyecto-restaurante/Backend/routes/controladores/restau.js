@@ -299,16 +299,49 @@ const eliminarProducto = async (req, res) => {
         });
     }
 };
+
+const guardarPedido = async (req, res) => {
+    try {
+        const { mesa, producto, cantidad, precioTotal, estado, mesero } = req.body;
+
+        // Leer el archivo JSON que contiene los pedidos
+        const pedidos = await fs.readFile(path.join(__dirname, '../../db/pedidos.json'));
+        const pedidosJson = JSON.parse(pedidos);
+
+        // Generar un nuevo ID para el pedido
+        const nuevoId = pedidosJson.pedidos.length + 1;
+
+        // Crear el nuevo pedido
+        const nuevoPedido = { id: nuevoId, mesa, producto, cantidad, precioTotal, estado, mesero };
+
+        // Agregar el nuevo pedido al array de pedidos
+        pedidosJson.pedidos.push(nuevoPedido);
+
+        // Escribir los datos actualizados en el archivo JSON
+        await fs.writeFile(path.join(__dirname, '../../db/pedidos.json'), JSON.stringify(pedidosJson, null, 2));
+
+        // Devolver una respuesta exitosa con los datos del nuevo pedido
+        res.status(201).json({
+            message: 'Pedido agregado correctamente',
+            pedido: nuevoPedido
+        });
+    } catch (error) {
+        console.error('Error al agregar el pedido:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
+    }
+};
 // --------------------------------------------------------------------------------------------------------------------------------------- 
 
 
 module.exports = {
 
-    // consultarUsuario,
     obtenerUsuarios,
     agregarUsuario,
     actualizarUsuario,
     eliminarUsuario,
+    guardarPedido,
 
     // ---------------------------------------------------------------------------------------------------------------------------------------
     consultarUsuario,

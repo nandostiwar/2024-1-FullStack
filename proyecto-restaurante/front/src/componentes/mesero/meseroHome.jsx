@@ -7,8 +7,7 @@ const MeseroHome = () => {
     const [productoSeleccionado, setProductoSeleccionado] = useState('');
     const [cantidad, setCantidad] = useState('');
     const [pedidos, setPedidos] = useState([]);
-    const [productos, setProductos] = useState([]); // Nuevo estado para almacenar los productos
-    
+    const [productos, setProductos] = useState([]); 
 
     useEffect(() => {
         fetchProducts();
@@ -17,44 +16,45 @@ const MeseroHome = () => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get("http://localhost:3000/restaurante/productosOb");
-          console.log(response);
           setProductos(response.data.productos);
         } catch (error) {
           console.error("Error fetching products:", error);
         }
       };
 
-      const handleSubmit = (event) => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
         
-        // Validación básica del formulario
         if (!mesa.trim() || !productoSeleccionado.trim() || cantidad <= 0) {
             alert("Por favor, llene todos los campos correctamente");
             return;
         }
-    
-        // Encontrar el producto seleccionado
+
         const selectedProduct = productos.find(producto => producto.name === productoSeleccionado);
         if (!selectedProduct) {
             alert("El producto seleccionado no está disponible.");
             return;
         }
-    
-        // Calcular el precio total del pedido
+
         const precioTotal = selectedProduct.price * cantidad;
-    
-        // Crear un nuevo pedido con los datos actuales y el nombre del mesero
+
         const nuevoPedido = { mesa, producto: productoSeleccionado, cantidad, precioTotal, estado: 'pendiente', mesero: localStorage.getItem('usuario') };
         
-        // Agregar el nuevo pedido a la lista de pedidos
-        setPedidos([...pedidos, nuevoPedido]);
+        try {
+          // Enviar el pedido al servidor backend
+          const response = await axios.post("http://localhost:3000/restaurante/pedidos", nuevoPedido);
+          console.log("Pedido guardado:", response.data);
+          // Agregar el nuevo pedido a la lista de pedidos en el estado local
+          setPedidos([...pedidos, nuevoPedido]);
+        } catch (error) {
+          console.error("Error al guardar el pedido:", error);
+          alert("Error al guardar el pedido. Por favor, inténtelo de nuevo.");
+        }
         
-        // Limpiar los campos después de enviar el pedido
         setMesa('');
         setProductoSeleccionado('');
         setCantidad('');
     };
-    
 
     const handleChange = (event, setter) => {
         setter(event.target.value);
@@ -70,7 +70,6 @@ const MeseroHome = () => {
                 </label>
                 <label>
                     Producto:
-                    {/* Mostrar lista de productos en un select */}
                     <select value={productoSeleccionado} onChange={(event) => handleChange(event, setProductoSeleccionado)}>
                         <option value="">Seleccione un producto</option>
                         {productos.map(product => (
@@ -104,6 +103,7 @@ const MeseroHome = () => {
 };
 
 export default MeseroHome;
+
 
 
 

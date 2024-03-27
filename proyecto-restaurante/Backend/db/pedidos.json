@@ -1,0 +1,13 @@
+{
+  "pedidos": [
+    {
+      "id": 1,
+      "mesa": "2",
+      "producto": "peperoni",
+      "cantidad": "2",
+      "precioTotal": 20000,
+      "estado": "pendiente",
+      "mesero": "juan"
+    }
+  ]
+}
