@@ -35,6 +35,12 @@
       "username": "david",
       "rol": "mesero",
       "password": "1234"
+    },
+    {
+      "id": 7,
+      "username": "Julieth",
+      "rol": "cocina",
+      "password": "12345"
     }
   ]
 }

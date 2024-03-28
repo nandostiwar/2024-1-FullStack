@@ -1,55 +1,5 @@
 [
   {
-    "id": 1,
-    "mesa": 5,
-    "mesero": "javier",
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Hamburguesa",
-        "precio": 10000,
-        "categoria": "Comida rápida",
-        "habilitado": true,
-        "cantidad": 2
-      },
-      {
-        "id": 6,
-        "nombre": "Refresco de cola",
-        "precio": 2500,
-        "categoria": "Bebidas",
-        "habilitado": true,
-        "cantidad": 1
-      }
-    ],
-    "total": 22500,
-    "fecha": "2024-03-25T12:30:45"
-  },
-  {
-    "id": 2,
-    "mesa": 3,
-    "mesero": "Karina",
-    "productos": [
-      {
-        "id": 2,
-        "nombre": "Pizza",
-        "precio": 15000,
-        "categoria": "Comida rápida",
-        "habilitado": true,
-        "cantidad": 1
-      },
-      {
-        "id": 5,
-        "nombre": "Agua Mineral",
-        "precio": 2000,
-        "categoria": "Bebidas",
-        "habilitado": true,
-        "cantidad": 3
-      }
-    ],
-    "total": 21000,
-    "fecha": "2024-03-25T13:45:22"
-  },
-  {
     "id": 3,
     "mesa": "1",
     "mesero": "javier",
@@ -67,8 +17,7 @@
         "cantidad": 1
       }
     ],
-    "total": 34000,
-    "estado": "procesando"
+    "total": 34000
   },
   {
     "id": 5,
@@ -82,7 +31,21 @@
         "cantidad": 2
       }
     ],
-    "total": 20000,
+    "total": 20000
+  },
+  {
+    "id": 3,
+    "mesa": "4",
+    "mesero": "manuel",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Hamburguesa",
+        "precio": 10000,
+        "cantidad": 3
+      }
+    ],
+    "total": 30000,
     "estado": "procesando"
   }
 ]

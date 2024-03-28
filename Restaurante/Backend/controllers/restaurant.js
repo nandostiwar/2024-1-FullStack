@@ -259,6 +259,52 @@ const eliminarProducto = async (req, res) => {
     }
 };
 
+const obtenerPedidos = async (req, res) => {
+  try {
+    const pedidosFile = await fs.readFile(path.join(__dirname, '../db/pedidos.json'));
+    const pedidosData = JSON.parse(pedidosFile);
+    res.json(pedidosData);
+  } catch (error) {
+    console.error("Error al obtener los pedidos:", error);
+    res.status(500).json({ mensaje: "Error interno del servidor" });
+  }
+};
+
+const editarEstadoPedido = async (req, res) => {
+  const { id } = req.params; // Capturar el ID del pedido de los parámetros de la ruta
+  try {
+    const { nuevoEstado } = req.body; // Capturar el nuevo estado del pedido
+
+    // Leer el archivo de pedidos
+    const pedidosFile = await fs.readFile(path.join(__dirname, '../db/pedidos.json'), 'utf8');
+    const pedidosData = JSON.parse(pedidosFile);
+
+    // Buscar el pedido que se va a editar por su id
+    const pedidoIndex = pedidosData.findIndex(pedido => pedido.id === parseInt(id)); // Convertir id a entero
+
+    // Verificar si el pedido existe
+    if (pedidoIndex === -1) {
+      return res.status(404).json({ mensaje: "Pedido no encontrado" });
+    }
+
+    // Actualizar el estado del pedido
+    pedidosData[pedidoIndex].estado = nuevoEstado;
+
+    // Escribir los datos actualizados en el archivo
+    await fs.writeFile(path.join(__dirname, '../db/pedidos.json'), JSON.stringify(pedidosData, null, 2));
+
+    // Responder con un mensaje de éxito y los datos del pedido editado
+    res.status(200).json({ mensaje: "Estado del pedido editado exitosamente", pedido: pedidosData[pedidoIndex] });
+  } catch (error) {
+    console.error("Error al editar el estado del pedido:", error);
+    res.status(500).json({ mensaje: "Error interno del servidor" });
+  }
+};
+
+
+
+
+
 
 
 
@@ -276,7 +322,9 @@ module.exports = {
     editarProducto,
     eliminarProducto,
     habilitarProducto,
-    crearPedido
+    crearPedido,
+    obtenerPedidos,
+    editarEstadoPedido
     
   };
 

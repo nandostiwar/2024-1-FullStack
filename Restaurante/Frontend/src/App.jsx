@@ -10,6 +10,7 @@ import EliminarProducto from './assets/components/productos/EliminarProducto';
 import EditarUsuario from './assets/components/usuarios/EditarUsuario';
 import EliminarUsuario from './assets/components/usuarios/EliminarUsuario';
 import TotalVentas from './assets/components/ventas/Ventas';
+import PerfilCocina from './assets/components/cocina/cocina';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/admin/eliminar-producto" element={<EliminarProducto />} />
           <Route path="/admin/total-ventas" element={<TotalVentas />} />
           <Route path='/perfil-mesero' element={<PerfilMesero />} />
+          <Route path='/perfil-cocina' element={<PerfilCocina />} />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       </Router>

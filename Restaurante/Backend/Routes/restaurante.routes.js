@@ -31,6 +31,10 @@ router
   
   .post('/productos',restaurant.editarProducto)
 
+  .get('/pedidos', restaurant.obtenerPedidos) 
+  .patch('/pedidos/:id', restaurant.editarEstadoPedido)
+  
+
 
 
   .post('/pedidos', restaurant.crearPedido)

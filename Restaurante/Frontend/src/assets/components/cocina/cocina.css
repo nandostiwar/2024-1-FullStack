@@ -1,0 +1,43 @@
+.CocinaContainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .PedidosContainer {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .PedidoItem {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .PedidoItem > div {
+    margin-bottom: 10px;
+  }
+  
+  .PedidoItem span {
+    margin-right: 10px;
+  }
+  
+  .PedidoItem button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .PedidoItem button:hover {
+    background-color: #0056b3;
+  }
+  
