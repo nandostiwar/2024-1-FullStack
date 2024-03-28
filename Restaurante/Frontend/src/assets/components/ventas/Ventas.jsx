@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
+
 const TotalVentas = () => {
-  // Estado para almacenar los datos de las ventas
   const [ventas, setVentas] = useState([]);
 
-  // Función para obtener los datos de las ventas
   const obtenerVentas = async () => {
     try {
-      // Aquí realizarías la solicitud a tu API para obtener los datos de las ventas
-      // Por ahora, usaremos datos de ejemplo
-      const datosEjemplo = [
-        { mesero: 'Juan', producto: 'Pizza', cantidad: 5, total: 100 },
-        { mesero: 'María', producto: 'Hamburguesa', cantidad: 3, total: 75 },
-        { mesero: 'Pedro', producto: 'Ensalada', cantidad: 2, total: 30 },
-      ];
-      setVentas(datosEjemplo);
+      const response = await fetch('http://localhost:4000/restaurante/ventasVer', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Error al cargar las ventas: ' + response.statusText);
+      }
+      const data = await response.json();
+      setVentas(data);
+      console.log(data);
     } catch (error) {
-      console.error('Error al obtener los datos de las ventas:', error);
-      // Aquí podrías manejar el error de acuerdo a tus necesidades
+      console.error('Error al obtener las ventas:', error);
     }
   };
 
-  // Llamar a la función obtenerVentas cuando el componente se monte
   useEffect(() => {
     obtenerVentas();
   }, []);
@@ -34,8 +35,7 @@ const TotalVentas = () => {
           <tr>
             <th>Mesero</th>
             <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Total</th>
+            <th>Total Ventas</th>
           </tr>
         </thead>
         <tbody>
@@ -43,8 +43,7 @@ const TotalVentas = () => {
             <tr key={index}>
               <td>{venta.mesero}</td>
               <td>{venta.producto}</td>
-              <td>{venta.cantidad}</td>
-              <td>{venta.total}</td>
+              <td>{venta.totalVentas}</td>
             </tr>
           ))}
         </tbody>

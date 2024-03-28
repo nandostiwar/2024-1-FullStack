@@ -144,31 +144,38 @@ const obtenerProductos = async (req, res) => {
 
 
 const crearProducto = async (req, res) => {
-    try {
-        
-        const nuevoProducto = req.body;
+  try {
+    // Extraer los datos del cuerpo de la solicitud
+    const { nombre, precio } = req.body;
 
-        
-        const productosFile = await fs.readFile(path.join(__dirname, '../db/productos.json'));
-        const productosData = JSON.parse(productosFile);
+    // Leer el archivo de productos existente
+    const productosFile = await fs.readFile(path.join(__dirname, '../db/productos.json'), 'utf8');
+    const productosData = JSON.parse(productosFile);
 
-        
-        const nuevoId = productosData.productos.length + 1;
-        nuevoProducto.id = nuevoId;
+    // Generar un nuevo ID para el producto
+    const nuevoId = productosData.productos.length + 1;
 
-        
-        productosData.productos.push(nuevoProducto);
+    // Crear el nuevo objeto de producto
+    const nuevoProducto = {
+      id: nuevoId,
+      nombre,
+      precio
+    };
 
-        
-        await fs.writeFile(path.join(__dirname, '../db/productos.json'), JSON.stringify(productosData, null, 2));
+    // Agregar el nuevo producto a la lista de productos
+    productosData.productos.push(nuevoProducto);
 
-        
-        res.status(201).json({ mensaje: "Producto creado exitosamente", producto: nuevoProducto });
-    } catch (error) {
-        console.error("Error al crear el producto:", error);
-        res.status(500).json({ mensaje: "Error interno del servidor" });
-    }
+    // Escribir la lista actualizada de productos en el archivo
+    await fs.writeFile(path.join(__dirname, '../db/productos.json'), JSON.stringify(productosData, null, 2));
+
+    // Responder con el nuevo producto creado
+    res.status(201).json({ mensaje: "Producto creado exitosamente", producto: nuevoProducto });
+  } catch (error) {
+    console.error("Error al crear el producto:", error);
+    res.status(500).json({ mensaje: "Error interno del servidor" });
+  }
 };
+
 
 const editarProducto = async (req, res) => {
   console.log(req.body)
@@ -223,24 +230,7 @@ const eliminarProducto = async (req, res) => {
     }
   };
   
-  const habilitarProducto = async (req, res) => {
-    const { id } = req.params;
-    try {
-      const productosFile = await fs.readFile(path.join(__dirname, '../db/productos.json'), 'utf8');
-      const productosData = JSON.parse(productosFile);
-      const productoIndex = productosData.productos.findIndex(prod => prod.id === parseInt(id));
-      if (productoIndex === -1) {
-        return res.status(404).json({ mensaje: "Producto no encontrado" });
-      }
-      // Cambiar el valor de habilitado a true para habilitar el producto
-      productosData.productos[productoIndex].habilitado = true;
-      await fs.writeFile(path.join(__dirname, '../db/productos.json'), JSON.stringify(productosData, null, 2));
-      res.status(200).json({ mensaje: "Producto habilitado exitosamente" });
-    } catch (error) {
-      console.error("Error al habilitar el producto:", error);
-      res.status(500).json({ mensaje: "Error interno del servidor" });
-    }
-  };
+  
 
   const crearPedido = async (req, res) => {
     console.log(req.body);
@@ -271,35 +261,80 @@ const obtenerPedidos = async (req, res) => {
 };
 
 const editarEstadoPedido = async (req, res) => {
-  const { id } = req.params; // Capturar el ID del pedido de los parámetros de la ruta
-  try {
-    const { nuevoEstado } = req.body; // Capturar el nuevo estado del pedido
+    const { id } = req.params;
+    const { estado } = req.body;
+    console.log(req.body)
 
-    // Leer el archivo de pedidos
-    const pedidosFile = await fs.readFile(path.join(__dirname, '../db/pedidos.json'), 'utf8');
-    const pedidosData = JSON.parse(pedidosFile);
+    try {
+        // Leer el archivo de pedidos
+        const pedidosFile = await fs.readFile(path.join(__dirname, '../db/pedidos.json'), 'utf8');
+        const pedidosData = JSON.parse(pedidosFile);
 
-    // Buscar el pedido que se va a editar por su id
-    const pedidoIndex = pedidosData.findIndex(pedido => pedido.id === parseInt(id)); // Convertir id a entero
+        // Encontrar el pedido por su ID
+        const pedidoIndex = pedidosData.findIndex(pedido => pedido.id === parseInt(id));
 
-    // Verificar si el pedido existe
-    if (pedidoIndex === -1) {
-      return res.status(404).json({ mensaje: "Pedido no encontrado" });
+        // Verificar si el pedido existe
+        if (pedidoIndex === -1) {
+            return res.status(404).json({ mensaje: "Pedido no encontrado" });
+        }
+
+        // Actualizar el estado del pedido
+        pedidosData[pedidoIndex].estado = estado;
+
+        // Escribir los datos actualizados en el archivo
+        await fs.writeFile(path.join(__dirname, '../db/pedidos.json'), JSON.stringify(pedidosData, null, 2));
+
+        // Responder con un mensaje de éxito y los datos del pedido editado
+        res.status(200).json({ mensaje: "Estado del pedido editado exitosamente", pedido: pedidosData[pedidoIndex] });
+    } catch (error) {
+        console.error("Error al editar el estado del pedido:", error);
+        res.status(500).json({ mensaje: "Error interno del servidor" });
     }
+};
 
-    // Actualizar el estado del pedido
-    pedidosData[pedidoIndex].estado = nuevoEstado;
+const obtenerVentas = async (req, res) => {
+  try {
+    // Ruta al archivo de ventas
+    const ventasPath = path.join(__dirname, '../db/ventas.json');
 
-    // Escribir los datos actualizados en el archivo
-    await fs.writeFile(path.join(__dirname, '../db/pedidos.json'), JSON.stringify(pedidosData, null, 2));
+    // Leer el archivo de ventas
+    const data = await fs.readFile(ventasPath, 'utf8');
+    const ventas = JSON.parse(data);
+    res.status(200).json(ventas);
 
-    // Responder con un mensaje de éxito y los datos del pedido editado
-    res.status(200).json({ mensaje: "Estado del pedido editado exitosamente", pedido: pedidosData[pedidoIndex] });
+    
+
   } catch (error) {
-    console.error("Error al editar el estado del pedido:", error);
-    res.status(500).json({ mensaje: "Error interno del servidor" });
+    console.error('Error al obtener las ventas:', error);
+    res.status(500).json({ mensaje: 'Error interno del servidor' });
   }
 };
+
+const agregarVenta = async (req, res) => {
+  try {
+      const { mesero, producto, totalVentas } = req.body;
+
+      // Leer el archivo de ventas
+      const ventasPath = path.join(__dirname, '../db/ventas.json');
+      let ventas = await fs.readFile(ventasPath, 'utf8');
+      ventas = JSON.parse(ventas);
+
+      // Agregar la nueva venta
+      ventas.push({ mesero, producto, totalVentas });
+
+      // Escribir los datos actualizados en el archivo
+      await fs.writeFile(ventasPath, JSON.stringify(ventas, null, 2));
+
+      res.status(201).json({ mensaje: 'Venta agregada exitosamente' });
+  } catch (error) {
+      console.error('Error al agregar la venta:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+  }
+};
+
+
+
+
 
 
 
@@ -320,11 +355,13 @@ module.exports = {
     obtenerProductos,
     crearProducto,
     editarProducto,
-    eliminarProducto,
-    habilitarProducto,
+    eliminarProducto,    
     crearPedido,
     obtenerPedidos,
-    editarEstadoPedido
+    editarEstadoPedido,
+    obtenerVentas,
+    agregarVenta
+    
     
   };
 

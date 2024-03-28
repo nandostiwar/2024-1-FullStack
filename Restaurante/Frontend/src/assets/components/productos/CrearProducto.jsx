@@ -18,7 +18,8 @@ const CrearProducto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/restaurante/productos', {
+      const response = await fetch('http://localhost:4000/restaurante/productos/crear', {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ const CrearProducto = () => {
             <input className="FormInput" type="text" name="precio" value={producto.precio} onChange={handleChange} />
           </label>
         </div>
-        <button className="FormButton" type="submit">Guardar Producto</button>
+        <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Usuario</button>
       </form>
     </div>
   );

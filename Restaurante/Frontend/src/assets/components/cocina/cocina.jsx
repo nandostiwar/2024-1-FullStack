@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './cocina.css';
 
-const PerfilCocina = () => {
+
+const Cocina = () => {
   const [pedidos, setPedidos] = useState([]);
+  const goTo = useNavigate();
 
   useEffect(() => {
     const fetchPedidos = async () => {
@@ -12,58 +15,80 @@ const PerfilCocina = () => {
           throw new Error('Error al cargar los pedidos: ' + response.statusText);
         }
         const data = await response.json();
-        setPedidos(data);
+        setPedidos(data.filter(pedido => pedido.estado === 'procesando'));
       } catch (error) {
         console.error('Error al cargar los pedidos:', error);
       }
     };
-  
+
     fetchPedidos();
   }, []);
 
-  const handleChangeEstado = async (pedidoId, nuevoEstado) => {
+  const handleMarcarComoListo = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/restaurante/pedidos/${pedidoId}`, {
-        method: 'PACTCH', 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ estado: nuevoEstado }), 
-      });
-  
-      if (!response.ok) {
-        throw new Error('Error al actualizar el estado del pedido: ' + response.statusText);
-      }
-  
-      console.log('Estado del pedido actualizado correctamente');
-      
+        const response = await fetch(`http://localhost:4000/restaurante/pedidos/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ estado: 'listo' }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al marcar el pedido como listo');
+        }
+
+        const pedidoListo = pedidos.find(pedido => pedido.id === id);
+
+        const ventaResponse = await fetch('http://localhost:4000/restaurante/ventas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                mesero: pedidoListo.mesero,
+                producto: pedidoListo.productos.map(producto => producto.nombre).join(', '), // Concatenar los nombres de los productos
+                totalVentas: pedidoListo.total
+            }),
+        });
+
+        if (!ventaResponse.ok) {
+            throw new Error('Error al agregar la venta a la base de datos de ventas');
+        }
+
+        
+        setPedidos(pedidos.filter(pedido => pedido.id !== id));        
+        obtenerVentas();
     } catch (error) {
-      console.error('Error al actualizar el estado del pedido:', error);
+        console.error('Error al marcar el pedido como listo:', error);
     }
+};
+
+  const handleLogout = () => {
+    
+    localStorage.removeItem('nameUser');
+    
+    goTo('/');
   };
 
   return (
     <div className="CocinaContainer">
-      <h2>Perfil de Cocina</h2>
+      <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+      <h2>Pedidos en Cocina</h2>
       <div className="PedidosContainer">
         {pedidos.map(pedido => (
           <div key={pedido.id} className="PedidoItem">
-            <div>
-              <span>Mesa: {pedido.mesa}</span>
-              <span>Estado: {pedido.estado}</span>
-            </div>
-            <div>
-              <ul>
-                {pedido.productos.map((producto, index) => (
-                  <li key={index}>{producto.nombre} - Cantidad: {producto.cantidad}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              {pedido.estado === 'procesando' && (
-                <button onClick={() => handleChangeEstado(pedido.id, 'listo')}>Marcar como Listo</button>
-              )}
-            </div>
+            <h3>Mesa: {pedido.mesa}</h3>
+            <p>Mesero: {pedido.mesero}</p>
+            <ul>
+              {pedido.productos.map((producto, index) => (
+                <li key={index}>
+                  {producto.cantidad}x {producto.nombre}
+                </li>
+              ))}
+            </ul>
+            <p>Total: ${pedido.total}</p>
+            <button onClick={() => handleMarcarComoListo(pedido.id)}>Marcar como listo</button>
           </div>
         ))}
       </div>
@@ -71,4 +96,4 @@ const PerfilCocina = () => {
   );
 };
 
-export default PerfilCocina;
+export default Cocina;

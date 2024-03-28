@@ -3,6 +3,7 @@ const router = express.Router();
 const restaurant = require('../controllers/restaurant.js');
 const usuarios =require('../db/usuarios.json');
 const productos = require('../db/productos.json');
+const ventas = require('../db/ventas.json');
 router
   .get('/usuarios', (req, res) => {
     try {
@@ -21,25 +22,31 @@ router
         }
       })
 
-
-  .put('/usuarios/:id', restaurant.editarUsuario)
-  .delete('/usuarios/:id', restaurant.eliminarUsuario)
-  .delete('/productos/:id', restaurant.eliminarProducto)
-  .put('/productos/:id/habilitar', restaurant.habilitarProducto)
-  .get('/productos/:id', restaurant.obtenerProductos)
-
   
-  .post('/productos',restaurant.editarProducto)
-
-  .get('/pedidos', restaurant.obtenerPedidos) 
-  .patch('/pedidos/:id', restaurant.editarEstadoPedido)
+  
+  .get('/ventasVer', restaurant.obtenerVentas)
+  .post('/ventas', restaurant.agregarVenta)
   
 
 
-
-  .post('/pedidos', restaurant.crearPedido)
+  //Rutas para solicitudes de usuario
   .post('/login', restaurant.login)
   .post('/usuarios', restaurant.crearUsuario)
-  .post('/productos', restaurant.crearProducto);
+  .put('/usuarios/:id', restaurant.editarUsuario)
+  .delete('/usuarios/:id', restaurant.eliminarUsuario)
+
+  //Rutas para solicitudes de productos
+  .get('/productos/:id', restaurant.obtenerProductos)
+  .post('/productos/crear',restaurant.crearProducto)
+  .post('/productos',restaurant.editarProducto)
+  .delete('/productos/:id', restaurant.eliminarProducto)  
+
+  //Rutas para solicitudes de pedidos
+  .get('/pedidos', restaurant.obtenerPedidos)
+  .post('/pedidos', restaurant.crearPedido)
+  .patch('/pedidos/:id', restaurant.editarEstadoPedido);
+
+
+  
 
 module.exports = router;

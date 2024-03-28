@@ -1,0 +1,77 @@
+[
+  {
+    "mesero": "javier",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "javier",
+    "producto": "Ensalada César",
+    "totalVentas": 14000
+  },
+  {
+    "mesero": "mariana",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Hamburguesa",
+    "totalVentas": 30000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Jugo Hit",
+    "totalVentas": 9000
+  },
+  {
+    "mesero": "javier",
+    "producto": "jugo en leche",
+    "totalVentas": 10000
+  },
+  {
+    "mesero": "javier",
+    "producto": "Sopa de Tomate",
+    "totalVentas": 10000
+  },
+  {
+    "mesero": "javier",
+    "producto": "Pizza",
+    "totalVentas": 15000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Hamburguesa",
+    "totalVentas": 30000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Jugo Hit",
+    "totalVentas": 9000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Pizza",
+    "totalVentas": 30000
+  },
+  {
+    "mesero": "Karina",
+    "producto": "Hamburguesa",
+    "totalVentas": 10000
+  },
+  {
+    "mesero": "Karina",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "manuel",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "Karina",
+    "producto": "Hamburguesa",
+    "totalVentas": 30000
+  }
+]

@@ -45,17 +45,19 @@
     border-radius: 5px;
   }
   
-  .FormButton {
+  .FormButton.GuardarUsuarioButton {
+    display: block;
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    background-color: #28a745; 
     color: #fff;
-    background-color: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
   }
   
-  .FormButton:hover {
-    background-color: #0056b3;
+  .FormButton.GuardarUsuarioButton:hover {
+    background-color: #218838; 
   }
+  

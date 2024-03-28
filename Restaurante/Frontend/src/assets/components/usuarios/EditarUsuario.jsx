@@ -110,7 +110,8 @@ const EditarUsuario = () => {
             </select>
           </label>
         </div>
-        <button className="FormButton" type="submit">Guardar Cambios</button>
+        <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Usuario</button>
+
       </form>
     </div>
   );

@@ -3,44 +3,42 @@
     {
       "id": 1,
       "nombre": "Hamburguesa",
-      "precio": 10000,
-      "habilitado": true
+      "precio": 10000
     },
     {
       "id": 2,
       "nombre": "Pizza",
-      "precio": "15000",
-      "habilitado": true
+      "precio": "15000"
     },
     {
       "id": 3,
-      "nombre": "Pepsi",
-      "precio": "2000",
-      "habilitado": true
+      "nombre": "jugo en leche",
+      "precio": "5000"
     },
     {
       "id": 4,
       "nombre": "Sopa de Tomate",
-      "precio": 5000,
-      "habilitado": true
+      "precio": 5000
     },
     {
       "id": 5,
       "nombre": "Agua Mineral",
-      "precio": 2000,
-      "habilitado": true
+      "precio": 2000
     },
     {
       "id": 6,
       "nombre": "Jugo Hit",
-      "precio": "3000",
-      "habilitado": true
+      "precio": "3000"
     },
     {
       "id": 7,
       "nombre": "Pepsi",
-      "precio": "2000",
-      "habilitado": true
+      "precio": "2000"
+    },
+    {
+      "id": 8,
+      "nombre": "Jugo en Agua",
+      "precio": "4500"
     }
   ]
 }
