@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Ventas.css';
 
 const TotalVentas = () => {
@@ -28,7 +29,15 @@ const TotalVentas = () => {
 
   return (
     <div className="total-ventas-container">
+      {/* Botón de regreso */}
+      <Link to="/admin">
+        <button className="back-button">
+          <i className="fas fa-arrow-left"></i> Volver
+        </button>
+      </Link>
+      
       <h2>Total de Ventas</h2>
+      {/* Contenido de ventas */}
       {Object.entries(ventasPorMesero).map(([mesero, datos]) => (
         <div key={mesero} className="mesero-container">
           <div className="mesero-header">{mesero}</div>
