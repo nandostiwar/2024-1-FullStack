@@ -12,7 +12,7 @@ const PerfilMesero = ({}) => {
   const [pedido, setPedido] = useState([]);
   const [cantidadProducto, setCantidadProducto] = useState({});
   const [subtotalProductos, setSubtotalProductos] = useState({});
-  const [nombreMesero, setNombreMesero] = useState('');
+  
 
   useEffect(() => {
     const fetchProductos = async () => {
@@ -22,7 +22,7 @@ const PerfilMesero = ({}) => {
           throw new Error('Error al cargar los productos: ' + response.statusText);
         }
         const data = await response.json();
-        setProductos(data); // Modificar aquí si el servidor devuelve un array de productos directamente
+        setProductos(data); 
       } catch (error) {
         console.error('Error al cargar los productos:', error);
       }

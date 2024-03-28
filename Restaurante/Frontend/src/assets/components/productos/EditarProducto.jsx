@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi'; // Importa el icono de flecha izquierda
+import { Link } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi'; 
 import './EditarProducto.css';
 
 const EditarProducto = () => {
-  const { id } = useParams(); // Obtener el ID del producto a editar de los parámetros de la URL
+
 
   const [productos, setProductos] = useState([]);
   const [productoSeleccionado, setProductoSeleccionado] = useState('');
@@ -27,39 +27,56 @@ const EditarProducto = () => {
 
   useEffect(() => {
     cargarProductos();
-  }, []); // Se ejecuta solo una vez al cargar el componente
+  }, []); 
 
   const handleChangeProducto = (e) => {
     const { value } = e.target;
     setProductoSeleccionado(value);
-
+  
     // Obtener los datos del producto seleccionado
     const productoSeleccionadoData = productos.find(prod => prod.id === value);
-    setProducto(productoSeleccionadoData);
+    if (productoSeleccionadoData) {
+      setProducto(productoSeleccionadoData);
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProducto({ ...producto, [name]: value });
+    console.log();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(productoSeleccionado)
+
+    const idParseado = parseInt(productoSeleccionado);
+
+    const pedidoEditar = {
+      nuevoNombre: producto.nombre, 
+      nuevoPrecio: producto.precio,
+      id: idParseado
+    }
+
+    console.log('pedidoEditar');
+    console.log(pedidoEditar);
+
     try {
-      const response = await fetch(`http://localhost:4000/restaurante/productos/${id}`, {
-        method: 'PUT',
+      const response = await fetch(`http://localhost:4000/restaurante/productos`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(producto),
+        body: JSON.stringify(pedidoEditar),
       });
       const data = await response.json();
       // Manejar la respuesta del backend
     } catch (error) {
       console.error('Error al editar producto:', error);
-      // Mostrar mensaje de error al usuario
+      // Mostrar mensaje de error 
     }
   };
+  
 
   return (
     <div className="ProductoContainer">
@@ -69,7 +86,7 @@ const EditarProducto = () => {
         </Link>
       </div>
       <h2>Editar Producto</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="FormGroup">
           <label className="FormLabel">
             Producto:

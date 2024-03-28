@@ -171,6 +171,7 @@ const crearProducto = async (req, res) => {
 };
 
 const editarProducto = async (req, res) => {
+  console.log(req.body)
     try {
         const { id, nuevoNombre, nuevoPrecio } = req.body;
 
@@ -199,6 +200,8 @@ const editarProducto = async (req, res) => {
         console.error("Error al editar el producto:", error);
         res.status(500).json({ mensaje: "Error interno del servidor" });
     }
+
+    
 };
 
 const eliminarProducto = async (req, res) => {

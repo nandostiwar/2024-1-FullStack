@@ -28,11 +28,12 @@ router
   .put('/productos/:id/habilitar', restaurant.habilitarProducto)
   .get('/productos/:id', restaurant.obtenerProductos)
 
+  
+  .post('/productos',restaurant.editarProducto)
+
+
+
   .post('/pedidos', restaurant.crearPedido)
-
-
-
-
   .post('/login', restaurant.login)
   .post('/usuarios', restaurant.crearUsuario)
   .post('/productos', restaurant.crearProducto);

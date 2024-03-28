@@ -4,48 +4,42 @@
       "id": 1,
       "nombre": "Hamburguesa",
       "precio": 10000,
-      "categoria": "Comida rápida",
       "habilitado": true
     },
     {
       "id": 2,
       "nombre": "Pizza",
-      "precio": 15000,
-      "categoria": "Comida rápida",
+      "precio": "15000",
       "habilitado": true
     },
     {
       "id": 3,
-      "nombre": "Ensalada César",
-      "precio": 14000,
-      "categoria": "Ensaladas",
+      "nombre": "Pepsi",
+      "precio": "2000",
       "habilitado": true
     },
     {
       "id": 4,
       "nombre": "Sopa de Tomate",
       "precio": 5000,
-      "categoria": "Sopas",
       "habilitado": true
     },
     {
       "id": 5,
       "nombre": "Agua Mineral",
       "precio": 2000,
-      "categoria": "Bebidas",
       "habilitado": true
     },
     {
       "id": 6,
-      "nombre": "Refresco de cola",
-      "precio": 2500,
-      "categoria": "Bebidas",
+      "nombre": "Jugo Hit",
+      "precio": "3000",
       "habilitado": true
     },
     {
       "id": 7,
-      "nombre": "Coca cola",
-      "precio": 3000,
+      "nombre": "Pepsi",
+      "precio": "2000",
       "habilitado": true
     }
   ]
