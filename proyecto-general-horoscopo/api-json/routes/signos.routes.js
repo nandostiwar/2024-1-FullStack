@@ -4,6 +4,7 @@ const signoController = require('./controllers/signoController.js');
 router
     .get('/', signoController.getAllSignos)
     .get('/:signo', signoController.getOneSigno)
-    .patch('/:signoEditar', signoController.updateSigno)
+    .post('/signoEditar', signoController.updateSigno)
+    .post('/signo', signoController.consultarSigno)
 
 module.exports = router;
