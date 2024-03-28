@@ -300,15 +300,24 @@ const obtenerVentas = async (req, res) => {
     // Leer el archivo de ventas
     const data = await fs.readFile(ventasPath, 'utf8');
     const ventas = JSON.parse(data);
-    res.status(200).json(ventas);
-
     
+    // Agrupar las ventas por mesero y calcular el total de ventas por mesero
+    const ventasPorMesero = ventas.reduce((acc, venta) => {
+      if (!acc[venta.mesero]) {
+        acc[venta.mesero] = { ventas: [], totalVentas: 0 };
+      }
+      acc[venta.mesero].ventas.push(venta);
+      acc[venta.mesero].totalVentas += venta.totalVentas;
+      return acc;
+    }, {});
 
+    res.status(200).json(ventasPorMesero);
   } catch (error) {
     console.error('Error al obtener las ventas:', error);
     res.status(500).json({ mensaje: 'Error interno del servidor' });
   }
 };
+
 
 const agregarVenta = async (req, res) => {
   try {

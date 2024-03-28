@@ -58,7 +58,7 @@ const Cocina = () => {
 
         
         setPedidos(pedidos.filter(pedido => pedido.id !== id));        
-        obtenerVentas();
+        
     } catch (error) {
         console.error('Error al marcar el pedido como listo:', error);
     }

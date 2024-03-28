@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import './Ventas.css';
 
 const TotalVentas = () => {
-  const [ventas, setVentas] = useState([]);
+  const [ventasPorMesero, setVentasPorMesero] = useState({});
 
   const obtenerVentas = async () => {
     try {
@@ -16,8 +16,7 @@ const TotalVentas = () => {
         throw new Error('Error al cargar las ventas: ' + response.statusText);
       }
       const data = await response.json();
-      setVentas(data);
-      console.log(data);
+      setVentasPorMesero(data);
     } catch (error) {
       console.error('Error al obtener las ventas:', error);
     }
@@ -28,26 +27,30 @@ const TotalVentas = () => {
   }, []);
 
   return (
-    <div>
+    <div className="total-ventas-container">
       <h2>Total de Ventas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Mesero</th>
-            <th>Producto</th>
-            <th>Total Ventas</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ventas.map((venta, index) => (
-            <tr key={index}>
-              <td>{venta.mesero}</td>
-              <td>{venta.producto}</td>
-              <td>{venta.totalVentas}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {Object.entries(ventasPorMesero).map(([mesero, datos]) => (
+        <div key={mesero} className="mesero-container">
+          <div className="mesero-header">{mesero}</div>
+          <p className="total-ventas">Total Ventas: {datos.totalVentas}</p>
+          <table className="ventas-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Ventas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {datos.ventas.map((venta, index) => (
+                <tr key={index}>
+                  <td>{venta.producto}</td>
+                  <td>{venta.totalVentas}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
 };

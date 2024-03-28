@@ -73,5 +73,25 @@
     "mesero": "Karina",
     "producto": "Hamburguesa",
     "totalVentas": 30000
+  },
+  {
+    "mesero": "mariana",
+    "producto": "Hamburguesa, Pizza, Jugo en Agua, Agua Mineral",
+    "totalVentas": 41500
+  },
+  {
+    "mesero": "mariana",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "javier",
+    "producto": "Hamburguesa",
+    "totalVentas": 20000
+  },
+  {
+    "mesero": "mariana",
+    "producto": "Hamburguesa, Pizza",
+    "totalVentas": 25000
   }
 ]
