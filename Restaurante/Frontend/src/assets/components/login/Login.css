@@ -14,9 +14,10 @@
   flex-direction: column;
   gap: 35px;
   background: #e3e3e3;
-  box-shadow: 16px 16px 32px #c8c8c8,
-    -16px -16px 32px #fefefe;
-  border-radius: 8px;
+  box-shadow: 12px 9px 22px #373636,
+    -12px -9px 22px #373636;
+  border-radius: 10px;
+  border:2px solid#000;
 }
 
 .login {

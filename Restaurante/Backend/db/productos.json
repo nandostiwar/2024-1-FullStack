@@ -12,8 +12,9 @@
     },
     {
       "id": 3,
-      "nombre": "jugo en leche",
-      "precio": "5000"
+      "nombre": "jugo de mora",
+      "precio": "3000",
+      "habilitado": false
     },
     {
       "id": 4,
@@ -36,9 +37,9 @@
       "precio": "2000"
     },
     {
-      "id": 8,
-      "nombre": "Jugo en Agua",
-      "precio": "4500"
+      "id": 9,
+      "nombre": "Coctel De Everest",
+      "precio": "20000"
     }
   ]
 }

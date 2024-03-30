@@ -212,23 +212,24 @@ const editarProducto = async (req, res) => {
 };
 
 const eliminarProducto = async (req, res) => {
-    const { id } = req.params;
-    try {
-      const productosFile = await fs.readFile(path.join(__dirname, '../db/productos.json'), 'utf8');
-      const productosData = JSON.parse(productosFile);
-      const productoIndex = productosData.productos.findIndex(prod => prod.id === parseInt(id));
-      if (productoIndex === -1) {
-        return res.status(404).json({ mensaje: "Producto no encontrado" });
-      }
-      // Cambiar el valor de habilitado a false para "eliminar" el producto
-      productosData.productos[productoIndex].habilitado = false;
-      await fs.writeFile(path.join(__dirname, '../db/productos.json'), JSON.stringify(productosData, null, 2));
-      res.status(200).json({ mensaje: "Producto deshabilitado exitosamente" });
-    } catch (error) {
-      console.error("Error al deshabilitar el producto:", error);
-      res.status(500).json({ mensaje: "Error interno del servidor" });
+  const { id } = req.params;
+  try {
+    const productosFile = await fs.readFile(path.join(__dirname, '../db/productos.json'), 'utf8');
+    let productosData = JSON.parse(productosFile);
+    const productoIndex = productosData.productos.findIndex(prod => prod.id === parseInt(id));
+    if (productoIndex === -1) {
+      return res.status(404).json({ mensaje: "Producto no encontrado" });
     }
-  };
+    // Eliminar el producto del array
+    productosData.productos.splice(productoIndex, 1);
+    await fs.writeFile(path.join(__dirname, '../db/productos.json'), JSON.stringify(productosData, null, 2));
+    res.status(200).json({ mensaje: "Producto eliminado exitosamente" });
+  } catch (error) {
+    console.error("Error al eliminar el producto:", error);
+    res.status(500).json({ mensaje: "Error interno del servidor" });
+  }
+};
+
   
   
 

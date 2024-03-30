@@ -110,7 +110,7 @@ const EditarProducto = () => {
             <input className="FormInput" type="text" name="precio" value={producto.precio} onChange={handleChange} />
           </label>
         </div>
-        <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Usuario</button>
+        <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Producto</button>
       </form>
     </div>
   );

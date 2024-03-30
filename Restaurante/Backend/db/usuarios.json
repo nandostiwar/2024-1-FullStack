@@ -13,22 +13,10 @@
       "password": "1234"
     },
     {
-      "id": 3,
-      "username": "Karina",
-      "password": "1234",
-      "rol": "mesero"
-    },
-    {
       "id": 5,
       "username": "mariana",
       "rol": "mesero",
       "password": "12345"
-    },
-    {
-      "id": 6,
-      "username": "manuel",
-      "rol": "mesero",
-      "password": "1234"
     },
     {
       "id": 7,
