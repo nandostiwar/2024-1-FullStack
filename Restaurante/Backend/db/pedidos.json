@@ -46,5 +46,53 @@
     ],
     "total": 46000,
     "estado": "listo"
+  },
+  {
+    "id": 3,
+    "mesa": "4",
+    "mesero": "mariana",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Hamburguesa",
+        "precio": 10000,
+        "cantidad": 1
+      },
+      {
+        "id": 5,
+        "nombre": "Agua Mineral",
+        "precio": 2000,
+        "cantidad": 1
+      },
+      {
+        "id": 9,
+        "nombre": "Coctel De Everest",
+        "precio": "20000",
+        "cantidad": 2
+      }
+    ],
+    "total": 52000,
+    "estado": "procesando"
+  },
+  {
+    "id": 4,
+    "mesa": "5",
+    "mesero": "javier",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Hamburguesa",
+        "precio": 10000,
+        "cantidad": 3
+      },
+      {
+        "id": 3,
+        "nombre": "jugo de mora",
+        "precio": "3000",
+        "cantidad": 3
+      }
+    ],
+    "total": 39000,
+    "estado": "procesando"
   }
 ]

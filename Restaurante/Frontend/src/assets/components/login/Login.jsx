@@ -52,6 +52,7 @@ const Logueo = () => {
   };
 
   return (
+    <div className="login-background">
     <div className="container">
     <div className="card">
     <a className="login">SABOREATÉ</a>
@@ -82,6 +83,8 @@ const Logueo = () => {
     </form>
   </div>
 </div>
+</div>
+
   );
 };
 

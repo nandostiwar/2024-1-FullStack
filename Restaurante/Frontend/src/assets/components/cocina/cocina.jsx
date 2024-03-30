@@ -72,6 +72,7 @@ const Cocina = () => {
   };
 
   return (
+    <div className="cocina-background">
     <div className="CocinaContainer">
       <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
       <h2>Pedidos en Cocina</h2>
@@ -92,6 +93,7 @@ const Cocina = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
