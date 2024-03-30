@@ -6,7 +6,7 @@
 
 .cocina-background {
   background-color: #1f2937;
-  margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+  margin: 0; 
   padding: 0;
   align-items: flex-start;
   min-height: 100vh;

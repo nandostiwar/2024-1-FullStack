@@ -130,6 +130,7 @@ const PerfilMesero = ({}) => {
   };
 
   return (
+  <div className="mesero-background">
     <div className="FormContainer">
       <div className="BackButtonContainer">
         <Link to="/login" className="BackButton">
@@ -137,7 +138,7 @@ const PerfilMesero = ({}) => {
           Cerrar sesión
         </Link>
       </div>
-      <h2>Perfil del Mesero</h2>
+      
       <form onSubmit={handleSubmitPedido}>
         <div className="FormGroup">
           
@@ -191,6 +192,7 @@ const PerfilMesero = ({}) => {
         
       </form>
     </div>
+  </div>
   );
 };
 
