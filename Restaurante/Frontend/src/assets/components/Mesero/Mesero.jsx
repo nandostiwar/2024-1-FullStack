@@ -183,7 +183,7 @@ const PerfilMesero = ({}) => {
             Estado del Pedido:
             <select className="FormSelect" value={estadoPedido} onChange={(e) => setEstadoPedido(e.target.value)}>
               <option value="procesando">Procesando</option>
-              <option value="listo">Listo</option>
+              
             </select>
           </label>
         </div>
