@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Mesero.css";
 import Sidebar from "../shared/sidebar/Sidebar";
 import axios from "axios";
+import { SweetAlerts } from "../../core/SweetAlertServices";
 
 function MeseroModule() {
   const [mesaSeleccionada, setMesaSeleccionada] = useState("");
@@ -53,12 +54,12 @@ function MeseroModule() {
   const enviarPedido = async () => {
 
     console.log(localStorage.getItem('dataUser'));
-    console.log(localStorage.getItem('dataUser'));
     const enviarPedido = {
       id:null,
       usuario: localStorage.getItem('dataUser'),
       total: totalPedido,
       mesa: mesaSeleccionada,
+      estado: 'P',
       items: pedido.map(item => item)
     };
 
@@ -67,6 +68,11 @@ function MeseroModule() {
 
     const guardarPedido = await axios.post('http://localhost:4000/restaurant/addSale', enviarPedido);
     console.log(guardarPedido.data);
+    if (guardarPedido.data.status === 200) {
+      SweetAlerts.successAlert(guardarPedido.data.message)
+    }
+
+    setPedido([]);
   };
 
   const handleMesa = (event) => {
@@ -83,22 +89,24 @@ function MeseroModule() {
             <div className="plato-card" key={plato.id}>
               <h3>{plato.name}</h3>
               <p>Precio: ${plato.price}</p>
+              <p>{plato.description}</p>
               <button onClick={() => agregarPlato(plato)}>Agregar al Pedido</button>
             </div>
           ))}
         </div>
         <div className="pedido-lista">
           <h2>Pedido del Cliente</h2>
-          <label htmlFor="mesa">Mesa:</label>
-          <select id="mesa" name="mesa" onChange={handleMesa} value={mesaSeleccionada}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
           {pedido.length > 0 ? (
             <>
-              <ul>
+              <label htmlFor="mesa">Mesa:</label>
+              <select id="mesa" name="mesa" onChange={handleMesa} value={mesaSeleccionada} className="select-mesa">
+                <option value="">Seleccionar mesa</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <ul className="pedido">
                 {pedido.map((item, index) => (
                   <li key={index}>
                     {item.plato.name} - ${item.plato.price} x {item.cantidad}

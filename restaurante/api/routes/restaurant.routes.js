@@ -16,5 +16,7 @@ router
     .get('/deleteDish/:id', dishesController.deleteDish)
     .post('/addSale', salesController.addSales)
     .get('/getSales', salesController.getSales)
+    .get('/orderPlaced/:id', salesController.orderPlaced)
+    .get('/getCompleteSales', salesController.getCompleteSales)
 
 module.exports = router;

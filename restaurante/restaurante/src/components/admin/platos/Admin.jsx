@@ -81,9 +81,10 @@ function Admin() {
 
     const eliminarPlato = await axios.get(`http://localhost:4000/restaurant/deleteDish/${id}`);
     console.log(eliminarPlato.data.payload);
-    if (eliminarPlato.data.message === 200) {
-      SweetAlerts.successAlert(eliminarPlato.data.status);
-      setPlatos(eliminarPlato.data.payload.disehs);
+    
+    if (eliminarPlato.data.status === 200) {
+      SweetAlerts.successAlert(eliminarPlato.data.message);
+      setPlatos(eliminarPlato.data.payload.dishes);
     }
   };
 

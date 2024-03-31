@@ -1,5 +1,4 @@
 .mesero-module {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -110,4 +109,8 @@
 .total-pedido {
   margin-top: 2rem;
   font-weight: bolder;
+}
+
+.select-mesa {
+  margin-bottom: 1rem;
 }
