@@ -96,7 +96,7 @@ function Admin() {
           <h2>Crear Nuevo Plato de Comida</h2>
           <form onSubmit={handleSubmit} className="form-platos">
             <div className="platos-group">
-              <label htmlFor="nombre">Nombre del Plato:</label>
+              <label htmlFor="nombre">Nombre:</label>
               <input type="text" id="name" name="name" value={plato.name} onChange={handleChange} required />
             </div>
             <div className="platos-group">
