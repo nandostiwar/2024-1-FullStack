@@ -1,5 +1,6 @@
 import './App.css';
-import Form from './components/Form';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 import UserHome from './components/UserHome';
 import AdminHome from './components/AdminHome';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'; 
@@ -11,25 +12,13 @@ function App() {
     <BrowserRouter>
       {/* <Navigation/> */}
       <Routes>
-        <Route index element={<Form callback={setUser}/>}></Route>
+        <Route index element={<Login callback={setUser}/>}></Route>
+        <Route path='/dashboard' element={<Dashboard user={user}/>}></Route>
         <Route path='/userHome' element={<UserHome user={user}/>}></Route>
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
       </Routes>
     </BrowserRouter>
   )
 }
-
-// function Navigation(){
-//   return <nav>
-//     <ul>
-//       <li>
-//         <Link to="/userHome">userHome</Link>
-//       </li>
-//       <li>
-//         <Link to="/adminHome">adminHome</Link>
-//       </li>
-//     </ul>
-//   </nav>
-// }
 
 export default App

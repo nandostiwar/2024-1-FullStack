@@ -1,3 +1,43 @@
-body{
-    background-color: rgb(199, 145, 250);
+:root {
+    --br-font-family: 'Poppins', sans-serif;
+    --br-font-weight: 500;
+    --br-radius: 8px;
+
+    /* Colors */
+    --br-color-white: #fff;
+    --br-color-primary: #2B2A4C;
+
+}
+
+* {
+    font-family: var(--br-font-family);
+    color: var(--br-color-white);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12pt;
+}
+
+body {
+    background: var(--br-color-primary);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, p, small {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.btn-primary-white {
+    background: var(--br-color-white);
+    color: var(--br-color-primary);
+
+}
+.btn-primary-white:hover {
+    border: 1px solid var(--br-color-white);
 }

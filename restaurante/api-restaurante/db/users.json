@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "user": "jhonatan@gmail.com",
+        "password": "12",
+        "role": "admin",
+        "activate": "true"
+    },
+    {
+        "id": "2",
+        "user": "fernando@gmail.com",
+        "password": "12",
+        "role": "mesero",
+        "activate": "true"
+    },
+    {
+        "id": "3",
+        "user": "munoz@hotmail.com",
+        "password": "12",
+        "role": "cocina",
+        "activate": "true"
+    }
+]

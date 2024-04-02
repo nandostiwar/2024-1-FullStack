@@ -14,7 +14,7 @@ function AdminHome({user}){
         const signo = event.target.value;
         if(signo!=="0"){
             setSignoEditar(signo);
-        } 
+        }
     }
 
     function goHome(){
