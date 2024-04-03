@@ -27,7 +27,7 @@ function Dashboard({user}){
             <div className='dashboard__content'>
                 {user.role === 'admin' && <DashboardAdmin />}
                 {user.role === 'cocina' && <DashboardCocina />}
-                {user.role === 'mesero' && <DashboardMesero />}
+                {user.role === 'mesero' && <DashboardMesero userName={user.user} />}
             </div>
         </div>
     )

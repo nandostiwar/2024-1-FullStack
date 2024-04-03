@@ -1,5 +1,3 @@
-import './../styles/DashboardAdmin.css'
-
 import AdminUsers from './Admin/Users'
 import AdminProducts from './Admin/Products'
 import AdminSales from './Admin/Sales'

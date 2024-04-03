@@ -66,3 +66,7 @@ table thead th:last-child {
 .btn-secondary-violet:hover {
     border: 1px solid var(--br-color-primary);
 }
+
+.table-cocina {
+    width: 50%;
+}

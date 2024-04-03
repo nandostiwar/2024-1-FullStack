@@ -1,1 +1,23 @@
-[{"id":"1","user":"admin@gmail.com","password":"12","role":"admin","activate":"true"},{"id":"2","user":"mesero@gmail.com","password":"12","role":"mesero","activate":"true"},{"id":"4","user":"cocina@gmail.com","password":"12","role":"cocina","activate":true}]
+[
+  {
+    "id": "1",
+    "user": "admin@gmail.com",
+    "password": "12",
+    "role": "admin",
+    "activate": "true"
+  },
+  {
+    "id": "2",
+    "user": "mesero@gmail.com",
+    "password": "12",
+    "role": "mesero",
+    "activate": true
+  },
+  {
+    "id": "4",
+    "user": "cocina@gmail.com",
+    "password": "12",
+    "role": "cocina",
+    "activate": true
+  }
+]

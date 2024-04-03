@@ -26,13 +26,12 @@ function DashboardAdminSales(){
                     <tr>
                         <th width="30%">Mesero</th>
                         <th width="10%">Mesa</th>
-                        <th width="30%">Pedido</th>
-                        <th width="20%">Estado</th>
+                        <th width="50%">Pedido</th>
                         <th width="10%">Precio</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {sales.map((sale, index) => (
+                    {sales.filter(sale => sale.estado === "listo").map((sale, index) => (
                     <tr key={index}>
                         <td>{sale.mesero}</td>
                         <td>{sale.mesa}</td>
@@ -40,12 +39,11 @@ function DashboardAdminSales(){
                             <ul>
                                 {sale.productos.map((product, i) => (
                                     <li key={i}>
-                                        {product.cantidad} - {product.producto} - ${product.total}
+                                        {product.cantidad} - {product.producto}
                                     </li>
                                 ))}
                             </ul>
                         </td>
-                        <td>{sale.estado}</td>
                         <td>${sale.totalventa}</td>
                     </tr>
                     ))}

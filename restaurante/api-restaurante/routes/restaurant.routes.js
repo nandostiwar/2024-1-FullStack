@@ -26,6 +26,8 @@ router
 
 // sales
 router
-    .get('/sales', salesController.getAllSales);
+    .get('/sales', salesController.getAllSales)
+    .post('/sales', salesController.createSales)
+    .put('/sale', salesController.updateSale);
 
 module.exports = router;
