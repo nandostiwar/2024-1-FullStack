@@ -1,0 +1,23 @@
+{
+  "0": {
+    "id": "0033",
+    "user": "admin",
+    "password": "admin",
+    "role": "admin",
+    "activate": true
+  },
+  "1": {
+    "id": "0043",
+    "user": "mesero",
+    "password": "mesero",
+    "role": "mesero",
+    "activate": true
+  },
+  "2": {
+    "id": "8888",
+    "user": "cocina",
+    "password": "cocina",
+    "role": "cocina",
+    "activate": true
+  }
+}
