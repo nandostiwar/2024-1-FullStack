@@ -1,0 +1,44 @@
+[
+    {
+        "id": "KJSDG674GSDEBS",
+        "mesero": "pedro",
+        "mesa": "4",
+        "estado": "proceso",
+        "productos": [
+            {
+                "producto":"hamburguesa",
+                "cantidad": "2",
+                "nota": "sin cebolla",
+                "total": "30000"
+            },
+            {
+                "producto":"pizza",
+                "cantidad": "2",
+                "nota": "borde queso",
+                "total": "40000"
+            },
+            {
+                "producto":"mateada",
+                "cantidad": "4",
+                "nota": "granizada",
+                "total": "40000"
+            }
+        ],
+        "totalventa": "110000"
+    },
+    {
+        "id": "KJSDG674GSDEBS",
+        "mesero": "juan",
+        "mesa": "10",
+        "estado": "listo",
+        "productos": [
+            {
+                "producto":"Margarita",
+                "cantidad": "1",
+                "nota": "doble tequila",
+                "total": "45000"
+            }
+        ],
+        "totalventa": "45000"
+    }
+]
