@@ -3,6 +3,7 @@ const router = express.Router();
 const restaurantController = require('./controllers/restaurantController.js');
 const userController = require('./controllers/userController.js');
 const productController = require('./controllers/productController.js');
+const salesController = require('./controllers/salesController.js');
 
 // restaurant
 router.get('/', restaurantController.getRestaurant);
@@ -22,5 +23,9 @@ router
     .post('/product', productController.createProduct)
     .delete('/product', productController.deleteProduct)
     .put('/product', productController.updateProduct);
+
+// sales
+router
+    .get('/sales', salesController.getAllSales);
 
 module.exports = router;
