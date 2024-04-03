@@ -20,7 +20,7 @@ function UserHome({user}){
             fetch(`http://localhost:4000/v1/signos/${signo}`)
                 .then(response => response.json())
                 .then(responseData => setTextoSigno(responseData))
-        } 
+        }
     }
 
     return (

@@ -3,8 +3,6 @@ const path = require('path');
 
 const login = async (req, res)=>{
     const {username, password} = req.body;
-    // const username = req.params.username;
-    // const password = req.params.password;
 
     const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
     const objUsers = JSON.parse(allUsers);
@@ -39,8 +37,72 @@ const getUser = async (req, res)=>{
     }
 }
 
+const createUser = async (req, res)=>{
+    try {
+        const allUsers = await fs.readFile(path.join(__dirname,'../../db/users.json'));
+        const objUsers = JSON.parse(allUsers);
+
+        const userExists = objUsers.find(user => user.user === req.body.user);
+        if (userExists) {
+            return res.status(400).json({ error: "Ya existe un usuario con ese nombre" });
+        }
+
+        objUsers.push(req.body);
+
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
+
+        res.json(req.body);
+    } catch (error) {
+        console.error("Error al crear usuario:", error);
+        res.status(500).json({ error: "Error al crear usuario" });
+    }
+}
+
+const deleteUser = async (req, res)=>{
+    try {
+        const userDelete = req.params.user;
+        const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
+        let objUsers = JSON.parse(allUsers);
+
+        const indexToDelete = objUsers.findIndex(user => user.user === userDelete);
+
+        objUsers.splice(indexToDelete, 1);
+
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
+
+        res.json({ message: "Usuario eliminado correctamente" });
+    } catch (error) {
+        console.error("Error al eliminar usuario:", error);
+        res.status(500).json({ error: "Error al eliminar usuario" });
+    }
+}
+
+const updateUser = async (req, res) => {
+    try {
+        const username = req.body.user;
+        const updatedUserData = req.body;
+
+        const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
+        let objUsers = JSON.parse(allUsers);
+
+        const userToUpdateIndex = objUsers.findIndex(user => user.user === username);
+
+        objUsers[userToUpdateIndex] = { ...objUsers[userToUpdateIndex], ...updatedUserData };
+
+        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
+
+        res.json(req.body);
+    } catch (error) {
+        console.error("Error al actualizar usuario:", error);
+        res.status(500).json({ error: "Error al actualizar usuario" });
+    }
+}
+
 module.exports = {
     login,
     getAllUsers,
-    getUser
+    getUser,
+    createUser,
+    deleteUser,
+    updateUser
 }

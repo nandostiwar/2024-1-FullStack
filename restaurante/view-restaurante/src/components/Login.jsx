@@ -26,7 +26,7 @@ function Login({callback}){
             if (data.error) {
                 setError(data.error);
             } else {
-                callback(data.role);
+                callback(data);
                 goTo("/dashboard");
                 console.log("Inicio de sesión exitoso");
             }

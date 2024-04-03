@@ -1,0 +1,24 @@
+.dashboard {
+    color: var(--br-color-white);
+}
+.dashboard__toolbar {
+    background: var(--br-color-white);
+    color: var(--br-color-primary) !important;
+    align-content: center;
+    height: 70px;
+    padding: 0px 20px;
+}
+
+.dashboard__toolbar_picture {
+    width: 60px;
+    height: 60px;
+    background: red;
+    border-radius: 100px;
+    background: center / contain no-repeat url("https://www.latercera.com/resizer/Jw37YLm2lX8o_akIpM57enxchxA=/arc-anglerfish-arc2-prod-copesa/public/XQP24CTNQND2TBDZ7AQN54D44Y.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dashboard__content {
+    padding: 20px;
+}
