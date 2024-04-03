@@ -98,22 +98,21 @@ function DashboardMesero({ userName }){
     }
 
     const deleteProductFromOrder = (productIndex) => {
-        const updatedOrder = [...order];
-        const deletedProductTotal = updatedOrder?.productos[productIndex]?.total ? updatedOrder.productos[productIndex].total : 0;
+        const updatedOrder = { ...order, productos: [...order.productos] };
+        const deletedProductTotal = order?.productos[productIndex]?.total ? updatedOrder.productos[productIndex].total : 0;
         updatedOrder.productos.splice(productIndex, 1);
 
         if (updatedOrder.productos.length === 0) {
-            updatedOrder.splice(orderIndex, 1);
-            if (updatedOrder.length === 0) {
-                setOrderCreated(false);
-            }
+            setOrder({});
+            setOrderCreated(false);
         } else {
             const newTotal = calculateTotal(updatedOrder?.productos);
             updatedOrder.totalventa -= deletedProductTotal;
             updatedOrder.totalventa = newTotal;
+
+            setOrder(updatedOrder);
         }
 
-        setOrder(updatedOrder);
     };
 
     useEffect(() => {
