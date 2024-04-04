@@ -1,21 +1,21 @@
 [
   {
     "id": "1",
-    "user": "admin@gmail.com",
+    "user": "admin",
     "password": "12",
     "role": "admin",
     "activate": "true"
   },
   {
     "id": "2",
-    "user": "mesero@gmail.com",
+    "user": "mesero",
     "password": "12",
     "role": "mesero",
     "activate": true
   },
   {
     "id": "4",
-    "user": "cocina@gmail.com",
+    "user": "cocina",
     "password": "12",
     "role": "cocina",
     "activate": true
