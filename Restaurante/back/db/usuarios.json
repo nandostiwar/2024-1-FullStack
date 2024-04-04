@@ -1,0 +1,37 @@
+{
+  "mesero": {
+    "username": "mesero",
+    "password": "mesero2023",
+    "rol": "mesero"
+  },
+  "cocinero": {
+    "username": "cocinero",
+    "password": "cocinero2023",
+    "rol": "cocinero"
+  },
+  "admin": {
+    "username": "admin",
+    "password": "admin2023",
+    "rol": "admin"
+  },
+  "fgxdfg": {
+    "username": "fgxdfg",
+    "password": "23234",
+    "rol": "admin"
+  },
+  "david": {
+    "username": "david",
+    "password": "david",
+    "rol": "admin"
+  },
+  "nando": {
+    "username": "nando",
+    "password": "123",
+    "rol": "admin"
+  },
+  "carlos": {
+    "username": "carlos",
+    "password": "123",
+    "rol": "admin"
+  }
+}

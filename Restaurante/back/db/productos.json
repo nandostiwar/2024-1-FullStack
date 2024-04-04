@@ -1,0 +1,18 @@
+{
+    "0": {
+        "nombreproduc": "Hamburguesa",
+        "precio": "20000"
+    },
+    "1": {
+        "nombreproduc": "Pizza",
+        "precio": "30000"
+    },
+    "2": {
+        "nombreproduc": "Perro Caliente",
+        "precio": "10000"
+    },
+    "3": {
+        "nombreproduc": "Gaseosa Cocacola",
+        "precio": "6000"
+    }
+}

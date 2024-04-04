@@ -1,0 +1,77 @@
+body{
+    justify-content: center;
+    text-align: center;
+}
+
+.entry{
+    border-radius: 10px;
+    padding: 10px 20px 10px 35px;
+}
+
+form {
+    padding: 20px;
+    padding-top: 10vh;
+    max-width: 400px; 
+    margin: 80px auto;
+    background-color: #f9f9f9;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); 
+    padding: 10px; 
+    margin: 0px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+#btnIrLogin{
+    margin-top: 20px;
+    background-color: rgb(48, 27, 238);
+    padding: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+#btnGuardar{
+    margin-top: 20px;
+    background-color: rgb(48, 27, 238);
+    padding: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.txt{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black
+}
+
+#txtBienvenida{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    color: black;
+}

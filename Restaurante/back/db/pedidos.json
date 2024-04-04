@@ -1,0 +1,48 @@
+[
+    {
+        "id": "P001",
+        "mesero": "pedro",
+        "estado": "proceso",
+        "productos": [
+            {
+                "nombre":"Hamburguesa",
+                "cantidad":2,
+                "total": "30000",
+                "nota": "sin cebolla"
+            },
+            {
+                "nombre":"Pizza",
+                "cantidad":1,
+                "total": "50000",
+                "nota": ""
+            },
+            {
+                "nombre":"Malteada",
+                "cantidad":3,
+                "total": "40000",
+                "nota": ""
+            }
+        ],
+        "totalventa": "120000"
+    },
+    {
+        "id": "P002",
+        "mesero": "juan",
+        "estado": "proceso",
+        "productos": [
+            {
+                "nombre":"Hamburguesa",
+                "cantidad":5,
+                "total": "60000",
+                "nota": ""
+            },
+            {
+                "nombre":"Coctel",
+                "cantidad":3,
+                "total": "40000",
+                "nota": ""
+            }
+        ],
+        "totalventa": "100000"
+    }
+]
