@@ -74,7 +74,7 @@ const Cocina = () => {
                         Marcar como listo
                       </button>
                     )}
-                    <button className="btn-salir" onClick={handleSalir}>Salir</button>
+                    {/* <button className="btn-salir" onClick={handleSalir}>Salir</button> */}
                   </td>
                 </tr>
               )

@@ -1,27 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Old+South+Arabian&family=Workbench&display=swap');
 
-/* .fondo-login {
-    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/620/658/desktop-wallpaper-mia-khalifa-backgrounds-mia-khalifa.jpg');
-    background-size: cover;
-
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}  */
-
-  /* body {
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    background: linear-gradient(#141e30, #243b55);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
-  } */
   
   .fondo-form {
     background: linear-gradient(#141e30, #243b55);
