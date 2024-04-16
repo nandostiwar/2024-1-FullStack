@@ -69,7 +69,7 @@ const crearUsuario = async (req, res) => {
   };
 
   const editarUsuario = async (req, res) => {
-    const { id } = req.params; // Aquí capturas el ID del usuario de los parámetros de la ruta
+    const { id } = req.params; 
     try {
       const { newUsername, newPassword, newRol } = req.body; // Solo capturas los nuevos datos del usuario
   

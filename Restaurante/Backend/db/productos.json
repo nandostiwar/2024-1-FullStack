@@ -2,8 +2,8 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Hamburguesa",
-      "precio": 10000
+      "nombre": "Hamburguesa grande",
+      "precio": "15000"
     },
     {
       "id": 2,
