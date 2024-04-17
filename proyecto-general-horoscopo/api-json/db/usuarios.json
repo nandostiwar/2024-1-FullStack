@@ -1,0 +1,19 @@
+{
+    "usuarios": [
+        {
+            "nombre": "admin",
+            "contrasena": "123",
+            "rol": "admin"
+        },
+        {
+            "nombre": "mesero",
+            "contrasena": "123",
+            "rol": "mesero"
+        },
+        {
+            "nombre": "cocinero",
+            "contrasena": "123",
+            "rol": "cocinero"
+        }
+    ]
+}

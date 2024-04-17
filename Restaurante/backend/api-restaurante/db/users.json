@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "user": "admin",
+    "password": "12",
+    "role": "admin",
+    "activate": "true"
+  },
+  {
+    "id": "2",
+    "user": "mesero",
+    "password": "12",
+    "role": "mesero",
+    "activate": true
+  },
+  {
+    "id": "4",
+    "user": "cocina",
+    "password": "12",
+    "role": "cocina",
+    "activate": true
+  },
+  {
+    "id": 1,
+    "user": "jhontan",
+    "password": "12",
+    "role": "admin",
+    "activate": true
+  }
+]

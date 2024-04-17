@@ -1,0 +1,48 @@
+body {
+    justify-content: center;
+    text-align: center;
+    background-image: url('../Imagen/login.jpg'); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Para cubrir todo el fondo */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-position: center center; /* Posición de la imagen en el fondo */
+}
+
+.login-container {
+    padding: 20px;
+    padding-top: 10%;
+    background-color: rgba(0, 0, 0, 0.5); /* Contenedor un poco más oscuro */
+    border-radius: 10px; /* Añade bordes redondeados al contenedor */
+    width: 300px; /* Ancho del contenedor login */
+    margin: auto; /* Centra el contenedor en la página */
+}
+
+.entry {
+    border-radius: 10px;
+    padding: 10px 20px 10px 35px;
+}
+
+form {
+    padding: 20px;
+}
+
+#btnEnviar {
+    margin-top: 20px;
+    background-color: bluegray; /* Cambia el color del botón */
+    padding: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.txt {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: bluegray; /* Cambia el color de las letras de las clases nombre de usuario y contraseña */
+}
+
+#txtBienvenida {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    color: rgb(214, 200, 200);
+}
