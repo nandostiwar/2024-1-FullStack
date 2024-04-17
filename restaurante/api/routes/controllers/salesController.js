@@ -53,7 +53,7 @@ const orderPlaced = async(req, res) => {
         response(res, {payload: salesJson});
         
     } catch (error) {
-        console.log("Error -> ", error.message);
+        console.log("Error -> ", error.message);cdcd
         return res.status(500).json(error.message);
     }
 }

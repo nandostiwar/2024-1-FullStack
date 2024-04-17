@@ -7,7 +7,7 @@ import { SweetAlerts } from "../../../core/SweetAlertServices";
 function CrearUsuario() {
   const initialVal = {
     rol: "2",
-    username: "",
+    name: "",
     password: "",
   };
 
@@ -18,7 +18,7 @@ function CrearUsuario() {
     const getUsers = async () => {
       try {
         const resp = await axios.get("http://localhost:4000/restaurant/getUsers");
-        setobjUsers(resp.data.payload["users"]);
+        setobjUsers(resp.data.payload);
       } catch (error) {
         console.error("Error al obtener usuarios:", error);
       }
@@ -38,7 +38,7 @@ function CrearUsuario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const crearNuevoUsuario = await axios.post("http://localhost:4000/restaurant/crateUser", userData);
+    const crearNuevoUsuario = await axios.post("http://localhost:4000/restaurant/createUser", userData);
     console.log(crearNuevoUsuario.data);
     SweetAlerts.successAlert(crearNuevoUsuario.data.message);
     setUserData(initialVal);
@@ -62,8 +62,8 @@ function CrearUsuario() {
               </select>
             </div>
             <div className="crearUsuario">
-              <label htmlFor="username">Nombre de Usuario:</label>
-              <input type="text" id="username" name="username" value={userData.username} onChange={handleChange} required />
+              <label htmlFor="name">Nombre de Usuario:</label>
+              <input type="text" id="name" name="name" value={userData.name} onChange={handleChange} required />
             </div>
             <div className="crearUsuario">
               <label htmlFor="password">Contraseña:</label>
@@ -88,7 +88,7 @@ function CrearUsuario() {
               {Object.entries(objUsers).map(([index, user]) => {
                 return (
                   <tr key={index} className="user-row">
-                    <td>{user.username}</td>
+                    <td>{user.name}</td>
                     <td>{user.password}</td>
                     <td>{user.rol}</td>
                   </tr>

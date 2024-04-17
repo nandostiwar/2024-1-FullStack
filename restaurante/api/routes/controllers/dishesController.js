@@ -2,28 +2,16 @@ const fs = require('fs/promises');
 const path = require('path');
 const { response } = require("../helpers/dataResponse");
 const dbDishes = fs.readFile(path.join(__dirname,'../../db/dishes.json'));
+const { DishModel } = require('../../database/models/dish.schema');
+
 
 const newDish = async (req, res) => {
     try {
         console.log(req.body);
-        const dishes = await dbDishes;
-        const dishesJson = await JSON.parse(dishes);
-        const { id, name, price, description } = req.body;
-        if(id.trim() == '') {
-            let maxId = 0;
-            for (const dish of dishesJson.dishes) {
-                console.log(dish.id);
-                if (dish.id > maxId) {
-                    maxId = dish.id;
-                    console.log('enrto');
-                }
-            }
-            maxId += 1;
-            const newDish = { id: maxId, name, price, description }
-            dishesJson.dishes.push(newDish);
-            await fs.writeFile(path.join(__dirname,'../../db/dishes.json'), JSON.stringify(dishesJson, null, 2), {encoding: 'utf-8'})
-            response(res, { payload: dishesJson, msg: "Se creo un nuevo plato" });
-        }
+        const { name, price, description } = req.body;
+        await DishModel.create({name, price, description})
+        const dishes = await getAllDishes();
+        response(res, { payload: dishes, msg: "Se creo el plato" });
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
@@ -32,28 +20,19 @@ const newDish = async (req, res) => {
 
 const updateDish = async (req, res) => {
     try {
+        console.log('Plato update');
         console.log(req.body);
-        const dishes = await dbDishes;
-        const dishesJson = await JSON.parse(dishes);
-        const { id, name, price, description } = req.body;
-        console.log('opa');
-        const positionDish = dishesJson.dishes.findIndex(dish => dish.id === id);
-        console.log('este es', positionDish);
-        if (positionDish !== -1) {
-            dishesJson.dishes.splice(positionDish, 1);
-            const updateDish = {
-                id,
-                name,
-                price,
-                description
-            };
-            dishesJson.dishes.splice(positionDish, 0, updateDish);
-            console.log("Plato eliminado y reemplazado:", dishesJson.dishes[positionDish]);
-            response(res, { payload: dishesJson, msg: "Se actualizo el plato" });
-
-        } else {
-            console.log("Plato con el ID especificado no encontrado.");
-        }
+        const { _id, name, price, description } = req.body;
+        const dish = {
+            name,
+            price,
+            description
+        };
+        await DishModel.updateOne({_id}, dish);
+        
+        const dishes = await getAllDishes();
+        response(res, { payload: dishes, msg: "Se actualizo el plato" });
+        
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
@@ -62,9 +41,10 @@ const updateDish = async (req, res) => {
 
 const getDishes = async (req, res) => {
     try {
-        const dishes = await dbDishes;
-        const dishesJson = JSON.parse(dishes);
-        response(res, {payload: dishesJson});
+        const dishes = await getAllDishes();
+        console.log('dishes>>>>');
+        console.log(dishes);
+        response(res, {payload: dishes});
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
@@ -73,16 +53,19 @@ const getDishes = async (req, res) => {
 
 const deleteDish = async (req, res) => {
     try {
-        const dishes = await dbDishes;
-        const dishesJson = await JSON.parse(dishes);
-        const positionDish = dishesJson.dishes.findIndex(dish => dish.id == req.params.id);
-        dishesJson.dishes.splice(positionDish, 1);
-        await fs.writeFile(path.join(__dirname,'../../db/dishes.json'), JSON.stringify(dishesJson, null, 2), {encoding: 'utf-8'})
-        response(res, {payload: dishesJson, msg: "Se elimino el plato correctamente."});
+        const _id = req.params.id;
+        const deleteDish = await DishModel.deleteOne({_id})
+        const dishes = await DishModel.find();
+        response(res, {payload: dishes, msg: "Se elimino el plato correctamente."});
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
     }
+}
+
+const getAllDishes = async () => {
+    const dishes = await DishModel.find();
+    return dishes;
 }
 
 module.exports = {

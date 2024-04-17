@@ -22,7 +22,7 @@ function Admin() {
   const getDishes = async () => {
     const dbDisehs = await axios.get("http://localhost:4000/restaurant/getDishes");
     console.log(dbDisehs);
-    setPlatos(dbDisehs.data.payload.dishes)
+    setPlatos(dbDisehs.data.payload)
 
   }
 
@@ -44,8 +44,9 @@ function Admin() {
       console.log(actualizarPlato);
       if (actualizarPlato.data.status === 200) {
         SweetAlerts.successAlert(actualizarPlato.data.message)
-        setPlatos(actualizarPlato.data.payload.dishes);
+        setPlatos(actualizarPlato.data.payload);
         setEditIndex(null);
+        setPlato(null);
       }
     } 
     else {
@@ -61,7 +62,7 @@ function Admin() {
       console.log(crearPlato.data);
       if (crearPlato.data.status === 200) {
         SweetAlerts.successAlert(crearPlato.data.message)
-        setPlatos(crearPlato.data.payload.dishes)
+        setPlatos(crearPlato.data.payload)
       }
     }
     setPlato({
@@ -77,14 +78,13 @@ function Admin() {
     setEditIndex(index);
   };
 
-  const handleDelete = async (id) => {
-
-    const eliminarPlato = await axios.get(`http://localhost:4000/restaurant/deleteDish/${id}`);
-    console.log(eliminarPlato.data.payload);
-    
+  const handleDelete = async (_id) => {
+    const eliminarPlato = await axios.get(`http://localhost:4000/restaurant/deleteDish/${_id}`);
     if (eliminarPlato.data.status === 200) {
       SweetAlerts.successAlert(eliminarPlato.data.message);
-      setPlatos(eliminarPlato.data.payload.dishes);
+      setPlatos(eliminarPlato.data.payload);
+    } else {
+      SweetAlerts.successAlert('Error al eliminar plato.');
     }
   };
 
@@ -127,14 +127,14 @@ function Admin() {
                 <tbody>
                   {platos.map((plato, index) => (
                     <tr key={index}>
-                      <td>{plato.id}</td>
+                      <td>{index}</td>
                       <td>{plato.name}</td>
                       <td>{plato.price}</td>
                       <td>{plato.description}</td>
                       <td>
                         <a className="btn-opciones">
                           <i onClick={() => handleEdit(index)} className="editar fas fa-edit fa-lg"></i>
-                          <i onClick={() => handleDelete(plato.id)} className="eliminar fas fa-trash-alt fa-sm"></i>
+                          <i onClick={() => handleDelete(plato._id)} className="eliminar fas fa-trash-alt fa-sm"></i>
                         </a>
                       </td>
                     </tr>

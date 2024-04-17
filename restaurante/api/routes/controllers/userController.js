@@ -2,67 +2,62 @@ const fs = require('fs/promises');
 const path = require('path');
 const { response } = require("../helpers/dataResponse");
 const dbUser = fs.readFile(path.join(__dirname,'../../db/users.json'));
+const { UserModel } = require('../../database/models/user.schema')
+
 
 const authUser = async (req, res)=>{
+    console.log('user');
     try {
-        const { username, password } = req.body
-        // console.log(req.body, 'asdasd');
+        const { name, password } = req.body
+        const user = await UserModel.findOne({name})
 
-        const users = await dbUser;
-        const usersJson = JSON.parse(users)
-
-        const usuarioEncontrado = usersJson.users.find((usuario) => {
-            return (usuario.username === username && usuario.password === password) ;
-        });
-        // console.log(usuarioEncontrado);
-
-        if (usuarioEncontrado) {
-            response(res, { payload: usuarioEncontrado, msg: "Se inicio Sesion correctamente" });
-        } else {
-            response(res, { msg: "Error al  consultar usuario", statusCode: 404 });
+        if (user) {
+            if(user.password === password) {
+                response(res, { payload: user, msg: "Se inicio Sesion correctamente" });
+            } else {
+                response(res, { msg: "Error al  consultar usuario", statusCode: 404 });
+            }
+        }else {
+            response(res, { msg: "Usuario y/o contraseña incorrecta.", statusCode: 404 });
         }
     }  catch (error) {
-        // console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
     }
 }
 
 const getUsers = async (req, res) => {
-    const users = await dbUser;
-    const usersJson = JSON.parse(users)
-    // console.log(usersJson.users);
-
-    response(res, {payload: usersJson, msg:""});
+    try {
+        const users = await UserModel.find();
+        response(res, {payload: users});
+    } catch (error) {
+        return res.status(500).json(error.message);
+    }
 } 
 
 const createUser = async (req, res) => {
+    console.log('usu');
+    console.log(req.body);
     try {
-        const { username, password, rol } = req.body;
-        const users = await dbUser;
-        const usersJson = JSON.parse(users)
+        const { name, password, rol } = req.body;
 
-        const dbCreateUser = {
-            ...usersJson,
-            ["users"]: [
-                ...usersJson["users"],
-                {
-                    username,
-                    password,
-                    rol: parseInt(rol)
-                }
-            ]
+        const newUser = {
+            name,
+            password,
+            rol: parseInt(rol)
         }
+        await UserModel.create(newUser)
+        const users = await getAllUsers();
 
-        await fs.writeFile(path.join(__dirname,'../../db/users.json'), JSON.stringify(dbCreateUser, null, 2), {encoding: 'utf-8'})
-        // console.log(dbCreateUser);
 
-        response(res, { payload: usersJson, msg: "Se Creo el usuario." });
+        response(res, { payload: users, msg: "Se Creo el usuario." });
 
     } catch (error) {
         console.log("Error -> ", error.message);
         return res.status(500).json(error.message);
     }
 }
+
+const getAllUsers = async () => await UserModel.find();
 
 module.exports = {
     authUser,

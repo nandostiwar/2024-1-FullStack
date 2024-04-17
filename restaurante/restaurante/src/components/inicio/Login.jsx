@@ -7,7 +7,7 @@ import { useStore } from "../../core/store";
 
 function Login() {
   const goTo = useNavigate();
-  const [username, setUsername] = useState("");
+  const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setDataUser} = useStore();
 
@@ -24,11 +24,11 @@ function Login() {
 
     event.preventDefault();
     const data = {
-      username,
+      name,
       password
     }
-
-    axios.post('http://localhost:4000/restaurant/auth', data).then((response) =>{
+    console.log('aAAAAAA');
+    await axios.post('http://localhost:4000/restaurant/auth', data).then((response) =>{
       console.log(response);
       if (response.data.status === 200) {
         setDataUser(response.data.payload);
@@ -60,7 +60,7 @@ function Login() {
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label htmlFor="username">Username:</label>
-              <input type="text" id="username" name="username" value={username} onChange={handleUsernameChange} required />
+              <input type="text" id="username" name="username" value={name} onChange={handleUsernameChange} required />
             </div>
             <div className="input-group">
               <label htmlFor="password">Password:</label>

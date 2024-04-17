@@ -9,7 +9,7 @@ const salesController = require('./controllers/salesController.js');
 router
     .post('/auth', userController.authUser)
     .get('/getUsers', userController.getUsers)
-    .post('/crateUser', userController.createUser)
+    .post('/createUser', userController.createUser)
     .post('/newDish', dishesController.newDish)
     .get('/getDishes', dishesController.getDishes)
     .post('/updateDish', dishesController.updateDish)
