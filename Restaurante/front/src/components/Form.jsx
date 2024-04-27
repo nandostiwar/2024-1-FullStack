@@ -16,6 +16,7 @@ function Form({ callback }) {
                 username: username,
                 password: password
             });
+            callback(response.data);
 
             // Extrae el rol del usuario de la respuesta del servidor
             const role = response.data.role;

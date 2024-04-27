@@ -58,6 +58,7 @@ function Admin() {
     setProducto(producto.name);
     setPrecio(producto.price);
   }
+  const [users, setUsers] = useState([]);
 //Usuarios
 //postusuario
   const agregarUsuario = async (e) => {
@@ -75,27 +76,12 @@ function Admin() {
   setContraseña('')
   setRol(' ')
   }; 
-  const [users, setUsers] = useState([]);
+  
   //getusuario
   const getUsuario = async () => {
     const response = await axios.get('http://localhost:4000/v1/restaurant/users');
     setUsers(response.data);
 
-  }
-  //putusuario
-  const editarUsuario = async () => {
-    const response = await axios.put('http://localhost:4000/v1/restaurant/user', {
-      user: usuario,
-      password: contraseña,
-      role: rol
-  });
-  console.log(response)
-  }
-  //delete usuario
-  const eliminarUsuario = async (usuariouser) =>{
-    const response = await axios.delete(`http://localhost:4000/v1/restaurant/user`);
-    const modificarListaUsuarios = users.filter((item)=> item.name !== usuariouser );
-    setUsuario(modificarListaUsuarios);
   }
   const [Editar, setEditar] = useState(false);
   const verEditarUsuario= (usuario)  =>{
@@ -104,10 +90,35 @@ function Admin() {
     setContraseña(usuario.password);
     setRol(usuario.role);
   }
+  //putusuario
+  const editarUsuario = async () => {
+    const response = await axios.put('http://localhost:4000/v1/restaurant/user', {
+      user: usuario,
+      password: contraseña,
+      role: rol,
+      activate: true
+ });
+  console.log(usuario)
+  }
+  //delete usuario
+  const eliminarUsuario = async (usuariouser) =>{
+    const response = await axios.delete(`http://localhost:4000/v1/restaurant/user`);
+    const modificarListaUsuarios = users.filter((item)=> item.user !== usuariouser.user );
+    setUsers(modificarListaUsuarios);
+  }
+
+  // get pedido
+  const [pedidos, setPedidos] = useState([]);
+  async function getPedidos() {
+    const response = await axios.get('http://localhost:4000/v1/restaurant/sales');
+    setPedidos(response.data);
+  }
+  
 
   useEffect(() => {
     getProducts();
     getUsuario();
+    getPedidos();
   }, []);
 
 
@@ -204,13 +215,25 @@ function Admin() {
             </tr>
           </thead>
           <tbody>
-            {ventas.map((venta, index) => (
-              <tr key={index}>
-                <td>{venta.mesero}</td>
-                <td>{venta.producto}</td>
-                <td>{venta.precio}</td>
-              </tr>
-            ))}
+          {pedidos.filter(pedido => pedido.estado === "Listo").map((pedido, index) => (
+            <tr key={index}>
+              <td className="light">{pedido.mesero}</td>
+              <td className="light">
+                <ul>
+                  {pedido.productos.map((producto,index) => (
+                    <li key={index}>
+                      {producto.producto}
+                      -
+                      {producto.cantidad}
+                    </li>
+                  ))}
+                </ul>
+              </td>
+              <td className="light">
+                {pedido.totalventa}
+              </td>
+            </tr>
+          ))}
           </tbody>
         </table>
       </div>
