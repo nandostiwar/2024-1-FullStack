@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Fly from './components/fly-home/fly';
 
