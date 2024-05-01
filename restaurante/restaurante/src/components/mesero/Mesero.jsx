@@ -25,7 +25,7 @@ function MeseroModule() {
 
   const getProducts = async () => {
     const getPlatos = await axios.get('http://localhost:4000/restaurant/getDishes');
-    setplatos(getPlatos.data.payload.dishes)
+    setplatos(getPlatos.data.payload)
   } 
 
 
@@ -35,7 +35,8 @@ function MeseroModule() {
     console.log('pedidoActualizado');
     console.log(pedidoActualizado);
 
-    const itemExistente = pedidoActualizado.find(item => item.plato.id === plato.id);
+    console.log(plato);
+    const itemExistente = pedidoActualizado.find(item => item.plato.name === plato.name);
 
     if (itemExistente) {
       itemExistente.cantidad += 1;
@@ -47,7 +48,13 @@ function MeseroModule() {
   };
 
   const eliminarPlato = (plato) => {
-    const pedidoActualizado = pedido.filter(item => item.plato.id !== plato.id);
+    console.log('plato');
+    console.log(plato);
+    console.log(pedido);
+    const pedidoActualizado = pedido.map(item => {
+      if (item.plato._id == plato._id) item.cantidad--;
+      return item;
+    });
     setPedido(pedidoActualizado);
   };
 
