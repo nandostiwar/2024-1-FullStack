@@ -1,6 +1,6 @@
 const { connect, set } = require('mongoose');
 
-const DB_URI = `mongodb+srv://jhonier:13052002@restaurant.hluhpeu.mongodb.net/?retryWrites=true&w=majority&appName=restaurant`;
+const DB_URI = `mongodb+srv://jhonier:13052002@restaurant.hluhpeu.mongodb.net/vuelos?retryWrites=true&w=majority&appName=vuelos`;
 
 const dbInit = async () => {
     set("strictQuery", false);
