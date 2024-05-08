@@ -1,0 +1,15 @@
+.dashboard {
+    color: var(--br-color-white);
+}
+
+.dashboard__content {
+    display: flex;
+}
+
+.dashboard__content_left {
+    width: 50%;
+}
+
+.dashboard__content_right {
+    width: 50%;
+}
