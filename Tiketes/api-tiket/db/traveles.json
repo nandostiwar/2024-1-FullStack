@@ -1,0 +1,124 @@
+{
+  "traveles": [
+    {
+      "origen": "Albania",
+      "destino": "Afganistán",
+      "data": "2024-05-05",
+      "status": true
+    },
+    {
+      "origen": "Colombia",
+      "destino": "Argentina",
+      "data": "2024-05-06",
+      "status": "true"
+    },
+    {
+      "origen": "Mexico",
+      "destino": "Francia",
+      "data": "2024-05-30",
+      "status": true
+    },
+    {
+      "origen": "Australia",
+      "destino": "Bahamas",
+      "data": "2024-05-29",
+      "status": true
+    },
+    {
+      "origen": "Argelia",
+      "destino": "Barbados",
+      "data": "2024-05-31",
+      "status": true
+    },
+    {
+      "origen": "Arabia Saudita",
+      "destino": "Corea del Sur",
+      "data": "2024-06-02",
+      "status": true
+    },
+    {
+      "origen": "Brasil",
+      "destino": "Estados Unidos",
+      "data": "2024-07-01",
+      "status": true
+    },
+    {
+      "origen": "Uruguay",
+      "destino": "Dominica",
+      "data": "2024-08-10",
+      "status": true
+    },
+    {
+      "origen": "Catar",
+      "destino": "Filipinas",
+      "data": "2024-09-08",
+      "status": true
+    },
+    {
+      "origen": "Chile",
+      "destino": "Japón",
+      "data": "2024-05-11",
+      "status": true
+    },
+    {
+      "origen": "China",
+      "destino": "Guatemala",
+      "data": "2024-05-12",
+      "status": true
+    },
+    {
+      "origen": "Costa Rica",
+      "destino": "Marruecos",
+      "data": "2024-05-13",
+      "status": true
+    },
+    {
+      "origen": "Grecia",
+      "destino": "Perú",
+      "data": "2024-05-14",
+      "status": true
+    },
+    {
+      "origen": "Angola",
+      "destino": "Israel",
+      "data": "2024-05-15",
+      "status": true
+    },
+    {
+      "origen": "Georgia",
+      "destino": "Irlanda",
+      "data": "2024-05-22",
+      "status": true
+    },
+    {
+      "origen": "Vietnam",
+      "destino": "Irak",
+      "data": "2024-06-01",
+      "status": true
+    },
+    {
+      "origen": "Cabo Verde",
+      "destino": "Ciudad del Vaticano",
+      "data": "2024-06-27",
+      "status": true
+    },
+    {
+      "origen": "Camboya",
+      "destino": "Camerún",
+      "data": "2024-06-28",
+      "status": true
+    },
+    {
+      "origen": "Dinamarca",
+      "destino": "Honduras",
+      "data": "2024-06-29",
+      "status": true
+    },
+    {
+      "origen": "Portugal",
+      "destino": "Alemania",
+      "data": "2024-06-08",
+      "status": true
+    }
+  ]
+}

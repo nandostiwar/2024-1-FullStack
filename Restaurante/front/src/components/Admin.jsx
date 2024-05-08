@@ -223,7 +223,7 @@ function Admin() {
                   {pedido.productos.map((producto,index) => (
                     <li key={index}>
                       {producto.producto}
-                      -
+                      
                       {producto.cantidad}
                     </li>
                   ))}
