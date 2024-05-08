@@ -31,33 +31,34 @@ export function LoginPage() {
         {loginErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1 className="text-2xl font-bold">Login</h1>
+        <h1 className="text-2xl font-bold">Inicio de sesión</h1><br />
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="email">Email:</Label>
+          <Label htmlFor="email">Correo electrónico:</Label>
           <Input
-            label="Write your email"
+            label="Correo electrónico"
             type="email"
+            id="email"
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Correo electrónico"
             {...register("email", { required: true })}
           />
           <p>{errors.email?.message}</p>
 
-          <Label htmlFor="password">Password:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
+            id="password"
             name="password"
-            placeholder="Write your password"
             {...register("password", { required: true, minLength: 6 })}
           />
           <p>{errors.password?.message}</p>
 
-          <Button>Login</Button>
+          <Button>Iniciar sesión</Button>
         </form>
 
         <p className="flex gap-x-2 justify-between">
-          Don't have an account? <Link to="/register" className="text-sky-500">Sign up</Link>
+        ¿Aún no posees una cuenta? <Link to="/register" className="text-sky-500">Registrarse</Link>
         </p>
       </Card>
     </div>

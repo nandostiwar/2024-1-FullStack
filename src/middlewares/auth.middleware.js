@@ -8,11 +8,11 @@ export const auth = (req, res, next) => {
     if (!token)
       return res
         .status(401)
-        .json({ message: "No token, authorization denied" });
+        .json({ message: "Sin token, autorización denegada!" });
 
     jwt.verify(token, TOKEN_SECRET, (error, user) => {
       if (error) {
-        return res.status(401).json({ message: "Token is not valid" });
+        return res.status(401).json({ message: "El token no es válido!" });
       }
       req.user = user;
       next();

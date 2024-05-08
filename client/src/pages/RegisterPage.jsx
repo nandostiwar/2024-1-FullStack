@@ -31,13 +31,14 @@ function Register() {
         {registerErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1 className="text-3xl font-bold">Register</h1>
+        <h1 className="text-3xl font-bold">Formulario de registro</h1><br />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="username">Username:</Label>
+          <Label htmlFor="username">Nombre de usuario:</Label>
           <Input
             type="text"
+            id="username"
             name="username"
-            placeholder="Write your name"
+            placeholder="Nombre completo"
             {...register("username")}
             autoFocus
           />
@@ -45,44 +46,42 @@ function Register() {
             <p className="text-red-500">{errors.username?.message}</p>
           )}
 
-          <Label htmlFor="email">Email:</Label>
+          <Label htmlFor="email">Correo electrónico:</Label>
           <Input
+            id="email"
             name="email"
-            placeholder="youremail@domain.tld"
+            placeholder="Correo electrónico"
             {...register("email")}
           />
           {errors.email?.message && (
             <p className="text-red-500">{errors.email?.message}</p>
           )}
 
-          <Label htmlFor="password">Password:</Label>
+          <Label htmlFor="password">Contraseña:</Label>
           <Input
             type="password"
+            id="password"
             name="password"
-            placeholder="********"
             {...register("password")}
           />
           {errors.password?.message && (
             <p className="text-red-500">{errors.password?.message}</p>
           )}
 
-          <Label htmlFor="confirmPassword">Confirm Password:</Label>
+          <Label htmlFor="confirmPassword">Confirmar contraseña:</Label>
           <Input
             type="password"
+            id="confirmPassword"
             name="confirmPassword"
-            placeholder="********"
             {...register("confirmPassword")}
           />
           {errors.confirmPassword?.message && (
             <p className="text-red-500">{errors.confirmPassword?.message}</p>
           )}
-          <Button>Submit</Button>
+          <Button>Registrar</Button>
         </form>
-        <p>
-          Already Have an Account?
-          <Link className="text-sky-500" to="/login">
-            Login
-          </Link>
+        <p className="flex gap-x-2 justify-between">
+        ¿Ya posees una cuenta? <Link to="/login" className="text-sky-500">Iniciar sesión</Link>
         </p>
       </Card>
     </div>

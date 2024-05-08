@@ -17,7 +17,7 @@ export function TasksPage() {
           <div>
             <ImFileEmpty className="text-6xl text-gray-400 m-auto my-2" />
             <h1 className="font-bold text-xl">
-              No tasks yet, please add a new task
+              Sin reservas registradas aún!
             </h1>
           </div>
         </div>

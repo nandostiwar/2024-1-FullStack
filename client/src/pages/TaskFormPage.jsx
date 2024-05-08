@@ -33,10 +33,8 @@ export function TaskFormPage() {
         });
       }
 
-      // navigate("/tasks");
     } catch (error) {
       console.log(error);
-      // window.location.href = "/";
     }
   };
 
@@ -59,30 +57,31 @@ export function TaskFormPage() {
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">Título</Label>
         <Input
           type="text"
+          id="title"
           name="title"
-          placeholder="Title"
+          placeholder="Título de la reserva"
           {...register("title")}
           autoFocus
-        />
+          required/>
         {errors.title && (
-          <p className="text-red-500 text-xs italic">Please enter a title.</p>
+          <p className="text-red-500 text-xs italic">Ingrese un Título para la reserva!</p>
         )}
 
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">Descripción</Label>
         <Textarea
           name="description"
           id="description"
           rows="3"
-          placeholder="Description"
+          placeholder="Descripción de la tarea"
           {...register("description")}
-        ></Textarea>
+          required></Textarea>
 
-        <Label htmlFor="date">Date</Label>
-        <Input type="date" name="date" {...register("date")} />
-        <Button>Save</Button>
+        <Label htmlFor="date">Fecha de reserva</Label>
+        <Input type="date" name="date" {...register("date")} required/>
+        <Button>Registrar</Button>
       </form>
     </Card>
   );
