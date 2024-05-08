@@ -86,7 +86,7 @@ function Fly() {
       <nav className="bg-white p-4 ">
         <div className="container w-2/3 mx-auto flex justify-between items-center">
           <img src="src/assets/avion.png" alt="Logo" className="h-10" />
-          <div className="text-xl font-semibold">ChinosLatam</div>
+          <div className="text-xl font-semibold">ChinoLatam</div>
         </div>
       </nav>
       <div className="bg-white">
@@ -108,7 +108,7 @@ function Fly() {
                 />
               </div>
               <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">ChinosLatam</h2>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">ChinoLatam</h2>
                 <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl">Explore the world with ChinosLatam, your trusted airline for seamless travel experiences across Latin America.</p>
                 <div className="flex justify-center md:justify-start">
                   <p className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md">Book Now</p>
