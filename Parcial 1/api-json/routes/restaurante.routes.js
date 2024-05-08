@@ -19,15 +19,16 @@ router.put('/bebidas/:id', bebidaController.updatedrinks); // PUT o PATCH según
 
 // Rutas para usuarios
 router.post('/Login', usuarioController.loginUser)
-router.get('/usuarios/:id', usuarioController.getUser);
+router.get('/usuarios', usuarioController.getUsers);
+router.get('/usuarios/:id', usuarioController.getUserid);
 router.post('/usuarios', usuarioController.createUser);
 router.put('/usuarios/:id', usuarioController.updateUser); // PUT o PATCH según tu implementación
 router.delete('/usuarios/:id', usuarioController.deleteUser);
 
 // Rutas para pedidos
 router.get('/pedidos', pedidoController.listarPedidos);
-//router.post('/pedidos', pedidoController.crearPedido);
-//router.put('/pedidos/:id', pedidoController.editarPedido); // Para modificar detalles del pedido
+router.post('/pedidos', pedidoController.agregarPedido);
+router.put('/pedidos/:id', pedidoController.cambiarEstadoPedido); // Para modificar detalles del pedido
 //router.patch('/pedidos/:id', pedidoController.actualizarEstadoPedido); // Para cambiar el estado, si es necesario*/
 
 module.exports = router;

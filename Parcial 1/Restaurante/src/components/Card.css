@@ -1,0 +1,24 @@
+.card {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: rgb(224, 182, 246);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    /* O ajusta según tu diseño */
+    transition: box-shadow 0.3s ease;
+}
+.card-image {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    border-radius: 8px 8px 0 0; /* Redondea los bordes superiores de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    height: 150px; /* Altura fija para la imagen */
+}
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #333;
+}

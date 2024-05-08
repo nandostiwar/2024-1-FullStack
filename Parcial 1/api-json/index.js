@@ -2,6 +2,7 @@ const express = require('express');
 const {urlencoded, json} = require('express');
 const router = require('./routes/restaurante.routes.js');
 const cors = require('cors');
+const connconect = require('./config.js')
 
 const app = express();
 
@@ -14,3 +15,5 @@ app.use('/v1/restaurante', router);
 app.listen(4000, ()=>{
     console.log('listening at port 4000');
 })
+
+connconect();

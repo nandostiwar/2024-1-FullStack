@@ -1,0 +1,55 @@
+.pedido-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    width: 70%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pedido-item {
+    background-color: rgb(242, 187, 244);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pedido-item p {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.lista-pedidos {
+    display: flex;
+    flex-direction: column;
+}
+
+.columnas-pedidos {
+    display: flex;
+}
+
+.pedidos-en-preparacion,
+.pedidos-listos {
+    flex: 1;
+    /* Esto hace que ambas columnas tengan el mismo ancho */
+    margin: 30px 10px;
+    /* Espaciado entre columnas */
+}
+
+/* Estilos adicionales para .pedido-card y .pedido-item como se definieron previamente */

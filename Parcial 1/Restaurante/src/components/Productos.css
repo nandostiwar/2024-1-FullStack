@@ -1,0 +1,105 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: beige;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+.formu {
+    margin-bottom: 10px;
+    min-width: 500px;
+    min-height: 100px;
+}
+
+input,
+button {
+    margin-right: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    /* Da más espacio al formulario */
+    gap: 20px;
+    /* Añade algo de espacio entre el formulario y las tablas */
+    margin: 20px;
+}
+
+.form-container {
+    min-width: 300px;
+}
+
+.tables-container {
+    display: flex;
+    flex-direction: column;
+    /* Asegura que las tablas se apilen verticalmente */
+}
+
+
+.comidas-table,
+.bebidas-table {
+    height: 300px;
+    /* Altura fija para cada tabla */
+    overflow-y: auto;
+    /* Añade scroll vertical si el contenido es más largo que cada tabla */
+    margin-bottom: 30px;
+    /* Añade espacio entre las tablas */
+}
+
+.table-header {
+    font-size: 1.5rem;
+    /* Ajusta el tamaño del texto según tus preferencias */
+    font-weight: bold;
+    /* Hace que el texto sea negrita */
+    background-color: #ef06ad;
+    /* Color de fondo para el encabezado */
+    color: white;
+    /* Color del texto */
+    padding: 10px;
+    /* Espaciado alrededor del texto */
+    border-radius: 5px 5px 0 0;
+    /* Redondea las esquinas superiores */
+    margin-bottom: 10px;
+    /* Espaciado entre el encabezado y la tabla */
+}
+
+.thead-fixed th {
+    position: sticky;
+    top: 0;
+    background-color: #882a6d;
+    /* Elige un color de fondo para que el texto no se mezcle con los datos de la tabla al desplazarse */
+    color: white;
+    z-index: 100;
+    /* Un valor de z-index para asegurarse de que el thead se sitúe sobre otros elementos al hacer scroll */
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    /* Opcional: añade una sombra para un efecto de elevación */
+}
+
+.table-scroll {
+    overflow-y: auto;
+    max-height: 400px;
+    /* O la altura que prefieras para tu tabla */
+}
+
+/* Estilo para el primer botón */
+.button-change-state {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    /* Añade margen a la derecha del botón Cambiar Estado */
+}
+
+/* Estilo para el segundo botón si es necesario */
+.button-edit {
+    margin-right: 10px; /* Si necesitas aplicar estilos específicos al botón Editar */
+}

@@ -1,18 +1,73 @@
-body{
-    background-color: rgba(230, 197, 31, 0.581);
+.table-selector .table-button {
+  display: inline; 
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #111010;
+  border-radius: 15px;
+  background-color: #f812e8;
+  cursor: pointer;
 }
 
-.table-selector .table-button {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .table-selector .table-button.selected {
-    background-color: #4CAF50; /* Cambia el color para la mesa seleccionada */
-    color: white;
-  }
-  
+.table-selector .table-button.selected {
+  padding: 13px;
+  margin: 5px;
+  background-color: #721c24;
+  /* Cambia el color para la mesa seleccionada */
+  color: white;
+}
+
+.btn {
+  margin: 5px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mensaje {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f8d7da; /* Color rojo claro para errores */
+  color: #721c24; /* Color de texto rojo oscuro */
+  border: 1px solid #f5c6cb; /* Borde rojo */
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btnv {
+  display: flex; /* Usa Flexbox para alinear los botones */
+  justify-content: right; /* Centra los botones horizontalmente */
+  align-items: left; /* Centra los botones verticalmente */
+  padding: 10px 0; /* Espacio arriba y abajo dentro del banner */
+}
+
+/* Estilos generales para el contenedor del banner */
+.btnb {
+  display: flex; /* Usa Flexbox para alinear los botones */
+  justify-content: left; /* Centra los botones horizontalmente */
+  align-items: left; /* Centra los botones verticalmente */
+  background-color: #72066d52; /* Color de fondo del banner */
+  padding: 20px 0; /* Espacio arriba y abajo dentro del banner */
+}
+
+/* Estilos generales para los botones */
+.btnb button {
+  background-color: #f812e8; /* Color de fondo para los botones */
+  color: white; /* Color del texto */
+  border: none; /* Remueve el borde por defecto */
+  padding: 10px 20px; /* Espacio dentro de los botones */
+  margin: 0 10px; /* Espacio entre los botones */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero para indicar que es clickeable */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+}
+
+/* Estilos para los botones al pasar el mouse */
+.btnb button:hover {
+  background-color: #c70ef0; /* Oscurece el botón al pasar el mouse */
+}
+
+/* Estilos para los botones al ser enfocados o activos */
+.btnb button:focus,
+.btnb button:active {
+  outline: none; /* Remueve el contorno por defecto al enfocar */
+  box-shadow: 0 0 0 2px rgba(0,123,255,.5); /* Sombra para indicar foco o activación */
+}

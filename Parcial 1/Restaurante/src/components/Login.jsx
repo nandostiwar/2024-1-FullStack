@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { Navigate, useNavigate,Routes, Route } from "react-router-dom";
 
 
 
@@ -7,13 +8,18 @@ function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const goTo = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Aquí podrías agregar la lógica para verificar las credenciales
-        // Por ejemplo, podrías hacer una solicitud a una API
-        console.log('Intentando iniciar sesión con', username, password);
-        // Asegúrate de manejar correctamente la autenticación y la seguridad
+        fetch(`http://localhost:4000/v1/restaurante/Login`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "username": username, "password": password })
+        })
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => goTo(`/${data.Rol}`)) // Manejar la respuesta de la petición
+            .catch(error => console.error('Error:', error)); // Manejar un posible error
     };
 
     return (
@@ -49,3 +55,4 @@ function Login() {
 }
 
 export default Login
+

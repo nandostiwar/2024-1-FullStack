@@ -1,0 +1,88 @@
+.search-form {
+    display: flex;
+    flex-direction: r;
+    margin-bottom: 20px;
+}
+
+.search-form input,
+.search-form label {
+    margin: 10px 0;
+}
+
+.search-form label {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.search-form div {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    width: 10%;
+    padding: 5px 5px;
+    background-color: #2B3A67;
+    color: white;
+    border: 1px solid #0011ff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #15887aea;
+}
+
+.input-container+.input-container {
+    margin-top: 15px;
+    /* Asegura que haya espacio entre los inputs */
+}
+
+/* Asegúrate de que el botón de búsqueda use los estilos que definimos antes */
+.search-button {
+    margin-top: 20px;
+    /* Espacio extra por encima del botón */
+    width: 25%;
+    /* Opcional: hace que el botón se expanda para llenar el contenedor */
+    
+}
+
+/* Estiliza el input de tipo date */
+.search-input[type="date"] {
+    cursor: pointer;
+}
+
+/* Estiliza el input de tipo date al hacer hover */
+.search-input[type="date"]:hover {
+    border-color: #007bff;
+}
+
+/* Estiliza el input de tipo date al enfocarse en él */
+.search-input[type="date"]:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.suggestions {
+    position: absolute;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 100;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.suggestions div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions div:hover {
+    background-color: #f000
+}

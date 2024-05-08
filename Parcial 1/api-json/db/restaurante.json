@@ -2,157 +2,171 @@
   "Comidas": [
     {
       "id": 1,
-      "name": "Hamburguesa Clásica",
+      "name": "Hamburguesa Clásica doble",
       "description": "Carne de res, queso, lechuga, tomate, cebolla, y salsa especial",
-      "price": "$10.99",
-      "imageUrl": "url-a-la-imagen-de-la-hamburguesa.jpg"
+      "price": "$7.30",
+      "imageUrl": "hamburguesa.webp",
+      "estado": "Activo"
     },
     {
       "id": 2,
-      "name": "Pizza Margarita",
+      "name": "Pizza Margarita csleña",
       "description": "Masa tradicional, salsa de tomate, mozzarella fresca, y albahaca",
-      "price": "$12.50",
-      "imageUrl": "url-a-la-imagen-de-la-pizza-margarita.jpg"
+      "price": "$30.50",
+      "imageUrl": "pizza.webp",
+      "estado": "Activo"
     },
     {
       "id": 3,
       "name": "Tacos al Pastor",
       "description": "Carne adobada, piña, cebolla, cilantro, y salsa de chile",
       "price": "$8.99",
-      "imageUrl": "url-a-la-imagen-de-los-tacos-al-pastor.jpg"
+      "imageUrl": "tacos.webp",
+      "estado": "Activo"
     },
     {
       "id": 4,
       "name": "Sushi California Roll",
       "description": "Cangrejo, aguacate, pepino, y semillas de sésamo",
-      "price": "$15.00",
-      "imageUrl": "url-a-la-imagen-del-sushi-california-roll.jpg"
+      "price": "$21.00",
+      "imageUrl": "sushi.webp",
+      "estado": "Activo"
     },
     {
       "id": 5,
       "name": "Lasagna Bolognese",
       "description": "Capas de pasta, salsa boloñesa, bechamel, y queso parmesano",
       "price": "$13.75",
-      "imageUrl": "url-a-la-imagen-de-la-lasagna-bolognese.jpg"
+      "imageUrl": "lasagna.webp",
+      "estado": "Activo"
     },
     {
       "id": 6,
       "name": "Paella Valenciana",
       "description": "Arroz, conejo, pollo, judías verdes, garrofó, y azafrán",
       "price": "$20.00",
-      "imageUrl": "url-a-la-imagen-de-la-paella-valenciana.jpg"
+      "imageUrl": "paella.webp",
+      "estado": "Activo"
     },
     {
       "id": 7,
       "name": "Pad Thai",
       "description": "Tallarines de arroz, camarones, tofu, brotes de soja, huevo, y cacahuetes",
       "price": "$14.99",
-      "imageUrl": "url-a-la-imagen-del-pad-thai.jpg"
+      "imageUrl": "pad-thai.webp",
+      "estado": "Activo"
     },
     {
       "id": 8,
       "name": "Ceviche Peruano",
       "description": "Pescado fresco, limón, cebolla roja, cilantro, y ají",
       "price": "$12.00",
-      "imageUrl": "url-a-la-imagen-del-ceviche-peruano.jpg"
+      "imageUrl": "ceviche.webp",
+      "estado": "Activo"
     },
     {
       "id": 9,
       "name": "Falafel con Hummus",
       "description": "Bolitas de garbanzo, servidas con salsa tahini, hummus, y pan pita",
       "price": "$9.50",
-      "imageUrl": "url-a-la-imagen-del-falafel-con-hummus.jpg"
+      "imageUrl": "falafel.webp",
+      "estado": "Activo"
     },
     {
       "id": 10,
       "name": "Ramen Tradicional",
       "description": "Caldo de carne, fideos, huevo cocido, nori, y cebolla verde",
       "price": "$11.00",
-      "imageUrl": "url-a-la-imagen-del-ramen-tradicional.jpg"
+      "imageUrl": "ramen.webp",
+      "estado": "Activo"
     },
     {
       "id": 11,
       "name": "Ensalada César",
       "description": "Lechuga romana, crutones, parmesano, y aderezo César",
       "price": "$7.99",
-      "imageUrl": "url-a-la-imagen-de-la-ensalada-cesar.jpg"
+      "imageUrl": "ensalada-cesar.webp",
+      "estado": "Activo"
     },
     {
       "id": 12,
       "name": "Pollo Tandoori",
       "description": "Pollo marinado en especias y yogurt, cocido en horno tandoor",
       "price": "$13.50",
-      "imageUrl": "url-a-la-imagen-del-pollo-tandoori.jpg"
+      "imageUrl": "pollo-tandoori.webp",
+      "estado": "Activo"
     },
     {
       "id": 13,
       "name": "Risotto de Setas",
       "description": "Arroz arborio, setas variadas, caldo de verduras, parmesano, y un toque de vino blanco",
       "price": "$14.25",
-      "imageUrl": "url-a-la-imagen-del-risotto-de-setas.jpg"
+      "imageUrl": "risotto.webp",
+      "estado": "Activo"
     },
     {
       "id": 14,
       "name": "Bibimbap Coreano",
       "description": "Arroz con carne, vegetales surtidos, huevo, y salsa gochujang",
       "price": "$16.00",
-      "imageUrl": "url-a-la-imagen-del-bibimbap-coreano.jpg"
+      "imageUrl": "bibimbap.webp",
+      "estado": "Activo"
     },
     {
       "id": 15,
       "name": "Quiche Lorraine",
       "description": "Masa brisa, crema fresca, huevos, bacon, y queso",
       "price": "$9.75",
-      "imageUrl": "url-a-la-imagen-de-la-quiche-lorraine.jpg"
+      "imageUrl": "quiche.webp",
+      "estado": "Activo"
     },
     {
       "id": 16,
       "name": "Empanadas Argentinas",
       "description": "Carne cortada a cuchillo, aceitunas, huevo, y especias en masa crujiente",
       "price": "$8.50",
-      "imageUrl": "url-a-la-imagen-de-las-empanadas-argentinas.jpg"
+      "imageUrl": "empanadas.webp",
+      "estado": "Activo"
     },
     {
       "id": 17,
       "name": "Poke Bowl",
       "description": "Base de arroz, pescado crudo, aguacate, mango, edamames, y salsa de soja",
       "price": "$17.99",
-      "imageUrl": "url-a-la-imagen-del-poke-bowl.jpg"
+      "imageUrl": "poke-bowl.webp",
+      "estado": "Activo"
     },
     {
       "id": 18,
       "name": "Gazpacho Andaluz",
       "description": "Sopa fría de tomate, pimiento, pepino, ajo, y vinagre",
       "price": "$6.50",
-      "imageUrl": "url-a-la-imagen-del-gazpacho-andaluz.jpg"
+      "imageUrl": "gazpacho.webp",
+      "estado": "Activo"
     },
     {
       "id": 19,
       "name": "Curry Verde Tailandés",
       "description": "Pollo o tofu con leche de coco, bambú, berenjenas, y pasta de curry verde",
       "price": "$15.50",
-      "imageUrl": "url-a-la-imagen-del-curry-verde-tailandes.jpg"
+      "imageUrl": "curry.webp",
+      "estado": "Activo"
     },
     {
       "id": 20,
       "name": "Moussaka Griega",
       "description": "Capas de berenjena, carne picada, salsa bechamel, y queso",
       "price": "$14.00",
-      "imageUrl": "url-a-la-imagen-de-la-moussaka-griega.jpg"
-    },
-    {
-      "id": 21,
-      "name": "Ensalada Harby Grande",
-      "description": "Una fresca combinación de tomates, pepinos, aceitunas negras, cebolla roja y queso feta, aderezada con aceite de oliva y hierbas.",
-      "price": "$9.99",
-      "imageUrl": "url-a-la-imagen-de-la-ensalada-mediterranea.jpg"
+      "imageUrl": "moussaka.webp",
+      "estado": "Activo"
     },
     {
       "id": 22,
-      "name": "Ensalada Valeriana",
-      "description": "Una fresca combinación de tomates, pepinos, aceitunas negras, cebolla roja y queso feta, aderezada con aceite de oliva y hierbas.",
+      "name": "Bandeja Paisa",
+      "description": "con chorizo, arepa, aguacate, chicharron",
       "price": "$9.99",
-      "imageUrl": "url-a-la-imagen-de-la-ensalada-mediterranea.jpg"
+      "imageUrl": "bandeja-paisa.webp",
+      "estado": "Activo"
     }
   ],
   "Bebidas": [
@@ -161,77 +175,80 @@
       "name": "Limonada Natural",
       "description": "Jugo de limón fresco, agua, y un toque de azúcar",
       "price": "$3.50",
-      "imageUrl": "url-a-la-imagen-de-la-limonada-natural.jpg"
+      "imageUrl": "limonada.webp",
+      "estado": "Activo"
     },
     {
       "id": 2,
       "name": "Té Verde Frío",
       "description": "Té verde servido frío con hielo y rodajas de limón",
       "price": "$4.00",
-      "imageUrl": "url-a-la-imagen-del-te-verde-frio.jpg"
+      "imageUrl": "te.webp",
+      "estado": "Activo"
     },
     {
       "id": 3,
       "name": "Café Americano",
       "description": "Café filtrado servido caliente",
       "price": "$2.75",
-      "imageUrl": "url-a-la-imagen-del-cafe-americano.jpg"
+      "imageUrl": "cafe.webp",
+      "estado": "Activo"
     },
     {
       "id": 4,
       "name": "Batido de Fresa",
       "description": "Fresas frescas, helado de vainilla, y leche",
       "price": "$5.50",
-      "imageUrl": "url-a-la-imagen-del-batido-de-fresa.jpg"
+      "imageUrl": "batido.webp",
+      "estado": "Activo"
     },
     {
       "id": 5,
       "name": "Mojito",
       "description": "Ron blanco, azúcar, lima, menta, y agua con gas",
       "price": "$7.00",
-      "imageUrl": "url-a-la-imagen-del-mojito.jpg"
+      "imageUrl": "mojito.webp",
+      "estado": "Activo"
     },
     {
       "id": 6,
       "name": "Cerveza Artesanal",
       "description": "Cerveza rubia de fermentación alta con notas cítricas y amargas",
       "price": "$6.00",
-      "imageUrl": "url-a-la-imagen-de-la-cerveza-artesanal.jpg"
+      "imageUrl": "cerveza.webp",
+      "estado": "Activo"
     },
     {
       "id": 7,
       "name": "Sangría Tradicional",
       "description": "Vino tinto, brandy, frutas de temporada, y un toque de soda",
       "price": "$8.00",
-      "imageUrl": "url-a-la-imagen-de-la-sangria-tradicional.jpg"
+      "imageUrl": "sangria.webp",
+      "estado": "Activo"
     },
     {
       "id": 8,
       "name": "Agua de Horchata",
       "description": "Agua fresca de arroz, canela, y vainilla, con leche y azúcar",
       "price": "$4.25",
-      "imageUrl": "url-a-la-imagen-del-agua-de-horchata.jpg"
+      "imageUrl": "agua.webp",
+      "estado": "Activo"
     },
     {
       "id": 9,
       "name": "Smoothie de Mango y Maracuyá",
       "description": "Mango, maracuyá, yogurt natural, y miel",
       "price": "$5.75",
-      "imageUrl": "url-a-la-imagen-del-smoothie-de-mango-y-maracuya.jpg"
+      "imageUrl": "smoothie.webp",
+      "estado": "Activo"
     },
     {
       "id": 10,
       "name": "Espresso Doble",
       "description": "Doble dosis de café espresso fuerte y aromático",
       "price": "$3.00",
-      "imageUrl": "url-a-la-imagen-del-espresso-doble.jpg"
-    },
-    {
-      "id": 11,
-      "name": "Limonada de coco con hierbabuena",
-      "description": "limonada de coco con hierbabuena y harto hielo",
-      "price": "$10.000",
-      "imageUrl": "url-a-la-imagen-de-la-ensalada-mediterranea.jpg"
+      "imageUrl": "espresso.webp",
+      "estado": "Activo"
     }
   ],
   "Usuarios": [
@@ -241,23 +258,44 @@
       "Apellidos": "Pérez López",
       "Rol": "Admin",
       "Usuario": "juanperez",
-      "Password": "contraseñaSegura123"
+      "Password": "contraseñaSegura123",
+      "Estado": "Activo"
     },
     {
       "id": 2,
       "Nombre": "María",
       "Apellidos": "González Ramírez",
       "Rol": "Mesero",
-      "Usuario": "mariagonzalez",
-      "Password": "miContraseña456"
+      "Usuario": "H.minaM",
+      "Password": "12345678",
+      "Estado": "Activo"
     },
     {
       "id": 3,
       "Nombre": "Carlos",
       "Apellidos": "Martínez Herrera",
       "Rol": "Cosinero",
-      "Usuario": "carlosmartinez",
-      "Password": "otraContraseña789"
+      "Usuario": "H.minaC",
+      "Password": "12345678",
+      "Estado": "Activo"
+    },
+    {
+      "id": 4,
+      "Nombre": "Harby",
+      "Apellidos": "Mina Marroquin",
+      "Rol": "Admin",
+      "Usuario": "H.minaA",
+      "Password": "12345678",
+      "Estado": "Activo"
+    },
+    {
+      "id": 5,
+      "Nombre": "Carlos",
+      "Apellidos": "prueba",
+      "Rol": "Mesero",
+      "Usuario": "Carlo.p",
+      "Password": "123456",
+      "Estado": "Activo"
     }
   ],
   "Pedidos": [
@@ -269,18 +307,20 @@
           "idItem": 5,
           "tipo": "Comida",
           "cantidad": 2,
+          "comentario": "",
           "precioUnitario": 10
         },
         {
           "idItem": 1,
           "tipo": "Bebida",
           "cantidad": 1,
+          "comentario": "",
           "precioUnitario": 5
         }
       ],
       "fecha": "2024-03-18",
-      "estado": "En preparación",
-      "total": "$25.00"
+      "total": "$25.00",
+      "estado": "Listo"
     },
     {
       "idPedido": 2,
@@ -300,8 +340,8 @@
         }
       ],
       "fecha": "2024-03-18",
-      "estado": "Entregado",
-      "total": "$20.00"
+      "total": "$20.00",
+      "estado": "Listo"
     },
     {
       "idPedido": 3,
@@ -321,8 +361,208 @@
         }
       ],
       "fecha": "2024-03-17",
-      "estado": "Cancelado",
-      "total": "$15.00"
+      "total": "$15.00",
+      "estado": "Listo"
+    },
+    {
+      "idMesa": 1,
+      "items": [
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 3,
+          "comentario": "sin tomate",
+          "precioUnitario": 10.99
+        }
+      ],
+      "fecha": "2024-03-26",
+      "estado": "Listo",
+      "total": 32.97,
+      "idPedido": 4
+    },
+    {
+      "idMesa": 2,
+      "items": [
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 3,
+          "comentario": "sin tomate",
+          "precioUnitario": 10.99
+        },
+        {
+          "idItem": 2,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "precioUnitario": 12.5
+        },
+        {
+          "idItem": 2,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "precioUnitario": 12.5
+        },
+        {
+          "idItem": 2,
+          "tipo": "Bebida",
+          "cantidad": 1,
+          "precioUnitario": 4
+        },
+        {
+          "idItem": 1,
+          "tipo": "Bebida",
+          "cantidad": 1,
+          "precioUnitario": 3.5
+        },
+        {
+          "idItem": 19,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "precioUnitario": 15.5
+        }
+      ],
+      "fecha": "2024-03-26",
+      "total": 80.97,
+      "idPedido": 5,
+      "estado": "Listo"
+    },
+    {
+      "idMesa": 4,
+      "items": [
+        {
+          "idItem": 3,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "comentario": "sin carne",
+          "precioUnitario": 8.99
+        }
+      ],
+      "fecha": "2024-03-26",
+      "total": 17.98,
+      "idPedido": 6,
+      "estado": "Listo"
+    },
+    {
+      "idMesa": 5,
+      "items": [
+        {
+          "idItem": 3,
+          "tipo": "Comida",
+          "cantidad": 4,
+          "comentario": "sin Carne",
+          "precioUnitario": 8.99
+        }
+      ],
+      "fecha": "2024-03-26",
+      "total": 35.96,
+      "idPedido": 7,
+      "estado": "Listo"
+    },
+    {
+      "idMesa": 3,
+      "items": [
+        {
+          "idItem": 9,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "comentario": "sin grasa por favor",
+          "precioUnitario": 9.5
+        }
+      ],
+      "fecha": "2024-03-26",
+      "estado": "Listo",
+      "total": 19,
+      "idPedido": 8
+    },
+    {
+      "idMesa": 1,
+      "items": [
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "comentario": "",
+          "precioUnitario": 7.99
+        },
+        {
+          "idItem": 2,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "comentario": "",
+          "precioUnitario": 12.5
+        },
+        {
+          "idItem": 3,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "comentario": "sin carne de cordero",
+          "precioUnitario": 8.99
+        }
+      ],
+      "fecha": "2024-04-04",
+      "estado": "Listo",
+      "total": 38.47,
+      "idPedido": 9
+    },
+    {
+      "idMesa": 1,
+      "items": [
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 3,
+          "comentario": "sin tomate",
+          "precioUnitario": 7.3
+        },
+        {
+          "idItem": 2,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "comentario": "con queso gourmet",
+          "precioUnitario": 12.5
+        },
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 2,
+          "comentario": "sin tomate",
+          "precioUnitario": 7.3
+        },
+        {
+          "idItem": 1,
+          "tipo": "Bebida",
+          "cantidad": 4,
+          "comentario": "",
+          "precioUnitario": 3.5
+        }
+      ],
+      "fecha": "2024-04-04",
+      "estado": "Listo",
+      "total": 75.5,
+      "idPedido": 14
+    },
+    {
+      "idMesa": 1,
+      "items": [
+        {
+          "idItem": 1,
+          "tipo": "Comida",
+          "cantidad": 1,
+          "comentario": "sin cebolla",
+          "precioUnitario": 7.3
+        },
+        {
+          "idItem": 1,
+          "tipo": "Bebida",
+          "cantidad": 4,
+          "comentario": "",
+          "precioUnitario": 3.5
+        }
+      ],
+      "fecha": "2024-04-04",
+      "estado": "Listo",
+      "total": 21.3,
+      "idPedido": 15
     }
   ]
 }

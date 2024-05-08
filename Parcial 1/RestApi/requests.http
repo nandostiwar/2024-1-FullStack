@@ -1,0 +1,120 @@
+###
+POST http://localhost:9000/v1/restaurante/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Juan Camilo",
+    "apellidos": "González Ramírez",
+    "rol": "Mesero",
+    "usuario": "H.minar",
+    "password": "12345",
+    "estado": "Activo"
+}
+
+######
+GET http://localhost:9000/v1/restaurante/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MjA4NGI1OWEzODI1MWM4NzRjNTgwOSIsInJvbCI6Ik1lc2VybyIsImlhdCI6MTcxMzQwODU1NSwiZXhwIjoxNzEzNDEyMTU1fQ.ePZYO9wMYDoBK1Y5nc4xdG1rhV1G1g9i9NcgcYU3uNg
+
+
+
+######
+GET http://localhost:9000/v1/restaurante/users/661f4b8f63d8b8818813bf76 HTTP/1.1
+
+
+###
+PUT http://localhost:9000/v1/restaurante/users/661f4b8f63d8b8818813bf76 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "María",
+    "apellidos": "González Ramírez",
+    "rol": "Mesero",
+    "usuario": "H.minaM",
+    "password": "12345678",
+    "estado": "Activo"
+}
+
+###################
+
+POST http://localhost:9000/v1/restaurante/Login HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario": "H.minar",
+    "password": "12345"
+}
+
+############################
+
+POST http://localhost:9000/v1/restaurante/createfood HTTP/1.1
+Content-Type: application/json
+
+[
+    {
+        "name": "Limonada orchata",
+        "description": "Jugo de limón fresco, agua, y un toque de azúcar",
+        "price": 3.50,
+        "imageUrl": "limonada.webp",
+        "estado": "Activo",
+        "categoria": "Bebida"
+    },
+    {
+        "name": "Té Verde caliente",
+        "description": "Té verde servido frío con hielo y rodajas de limón",
+        "price": 4.00,
+        "imageUrl": "te.webp",
+        "estado": "Activo",
+        "categoria": "Bebida"
+    }
+]
+
+######
+GET http://localhost:9000/v1/restaurante/foods HTTP/1.1
+
+#########################################################
+
+PUT http://localhost:9000/v1/restaurante/food/66209467650e2b2be5e26504 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "paella española",
+    "description": "lo mejor de la paella española",
+    "price": 3.0000,
+    "imageUrl": "Paella.webp",
+    "categoria": "Comida",
+    "estado": "Inactivo"
+}
+
+#####################################################
+
+POST http://localhost:9000/v1/restaurante/pedidos HTTP/1.1
+Content-Type: application/json
+
+{
+    "idMesa": 5,
+    "idmesero": "1143948132",
+    "items": [
+        {
+            "idcomida": "001",
+            "nombrecomida": "Hamburguesa Clásica doble",
+            "tipo": "Comida",
+            "cantidad": 2,
+            "comentario": "Sin cebolla, por favor",
+            "precioUnitario": 730
+        },
+        {
+            "idcomida": "002",
+            "nombrecomida": "Coca Cola",
+            "tipo": "Bebida",
+            "cantidad": 1,
+            "comentario": "",
+            "precioUnitario": 150
+        }
+    ],
+    "fecha": "2024-03-18T12:30:00Z",
+    "total": 1610, 
+    "estado": "En preparación"
+}
+
+#################################################################################################
+GET http://localhost:9000/v1/restaurante/pedidos HTTP/1.1

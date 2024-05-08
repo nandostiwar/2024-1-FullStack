@@ -1,0 +1,25 @@
+.flight-options-list {
+    overflow-y: auto;
+    max-height: 100px; /* Adjust this value as needed */
+    padding-right: 10px; /* To compensate for the scrollbar width */
+}
+.reserva {
+    padding: 10px;
+    margin: 5px 0;
+    border: 3px solid #c6e2f4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10%;
+    background-color: #caf3fd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.196);
+}
+
+.reserva:hover {
+    background-color: #64838f44;
+}
+
+.selected {
+    border-color: #4075aeca;
+    background-color: #e7f1ff;
+}
+  

@@ -1,0 +1,21 @@
+.admin-container {
+    margin: 20px;
+    display: flex;
+    /* Usa Flexbox para posicionar los elementos hijos */
+    justify-content: space-between;
+    /* Separa los elementos hijos */
+    gap: 20px;
+    /* Añade un espacio entre el formulario y la tabla */
+}
+
+.formulario-container {
+    flex: 1;
+    /* Ocupa el espacio disponible, ajusta según necesites */
+    /* Añade estilos adicionales para el formulario si es necesario */
+}
+
+.tabla-container {
+    flex: 2;
+    /* Ocupa el doble de espacio que el formulario, ajusta según necesites */
+    /* Añade estilos adicionales para la tabla si es necesario */
+}

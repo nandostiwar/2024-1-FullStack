@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
-
+const usersFilePath = path.join(__dirname,'../../db/restaurante.json');
 
 const loginUser =  async (req, res) => {
     const usersFilePath = await fs.readFile(path.join(__dirname,'../../db/restaurante.json'));
@@ -8,7 +8,7 @@ const loginUser =  async (req, res) => {
     const login = req.body;
     try {
         const data = JSON.parse(usersFilePath);
-        const user = data.Usuarios.find(u => u.Usuario === login.Usuario && u.Password === login.Password);
+        const user = data.Usuarios.find(u => u.Usuario === login.username && u.Password === login.password);
 
         if (user) {
             res.json(user);
@@ -25,7 +25,7 @@ const loginUser =  async (req, res) => {
 
 
 // Obtener un usuario por ID
-const getUser = async (req, res) => {
+const getUserid = async (req, res) => {
     const usersFilePath = await fs.readFile(path.join(__dirname,'../../db/restaurante.json'));
     
     try {
@@ -42,20 +42,41 @@ const getUser = async (req, res) => {
     }
 }
 
+const getUsers = async (req, res) => {
+    const usersFilePath = await fs.readFile(path.join(__dirname,'../../db/restaurante.json'));
+    
+    try {
+        const data = JSON.parse(usersFilePath);
+        const user = data.Usuarios
+        if (user) {
+            res.json(user);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al obtener el usuario');
+    }
+}
+
+
 // Crear un nuevo usuario
 const createUser = async (req, res) => {
     try {
-        const newUser = req.body; // Asegúrate de validar y sanear los datos de entrada en un caso real
-        const usersData = await fs.readFile(usersFilePath, 'utf8');
-        const users = JSON.parse(usersData);
-        newUser.id = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1; // Asignar un nuevo ID
-        users.push(newUser);
-        await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2));
+        const newUser = req.body; // Asegúrate de validar y sanear los datos de entrada
+        const data = await fs.readFile(usersFilePath, 'utf8');
+        const db = JSON.parse(data);
+
+        newUser.id = db.Usuarios.length > 0 ? Math.max(...db.Usuarios.map(u => u.id)) + 1 : 1;
+        newUser.Estado = 'Activo'; // Asumiendo que todos los nuevos usuarios están activos por defecto
+        db.Usuarios.push(newUser);
+
+        await fs.writeFile(usersFilePath, JSON.stringify(db, null, 2));
+
         res.status(201).json(newUser);
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear el usuario' });
+        console.error('Error al crear el usuario:', error);
+        res.status(500).json({ message: 'Error al procesar su solicitud' });
     }
-}
+};
 
 // Actualizar un usuario existente
 const updateUser = async (req, res) => {
@@ -90,8 +111,9 @@ const deleteUser = async (req, res) => {
 }
 
 module.exports = {
+    getUsers,
     loginUser,
-    getUser,
+    getUserid,
     createUser,
     updateUser,
     deleteUser

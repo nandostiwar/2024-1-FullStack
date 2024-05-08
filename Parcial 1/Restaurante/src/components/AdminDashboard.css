@@ -1,0 +1,7 @@
+.admin-dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas se ajusten según el tamaño de la pantalla */
+}

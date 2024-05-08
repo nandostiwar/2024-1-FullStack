@@ -1,0 +1,9 @@
+.container {
+  width: 90%; /* O el ancho que prefieras */
+  max-width: 1200px; /* Un máximo para que no se vea demasiado grande en pantallas grandes */
+  margin: 50px auto; /* Añade 50px de margen superior e inferior y centra el contenedor */
+  padding: 20px; /* Espacio dentro del contenedor */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.586); /* Un ligero sombreado para dar profundidad */
+  background: #F5F5F5; /* Fondo blanco para el contenedor */
+  height:80%;
+}

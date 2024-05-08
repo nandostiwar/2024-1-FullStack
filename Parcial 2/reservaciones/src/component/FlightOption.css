@@ -1,0 +1,22 @@
+.flight-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #818078;
+    border-radius: 10px;
+    background: #aed4f761;
+}
+
+.flight-details {
+    flex-grow: 1;
+}
+
+.flight-price {
+    font-weight: bold;
+}
+
+.radio-button {
+    margin-left: 20px;
+}
