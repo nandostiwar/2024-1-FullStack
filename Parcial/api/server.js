@@ -48,15 +48,16 @@ app.post('/crearVuelo', async (req, res) => {
     }
 
     if (reservaExistente) {
-        res.json('Ya existe')
-    } else {
-            const createReserva = await Vuelos.create(req.body);
-            res.json(createReserva)
-    }
-  } catch (error) {
-    console.error('Error al buscar países:', error);
-    res.status(500).json({ message: 'Error interno del servidor' });
+      res.json('Ya existe');
+  } else {
+      const createReserva = await Vuelos.create(req.body);
+      // Mostrar una alerta en el navegador
+      res.status(200).json({ message: 'Vuelo creado exitosamente', reserva: createReserva, showAlert: true });
   }
+} catch (error) {
+  console.error('Error al crear el vuelo:', error);
+  res.status(500).json({ message: 'Error interno del servidor' });
+}
 });
 
 app.get('/obtenerVuelos', async (req, res) => {

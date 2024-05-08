@@ -74,19 +74,33 @@ function App() {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <div className="col-md-12">
-                        <h2 className="text-center">Reservas Guardadas</h2>
-                            {allVuelos ? 
-                                allVuelos.map(v => <>
-                                    <p>{v.lugarOrigen}</p>
-                                    <p>{v.lugarDestino}</p>
-                                    <p>{v.fecha}</p>
-                                </>)
-                            : <>
-                                <p>No tienes vuelos creados</p>
-                            </> }
-                    </div>
-                </div>
+    <div className="col-md-12">
+        <h2 className="text-center">Reservas Guardadas</h2>
+        {allVuelos && allVuelos.length > 0 ? (
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Lugar de Origen</th>
+                        <th>Lugar de Destino</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allVuelos.map((vuelo, index) => (
+                        <tr key={index}>
+                            <td>{vuelo.lugarOrigen}</td>
+                            <td>{vuelo.lugarDestino}</td>
+                            <td>{vuelo.fecha}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        ) : (
+            <p className="text-center">No tienes vuelos creados</p>
+        )}
+    </div>
+</div>
+
             </div>
         </div>
     );
