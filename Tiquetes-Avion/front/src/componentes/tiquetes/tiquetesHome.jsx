@@ -49,7 +49,6 @@ const TiquetesHome = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Verificar que el origen y el destino sean diferentes
     if (origin === destination) {
       alert("El origen y el destino deben ser diferentes");
       return;
@@ -82,7 +81,6 @@ const TiquetesHome = () => {
         alert("¡Boleto generado!");
         // Actualizar el estado para mostrar el boleto generado
         setGeneratedTickets([...generatedTickets, data]);
-        // Limpiar los campos del formulario
         setName("");
         setOrigin("");
         setDestination("");

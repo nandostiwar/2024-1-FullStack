@@ -5,7 +5,7 @@ const obtenerPaises = async (req, res) => {
     const { query } = req.query;
     console.log(req.query);
     try {
-      const regex = new RegExp(query, 'i'); // Crear expresión regular a partir de la cadena de búsqueda
+      const regex = new RegExp(query, 'i'); 
       const paises = await Pais.find({ name: regex });
       res.json(paises);
       console.log(paises);
@@ -24,13 +24,13 @@ const obtenerPaises = async (req, res) => {
         return res.status(400).json({ message: 'Ya existe un boleto con el mismo origen' });
       }
   
-      // Verificar si ya existe un boleto con el mismo destino
+    
       const existingDestinationTicket = await Ticket.findOne({ destination });
       if (existingDestinationTicket) {
         return res.status(400).json({ message: 'Ya existe un boleto con el mismo destino' });
       }
   
-      // Verificar si ya existe un boleto con la misma fecha
+  
       const existingDateTicket = await Ticket.findOne({ date });
       if (existingDateTicket) {
         return res.status(400).json({ message: 'Ya existe un boleto con la misma fecha' });
