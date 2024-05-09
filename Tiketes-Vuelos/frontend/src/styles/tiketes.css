@@ -1,0 +1,26 @@
+body {
+    background-color: #333;
+}
+
+
+button{
+    border-radius: 8px;
+}
+
+
+
+h1 {
+    font-size: 24px;
+    color: #fffefe; /* Color del texto */
+    margin-bottom: 16px; /* Espacio inferior */
+}
+
+h2 {
+    font-size: 20px;
+    color: #fffdfd;
+    margin-bottom: 12px;
+}
+
+.table table-bordered table-striped{ 
+    background-color: '#f8f9fa' 
+}
