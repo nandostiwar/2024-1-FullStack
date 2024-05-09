@@ -1,0 +1,14 @@
+[
+    {
+      "origen": "Ciudad de origen",
+      "destino": "Ciudad de destino",
+      "fecha": "2024-05-03"
+    },
+    {
+      "origen": "Otro origen",
+      "destino": "Otro destino",
+      "fecha": "2024-05-04"
+    }
+    
+  ]
+  

@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+}
+
+.entry {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+form {
+    padding-top: 10%;
+}
+
+#btnEnviar {
+    margin-top: 20px;
+    background-color: rgb(48, 27, 238);
+    border-radius: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.txt {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#txtBienvenida {
+    font-style: oblique;
+    color: white;
+}

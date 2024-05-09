@@ -1,0 +1,123 @@
+
+
+body {
+    background-image: url("fondo.jpg");
+    background-size: cover; /* Esto ajusta la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Esto asegura que la imagen no se repita */
+}
+/* Estilos generales */
+.container {
+    margin-top: 50px;
+}
+
+.entry {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+/* Estilos específicos para los botones */
+.btn-guardar {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn-guardar:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilos específicos para la tabla */
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: #000;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e5e5e5;
+}
+/* Estilos para personalizar los campos de entrada */
+.form-control {
+    border-radius: 10px; /* Ajustar el radio de borde */
+    border-color: #7c7c7c; /* Cambiar el color del borde */
+    box-shadow: none; /* Eliminar la sombra */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Agregar transiciones suaves */
+}
+
+/* Estilos para cuando el campo de entrada está enfocado */
+.form-control:focus {
+    border-color: #385779; /* Cambiar el color del borde cuando está enfocado */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Agregar un resplandor al enfocarse */
+}
+
+/* Estilos para personalizar los botones */
+.btn {
+    border-radius: 25px; /* Ajustar el radio de borde */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Peso de la fuente */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+}
+
+/* Estilos para el botón primario */
+.btn-primary {
+    background-color: #19879b; /* Color de fondo */
+    border-color: #007bff; /* Color del borde */
+    color: #000000; /* Color del texto */
+}
+
+/* Estilos para cuando el botón primario está enfocado o activo */
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #6792c0; /* Color de fondo al enfocar o hacer clic */
+    border-color: #0056b3; /* Color del borde al enfocar o hacer clic */
+}
+
+
+/* Estilos para personalizar la tabla */
+.table {
+    border-radius: 10px; /* Ajustar el radio de borde */
+    overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+/* Estilos para las celdas de encabezado */
+.table th {
+    background-color: #4095af; /* Color de fondo del encabezado */
+    color: #fff; /* Color del texto del encabezado */
+    border: none; /* Eliminar el borde de las celdas del encabezado */
+    font-weight: bold; /* Peso de la fuente */
+}
+
+/* Estilos para las celdas del cuerpo */
+.table td {
+    border-top: none; /* Eliminar el borde superior de las celdas del cuerpo */
+}
+
+/* Estilos para las filas impares */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa; /* Color de fondo de las filas impares */
+}
+
+/* Estilos para las filas al pasar el ratón */
+.table-hover tbody tr:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el ratón sobre las filas */
+}
