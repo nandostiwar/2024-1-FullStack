@@ -57,25 +57,20 @@ export function TaskFormPage() {
   return (
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Label htmlFor="title">Título</Label>
-        <Input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Título de la reserva"
-          {...register("title")}
-          autoFocus
-          required/>
-        {errors.title && (
-          <p className="text-red-500 text-xs italic">Ingrese un Título para la reserva!</p>
-        )}
+        <Label htmlFor="title">Destino</Label>
+        <select name="title" className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md" {...register("title")}>
+          <option value="Seleccione una opción" selected>Seleccione una opción</option>
+          <option value="San Andrés">San Andrés</option>
+          <option value="Cartagena">Cartagena</option>
+          <option value="Santa Marta">Santa Marta</option>
+        </select>
 
         <Label htmlFor="description">Descripción</Label>
         <Textarea
           name="description"
           id="description"
           rows="3"
-          placeholder="Descripción de la tarea"
+          placeholder="Descripción de la reserva"
           {...register("description")}
           required></Textarea>
 

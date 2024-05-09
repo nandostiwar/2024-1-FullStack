@@ -7,13 +7,13 @@ export function TaskCard({ task }) {
   return (
     <Card>
       <header className="flex justify-between">
-        <h1 className="text-2xl font-bold">{task.title}</h1>
+        <h1 className="text-2xl font-bold">Destino: {task.title}</h1>
         <div className="flex gap-x-2 items-center">
           <ButtonLink to={`/tasks/${task._id}`}>Editar</ButtonLink>
           <Button onClick={() => deleteTask(task._id)}>Eliminar</Button>
         </div>
       </header>
-      <p className="text-slate-300">{task.description}</p>
+      <p className="text-slate-300">Descripcion: {task.description}</p>
       {/* format date */}
       <p>
         {task.date &&
