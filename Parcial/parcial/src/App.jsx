@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axion from 'axios';
-import Select from 'react-select'
-import axios from 'axios';
+import Select from 'react-select';
+
 
 function App() {
     const [allPaises, setAllPaises] = useState();
@@ -21,8 +21,6 @@ function App() {
 
     const getVuelos = async () => {
         const vuelos = await axios.get('http://localhost:5000/obtenerVuelos');
-        console.log('vuelos.data');
-        console.log(vuelos.data);
         setAllVuelos(vuelos.data)
     }
 
@@ -34,8 +32,6 @@ function App() {
         })
         setAllPaises(paisesParse)
 
-        console.log('getPaise');
-        console.log(getPaise);
     }
 
     const handleSubmit = async () => {
@@ -100,10 +96,9 @@ function App() {
         )}
     </div>
 </div>
-
-            </div>
-        </div>
-    );
+</div>
+</div>
+);
 }
 
 export default App;
