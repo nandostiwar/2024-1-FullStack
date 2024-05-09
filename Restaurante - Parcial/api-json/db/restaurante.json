@@ -1,0 +1,18 @@
+[
+    {
+        "username": "admin",
+        "password": "admin2023",
+        "role": "admin"
+    },
+    {
+        "username": "mesero",
+        "password": "mesero2023",
+        "role": "mesero"
+    },
+    {
+        "username": "cocina",
+        "password": "cocina2023",
+        "role": "cocina"
+    }
+]
+

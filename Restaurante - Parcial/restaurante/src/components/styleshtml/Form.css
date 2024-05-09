@@ -1,0 +1,85 @@
+body {
+    font-family: cursive; /* Cambia "Arial, sans-serif" por la fuente que desees */
+}
+
+form {
+    max-width: 400px; /*agrandar el cuadro a lo ancho*/
+    margin: 100px auto;/*bajar el cuadro*/
+    padding: 40px;/*agrandar el cuadro contenedor de todos los lados*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el título de bienvenida */
+#txtBienvenida {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    font-size: 50px; /*Tamaño de letra restaurante*/
+    color: #333; /* Color del texto */
+}
+
+/* Estilos para los encabezados de usuario y contraseña */
+.txt {
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Estilos para el campo de entrada de usuario */
+.entry[type="text"] {
+    font-family: cursive;
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50px; /*borde del cuadro usuario*/
+    font-size: 16px;/*largo del cuadro usuario*/
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Estilos para el campo de entrada de usuario al enfocarse */
+.entry[type="text"]:focus {
+    border-color: #007bff;
+}
+
+
+/* Estilos para los campos de entrada */
+.entry {
+    font-family: cursive;
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 50px; /*borde del cuadro contraseña*/
+    font-size: 16px;/*largo del cuadro contraseña*/
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Estilos para los campos de entrada al enfocarse */
+.entry:focus {
+    border-color: #007bff;
+}
+
+/* Estilos para el botón de enviar */
+#botonenviar {
+    width: calc(103% - 1%);
+    padding: 13px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 23px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilos para el botón de enviar al pasar el cursor */
+#botonenviar:hover {
+    background-color: #0056b3;
+}

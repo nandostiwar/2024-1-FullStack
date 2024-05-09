@@ -1,0 +1,83 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px;
+  border: 5px solid #ccc;
+  border-radius: 60px;
+  background-color: #fff; /* Blanco */
+  font-family: cursive; /* Letra cursiva */
+}
+
+h1 {
+  font-family: cursive; /* Letra cursiva */
+  padding-top: 0%;
+  font-size: 50px;
+  color: #333;
+  text-align: center;
+}
+
+h5 {
+  font-size: 30px;
+  text-align: center;
+}
+
+label {
+  font-family: cursive; /* Letra cursiva */
+  color: #333;
+  font-size: 25px;
+}
+
+input[type="number"] {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: px;
+  border: 1px solid #ccc;
+  border-radius: 80px;
+  font-family: cursive; /* Letra cursiva */
+}
+
+/* Estilo específico para el cuadro de cantidad */
+input[type="number"] {
+  background-color: #fff; /* Color de fondo blanco */
+  color: #333; /* Color del texto */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+select{
+  font-size: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Verde */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: cursive; /* Letra cursiva */
+  margin-top: 10px; /* Agrega un margen superior de 10px al botón */
+}
+
+
+button:hover {
+  background-color: #45a049; /* Color al pasar el cursor */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50; /* Verde */
+  color: #fff;
+}
