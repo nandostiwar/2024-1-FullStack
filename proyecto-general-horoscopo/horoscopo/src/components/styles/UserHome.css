@@ -4,6 +4,15 @@
     place-items: center;
 }
 
+#selectSexo{
+    margin: 80px;
+    width: 400px;
+    padding: 5px 50px 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(71, 63, 63);
+    color: white;
+    
+}
 #selectSignos{
     margin-top: 0px;
     margin: 100px;
@@ -12,7 +21,9 @@
     border-radius: 10px;
     background-color: rgb(71, 63, 63);
     color: white;
+    margin-top: -50px
 }
+
 
 #txtSeleccionPage{
     padding: 50px;
