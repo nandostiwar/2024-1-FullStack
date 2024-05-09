@@ -9,7 +9,7 @@ const getAllSignos = async (req, res)=>{
 
 const getOneSigno = async (req, res)=>{
     const oneSigno = req.params.signo;
-    const allSignos = await fs.readFile(path.join(__dirname,'../../db/signos.json'));
+    const allSignos = await fs.readFile(path.join(__dirname,'../../db/signos.json'));n
     const objSignos = JSON.parse(allSignos);
     const result = objSignos[oneSigno];
     res.json(result)
