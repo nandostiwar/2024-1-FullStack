@@ -4,11 +4,6 @@ const { paisesModel } = require('../database/models/paises.schema');
 
 const getPaisesSelect = async (req, res) => {
     try {
-        /*const pais = new paisesModel({
-            name: "colombia",
-            "code":"+57"
-        })
-        pais.save()*/
         const paises = await paisesModel.find();
         response(res, { payload: paises})
     } catch (error) {
