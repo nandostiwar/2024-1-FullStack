@@ -1,0 +1,21 @@
+* {
+    font-family: Roboto, sans-serif;  
+}
+
+.form {
+    width: 30rem;
+}
+
+.buttonsave {
+    background-color: #191934;
+    color: white;
+}
+
+.logo {
+    background-image: url('./assets/logo_aura.png');
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+    height: 400px;
+    border-radius: 100%;
+}
