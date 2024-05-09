@@ -1,0 +1,13 @@
+.spinner {
+    min-height: 100vh;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(3, 101, 81, 0.452);
+    z-index: 99999;
+    pointer-events: none !important;
+}
