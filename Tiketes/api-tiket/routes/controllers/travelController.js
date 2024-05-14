@@ -14,7 +14,7 @@ const createTraveles = async (req, res) => {
     try {
         const newTravel = req.body;
 
-        // Verificar si ya existe un viaje con la misma información en la base de datos
+
         const travelExists = await pool.db('tikets_data').collection('traveles').findOne({
             $or: [
                 { origen: newTravel.origen },
