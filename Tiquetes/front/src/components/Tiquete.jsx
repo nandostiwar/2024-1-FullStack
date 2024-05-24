@@ -157,3 +157,4 @@ const Tiquete = () => {
 };
 
 export default Tiquete;
+
