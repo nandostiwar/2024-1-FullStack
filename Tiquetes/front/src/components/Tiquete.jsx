@@ -12,7 +12,7 @@ const Tiquete = () => {
 
   useEffect(() => {
     if (origin) {
-      fetch(`https://tiquetes-1-back.vercel.app/reserva/pais?query=${origin}`)
+      fetch(`https://tiquetes-1-back.vercel.app/reserva/pais`)
         .then((response) => response.json()) // Realiza una solicitud HTTP GET a la URL proporcionada
         .then((data) => setOriginSuggestions(data))// sedan las respuesta en formato JSON
         //se actualizan los estados y se muestra un mensaje de error si esta repetido
@@ -24,7 +24,7 @@ const Tiquete = () => {
 
   useEffect(() => {
     if (destination) {
-      fetch(`https://tiquetes-1-back.vercel.app/reserva/pais?query=${destination}`)
+      fetch(`https://tiquetes-1-back.vercel.app/reserva/pais`)
         .then((response) => response.json())
         .then((data) => setDestinationSuggestions(data))
         .catch((error) =>
