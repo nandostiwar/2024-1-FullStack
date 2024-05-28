@@ -6,7 +6,7 @@ const productController = require('./controllers/productController.js');
 const salesController = require('./controllers/salesController.js');
 
 // restaurant
-router.get('/', restaurantController.getRestaurant);
+router.use('/', restaurantController);
 
 // users
 router

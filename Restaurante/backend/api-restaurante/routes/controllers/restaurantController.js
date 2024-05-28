@@ -1,10 +1,10 @@
-const fs = require('fs/promises');
-const path = require('path');
+const express = require('express');
+const router = express.Router();
 
-const getRestaurant = async (req, res)=>{
-    res.json({name: "restaurante prueba"})
-}
+// Ruta GET que retorna un mensaje "hola"
+router.get('/', (req, res) => {
+    res.json({ message: 'hola' });
+});
 
-module.exports = {
-    getRestaurant
-}
+module.exports = router;
+

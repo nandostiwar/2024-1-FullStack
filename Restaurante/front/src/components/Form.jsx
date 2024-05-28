@@ -1,6 +1,6 @@
 import './styles/Form.css';
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../api'; // Importa la configuración de axios desde api.js
 import { useNavigate } from 'react-router-dom';
 
 function Form({ callback }) {
@@ -12,8 +12,8 @@ function Form({ callback }) {
         event.preventDefault();
 
         try {
-            const response = await axios.patch('http://localhost:4000/v1/restaurant/login', {
-                username: username,
+            const response = await api.patch('/restaurant/login', {
+                user: username,
                 password: password
             });
             callback(response.data);
