@@ -1,0 +1,79 @@
+.login-background {
+  background-size: cover; /* Ajustar el tamaño de la imagen para cubrir el contenedor */
+  height: 100vh; /* Altura completa de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a0dad; /* Fondo de color morado */
+}
+
+.login-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo con transparencia */
+  box-shadow: 0px 0px 15px 0px rgb(0, 0, 0); /* Sombra */
+}
+
+.card {
+  border-radius: 1rem;
+  overflow: hidden; /* Asegurar que el contenido no sobresalga */
+}
+
+.card-title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 2rem;
+  color: #7e61ff;
+  text-align: center; /* Alinear el texto al centro */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.form-label {
+  font-size: 1.2rem;
+  color: #f8fbfd;
+  font-weight: bold; /* Negrita */
+  display: block; /* Asegurar que ocupe toda la línea */
+  margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da; /* Borde más sutil */
+  box-sizing: border-box; /* Incluir el relleno y borde en el ancho total */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.button-container {
+  margin-top: 1rem;
+  text-align: center; /* Alinear el contenido al centro */
+}
+
+button {
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadir transición para transform */
+  font-size: 1rem; /* Tamaño de fuente */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  color: #ffffff; /* Color de texto */
+  cursor: pointer; /* Cursor al pasar por encima */
+}
+
+button:hover {
+  background-color: #ff3f3f;
+  transform: translateY(-2px); /* Efecto de levantamiento al pasar el cursor */
+}
+
+.alert {
+  font-size: 1rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem; /* Espaciado inferior */
+  text-align: center; /* Alinear el texto al centro */
+}

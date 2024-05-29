@@ -1,0 +1,98 @@
+/* Contenedor del formulario */
+/* Contenedor del formulario */
+.FormContainer {
+  width: 100%;
+  max-width: 500px; /* Aumentar el ancho máximo */
+  margin: 50px auto 0; /* Bajar el formulario */
+  padding: 25px; /* Incrementar el padding */
+  border: 1px solid #ffffff; /* Cambiar a un color de borde más claro */
+  border-radius: 10px; /* Incrementar el radio del borde */
+  background-color: #0b69c7; /* Añadir un fondo claro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra para dar profundidad */
+  display: flex; /* Usar flexbox para centrar */
+  flex-direction: column;
+  align-items: center; /* Centrar horizontalmente */
+  color: #000000; /* Cambiar color de la letra */
+}
+
+.BackButtonContainer {
+  width: 100%; /* Asegurar que el contenedor ocupa el ancho completo */
+  display: flex; /* Usar flexbox para centrar */
+  justify-content: flex-start; /* Alinear a la izquierda */
+  margin-bottom: 30px; /* Incrementar el margen inferior */
+}
+
+.BackButton {
+  color: #007bff;
+  text-decoration: none; /* Eliminar subrayado */
+  font-size: 24px; /* Aumentar tamaño de fuente */
+}
+
+.BackButton:hover {
+  color: #0056b3; /* Cambiar color al pasar el mouse */
+}
+
+.ArrowIcon {
+  vertical-align: middle; /* Alinear verticalmente el icono */
+}
+
+h2 {
+  margin-bottom: 20px; /* Añadir espacio debajo del título */
+  font-size: 24px; /* Aumentar el tamaño de la fuente */
+  color: #fff; /* Cambiar el color del título */
+}
+
+.FormGroup {
+  width: 100%; /* Asegurar que el grupo ocupa el ancho completo */
+  margin-bottom: 20px; /* Incrementar el margen inferior */
+}
+
+.FormLabel {
+  display: block;
+  margin-bottom: 8px; /* Incrementar el margen inferior */
+  font-weight: bold; /* Añadir negrita */
+  font-size: 16px; /* Aumentar tamaño de fuente */
+  color: #fff; /* Cambiar color del texto */
+}
+
+.FormInput,
+.FormSelect {
+  width: 100%;
+  padding: 12px; /* Incrementar padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #fff; /* Fondo blanco */
+  transition: border-color 0.3s ease; /* Transición para el borde */
+}
+
+.FormInput:focus,
+.FormSelect:focus {
+  border-color: #80bdff; /* Cambiar color del borde al enfocar */
+  outline: none; /* Eliminar el borde de enfoque predeterminado */
+}
+
+.FormButton.GuardarUsuarioButton {
+  display: block;
+  width: 100%;
+  padding: 12px; /* Incrementar padding */
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Aumentar tamaño de fuente */
+  font-weight: bold; /* Añadir negrita */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadir transición para el color y la transformación */
+}
+
+.FormButton.GuardarUsuarioButton:hover {
+  background-color: #218838;
+  transform: translateY(-2px); /* Efecto de levantamiento al pasar el cursor */
+}
+
+
+
+
+

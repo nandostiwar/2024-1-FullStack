@@ -1,0 +1,153 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+  /* Contenedor principal */
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Estilos para el encabezado */
+  header {
+    background-color: #0b69c7;
+    padding: 10px 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Contenido principal */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #0b69c7;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  /* Estilos específicos para los formularios */
+  .FormContainer {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: #0b69c7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000000;
+  }
+  
+  .FormGroup {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .FormLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .FormInput,
+  .FormSelect {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .FormInput:focus,
+  .FormSelect:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  
+  .FormButton.GuardarUsuarioButton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #0a0909;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .FormButton.GuardarUsuarioButton:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilos para la barra lateral */
+  .Sidebar {
+    width: 250px;
+    background-color: #0b69c7;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .Sidebar ul li {
+    margin: 10px 0;
+  }
+  
+  .Sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .Sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos para el contenido de la página */
+  .PageContent {
+    margin-left: 270px; /* Ancho de la barra lateral + margen */
+    padding: 20px;
+  }
+  
