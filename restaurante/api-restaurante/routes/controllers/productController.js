@@ -1,27 +1,28 @@
 const fs = require('fs/promises');
+const pool = require ("../database/dbmongo")
 const path = require('path');
 
 const getAllProducts = async (req, res)=>{
-    const product = await fs.readFile(path.join(__dirname,'../../db/products.json'));
-    const productsJson = JSON.parse(product)
-    res.json(productsJson);
+    try {
+        const products = await pool.db('restaurante').collection('products').find().toArray();
+        res.json(products);
+    } catch (error) {
+        console.error("Error al obtener productos:", error);
+        res.status(500).json({ error: "Error al obtener productos" });
+    }
 }
 
 const createProduct = async (req, res)=>{
     try {
-        const allProducts = await fs.readFile(path.join(__dirname,'../../db/products.json'));
-        const objProducts = JSON.parse(allProducts);
+        const newProduct = req.body;
 
-        const productExists = objProducts.find(product => product.name === req.body.name);
+        const productExists = await pool.db('restaurante').collection('products').findOne({ name: newProduct.name });
         if (productExists) {
             return res.status(400).json({ error: "Ya existe un producto con ese nombre" });
         }
 
-        objProducts.push(req.body);
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
-        res.json(req.body);
+        await pool.db('restaurante').collection('products').insertOne(newProduct);
+        res.json(newProduct);
     } catch (error) {
         console.error("Error al crear producto:", error);
         res.status(500).json({ error: "Error al crear producto" });
@@ -30,17 +31,15 @@ const createProduct = async (req, res)=>{
 
 const deleteProduct = async (req, res)=>{
     try {
-        const productDelete = req.params.name;
-        const allProducts = await fs.readFile(path.join(__dirname, '../../db/products.json'));
-        let objProducts = JSON.parse(allProducts);
+        const productName = req.body.name;
 
-        const indexToDelete = objProducts.findIndex(product => product.name === productDelete);
+        const result = await pool.db('restaurante').collection('products').deleteOne({ name: productName });
 
-        objProducts.splice(indexToDelete, 1);
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
-        res.json({ message: "Producto eliminado correctamente" });
+        if (result.deletedCount > 0) {
+            res.json({ message: "Producto eliminado correctamente" });
+        } else {
+            res.json({ error: "Producto no encontrado" });
+        }
     } catch (error) {
         console.error("Error al eliminar producto:", error);
         res.status(500).json({ error: "Error al eliminar producto" });
@@ -49,19 +48,19 @@ const deleteProduct = async (req, res)=>{
 
 const updateProduct = async (req, res) => {
     try {
-        const name = req.body.name;
+        const productName = req.body.name;
         const updatedProductData = req.body;
 
-        const allProducts = await fs.readFile(path.join(__dirname, '../../db/products.json'));
-        let objProducts = JSON.parse(allProducts);
+        const result = await pool.db('restaurante').collection('products').updateOne(
+            { name: productName },
+            { $set: updatedProductData }
+        );
 
-        const userToUpdateIndex = objProducts.findIndex(product => product.name === name);
-
-        objProducts[userToUpdateIndex] = { ...objProducts[userToUpdateIndex], ...updatedProductData };
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
-        res.json(req.body);
+        if (result.matchedCount > 0) {
+            res.json(req.body);
+        } else {
+            res.json({ error: "Producto no encontrado" });
+        }
     } catch (error) {
         console.error("Error al actualizar producto:", error);
         res.status(500).json({ error: "Error al actualizar producto" });

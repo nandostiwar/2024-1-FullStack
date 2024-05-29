@@ -24,7 +24,7 @@ function DashboardAdminUsers(){
         fetch(`http://localhost:4000/v1/restaurant/user`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"id": 1, "user": username, "password": password, "role": rol, "activate": true})
+            body: JSON.stringify({"user": username, "password": password, "role": rol, "activate": true})
         })
         .then(response => {
             setLoading(false);
@@ -46,11 +46,12 @@ function DashboardAdminUsers(){
 
     const deleteUser = async (user) => {
         try {
-            const response = await fetch(`http://localhost:4000/v1/restaurant/user?user=${user}`, {
+            const response = await fetch(`http://localhost:4000/v1/restaurant/user`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({"user": user})
             });
-    
+
             if (response.ok) {
                 const updatedUsers = users.filter(u => u.user !== user);
                 setUsers(updatedUsers);

@@ -1,46 +1,57 @@
 const fs = require('fs/promises');
+const pool = require ("../database/dbmongo")
+const { ObjectId } = require('mongodb');
 const path = require('path');
 
 const getAllSales = async (req, res)=>{
-    const sale = await fs.readFile(path.join(__dirname,'../../db/sales.json'));
-    const salesJson = JSON.parse(sale)
-    res.json(salesJson);
+    try {
+        const sales = await pool.db('restaurante').collection('sales').find().toArray();
+        res.json(sales);
+    } catch (error) {
+        console.error("Error al obtener ventas:", error);
+        res.status(500).json({ error: "Error al obtener ventas" });
+    }
 }
 
 const createSales = async (req, res)=>{
     try {
-        const allSales = await fs.readFile(path.join(__dirname,'../../db/sales.json'));
-        const objSales = JSON.parse(allSales);
+        const newSale = req.body;
 
-        objSales.push(req.body);
-
-        await fs.writeFile(path.join(__dirname, '../../db/sales.json'), JSON.stringify(objSales));
-
-        res.json(req.body);
+        await pool.db('restaurante').collection('sales').insertOne(newSale);
+        res.json(newSale);
     } catch (error) {
-        console.error("Error al crear la orden:", error);
-        res.status(500).json({ error: "Error al crear orden" });
+        console.error("Error al crear la venta:", error);
+        res.status(500).json({ error: "Error al crear venta" });
     }
 }
 
 const updateSale = async (req, res) => {
     try {
-        const id = req.body.id;
-        const updatedSaleData = req.body;
+        const identificator = req.body.identificator;
 
-        const allSales = await fs.readFile(path.join(__dirname, '../../db/sales.json'));
-        let objSales = JSON.parse(allSales);
+        const updatedSaleData = {
+            "identificator": req.body.identificator,
+            "mesero": req.body.mesero,
+            "mesa": req.body.mesa,
+            "estado": req.body.estado,
+            "productos": req.body.productos,
+            "totalventa": req.body.totalventa
+        }
 
-        const saleToUpdateIndex = objSales.findIndex(sale => sale.id === id);
+        // Actualizar la venta
+        const result = await pool.db('restaurante').collection('sales').updateOne(
+            { identificator: identificator },
+            { $set: updatedSaleData }
+        );
 
-        objSales[saleToUpdateIndex] = { ...objSales[saleToUpdateIndex], ...updatedSaleData };
-
-        await fs.writeFile(path.join(__dirname, '../../db/sales.json'), JSON.stringify(objSales));
-
-        res.json(req.body);
+        if (result.matchedCount > 0) {
+            res.json(req.body);
+        } else {
+            res.json({ error: "Venta no encontrada" });
+        }
     } catch (error) {
-        console.error("Error al actualizar orden:", error);
-        res.status(500).json({ error: "Error al actualizar orden" });
+        console.error("Error al actualizar venta:", error);
+        res.status(500).json({ error: "Error al actualizar venta" });
     }
 }
 

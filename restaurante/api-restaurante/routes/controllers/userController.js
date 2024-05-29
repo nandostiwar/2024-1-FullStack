@@ -1,57 +1,67 @@
 const fs = require('fs/promises');
+const pool = require ("../database/dbmongo")
 const path = require('path');
 
 const login = async (req, res)=>{
     const {username, password} = req.body;
 
-    const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
-    const objUsers = JSON.parse(allUsers);
+    try {
+        const user = await pool.db('restaurante').collection('users').findOne({ user: username });
 
-    const userFound = objUsers.find(user => user.user === username);
-    if (userFound) {
-        if (userFound.password === password) {
-            res.json(userFound);
+        if (user) {
+            if (user.password === password) {
+                res.json(user);
+            } else {
+                res.json({ error: "Contraseña incorrecta" });
+            }
         } else {
-            res.json({ error: "Contraseña incorrecta" });
+            res.json({ error: "Usuario no encontrado" });
         }
-    } else {
-        res.json({ error: "Usuario no encontrado" });
+    } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        res.status(500).json({ error: "Error al iniciar sesión" });
     }
 }
 
 const getAllUsers = async (req, res)=>{
-    const user = await fs.readFile(path.join(__dirname,'../../db/users.json'));
-    const usersJson = JSON.parse(user)
-    res.json(usersJson);
+    try {
+        const users = await pool.db('restaurante').collection('users').find().toArray();
+        res.json(users);
+    } catch (error) {
+        console.error("Error al obtener todos los usuarios:", error);
+        res.status(500).json({ error: "Error al obtener usuarios" });
+    }
 }
 
 const getUser = async (req, res)=>{
-    const userParam = req.params.userId;
-    const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
-    const objUsers = JSON.parse(allUsers);
-    const userFound = objUsers.find(user => user.id === userParam);
-    if (userFound) {
-        res.json(userFound);
-    } else {
-        res.json({ error: "Usuario no encontrado" });
+    const userId = req.params.userId;
+
+    try {
+        const user = await pool.db('restaurante').collection('users').findOne({ _id: new ObjectId(userId) });
+
+        if (user) {
+            res.json(user);
+        } else {
+            res.json({ error: "Usuario no encontrado" });
+        }
+    } catch (error) {
+        console.error("Error al obtener usuario:", error);
+        res.status(500).json({ error: "Error al obtener usuario" });
     }
 }
 
 const createUser = async (req, res)=>{
-    try {
-        const allUsers = await fs.readFile(path.join(__dirname,'../../db/users.json'));
-        const objUsers = JSON.parse(allUsers);
+    const newUser = req.body;
 
-        const userExists = objUsers.find(user => user.user === req.body.user);
+    try {
+        const userExists = await pool.db('restaurante').collection('users').findOne({ user: newUser.user });
+
         if (userExists) {
             return res.status(400).json({ error: "Ya existe un usuario con ese nombre" });
         }
 
-        objUsers.push(req.body);
-
-        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
-
-        res.json(req.body);
+        await pool.db('restaurante').collection('users').insertOne(newUser);
+        res.json(newUser);
     } catch (error) {
         console.error("Error al crear usuario:", error);
         res.status(500).json({ error: "Error al crear usuario" });
@@ -59,18 +69,20 @@ const createUser = async (req, res)=>{
 }
 
 const deleteUser = async (req, res)=>{
+    const username = req.body.user;
+
+    if (!username) {
+        return res.status(400).json({ error: "El nombre de usuario es requerido" });
+    }
+
     try {
-        const userDelete = req.params.user;
-        const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
-        let objUsers = JSON.parse(allUsers);
+        const result = await pool.db('restaurante').collection('users').deleteOne({ user: username });
 
-        const indexToDelete = objUsers.findIndex(user => user.user === userDelete);
-
-        objUsers.splice(indexToDelete, 1);
-
-        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
-
-        res.json({ message: "Usuario eliminado correctamente" });
+        if (result.deletedCount > 0) {
+            res.json({ message: "Usuario eliminado correctamente" });
+        } else {
+            res.json({ error: "Usuario no encontrado" });
+        }
     } catch (error) {
         console.error("Error al eliminar usuario:", error);
         res.status(500).json({ error: "Error al eliminar usuario" });
@@ -78,20 +90,20 @@ const deleteUser = async (req, res)=>{
 }
 
 const updateUser = async (req, res) => {
+    const username = req.body.user;
+    const updatedUserData = req.body;
+
     try {
-        const username = req.body.user;
-        const updatedUserData = req.body;
+        const result = await pool.db('restaurante').collection('users').updateOne(
+            { user: username },
+            { $set: updatedUserData }
+        );
 
-        const allUsers = await fs.readFile(path.join(__dirname, '../../db/users.json'));
-        let objUsers = JSON.parse(allUsers);
-
-        const userToUpdateIndex = objUsers.findIndex(user => user.user === username);
-
-        objUsers[userToUpdateIndex] = { ...objUsers[userToUpdateIndex], ...updatedUserData };
-
-        await fs.writeFile(path.join(__dirname, '../../db/users.json'), JSON.stringify(objUsers));
-
-        res.json(req.body);
+        if (result.matchedCount > 0) {
+            res.json(updatedUserData);
+        } else {
+            res.json({ error: "Usuario no encontrado" });
+        }
     } catch (error) {
         console.error("Error al actualizar usuario:", error);
         res.status(500).json({ error: "Error al actualizar usuario" });

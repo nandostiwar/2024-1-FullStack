@@ -28,7 +28,7 @@ function DashboardMesero({ userName }){
             total: product.price * amount
         };
 
-        if (order.id) {
+        if (order.identificator) {
             const updatedOrder = {
                 ...order,
                 productos: [...order.productos, newProduct]
@@ -40,7 +40,7 @@ function DashboardMesero({ userName }){
             setOrder(updatedOrder);
         } else {
             const newOrder = {
-                id: uuidv4(),
+                identificator: uuidv4(),
                 mesero: userName,
                 mesa: mesa,
                 estado: "proceso",
@@ -167,7 +167,7 @@ function DashboardMesero({ userName }){
                 </div>
             </form>
 
-            {order.id && (
+            {order.identificator && (
             <table className="table">
                 <thead>
                     <tr>
@@ -198,7 +198,7 @@ function DashboardMesero({ userName }){
             </table>
             )}
 
-            {order.id && (
+            {order.identificator && (
             <div className="d-grid gap-2">
                 <button className="btn btn-primary-white" type="button" onClick={() => createOrder(order)}>Crear orden</button>
             </div>

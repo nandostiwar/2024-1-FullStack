@@ -44,9 +44,10 @@ function DashboardAdminProducts(){
 
     const deleteProduct = async (name) => {
         try {
-            const response = await fetch(`http://localhost:4000/v1/restaurant/product?name=${name}`, {
+            const response = await fetch(`http://localhost:4000/v1/restaurant/product`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({"name": name})
             });
 
             if (response.ok) {
