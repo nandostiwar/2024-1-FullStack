@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 function DashboardMesero({ userName }){
     const [products, setProducts] = useState([]);
@@ -66,14 +67,16 @@ function DashboardMesero({ userName }){
 
         return total;
     };
-
-    const [loading, setLoading] = useState(false);
+    
+    // eslint-disable-next-line no-unused-vars
+    const [cargando, setLoading] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState('');
     const createOrder = (order)=>{
         console.log("order", order);
         setLoading(true);
 
-        fetch(`http://localhost:4000/v1/restaurant/sales`, {
+        fetch(`http://localhost:4000/v1/restaurant/sale`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
@@ -206,5 +209,9 @@ function DashboardMesero({ userName }){
         </div>
     )
 }
+
+DashboardMesero.propTypes = {
+    userName: PropTypes.func.isRequired // Definir el tipo de la prop como una función requerida
+};
 
 export default DashboardMesero;

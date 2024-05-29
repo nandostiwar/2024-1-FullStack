@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 import './styles/Dashboard.css'
 
 import DashboardAdmin from './Dashboard/Admin'
@@ -21,7 +21,7 @@ function Dashboard({user}){
                     <div>{user.user}</div>
                 </div>
                 <div className='col d-flex justify-content-end align-items-center'>
-                    <button type="button" className="btn btn-link" onClick={goHome}>Salir</button>
+                    <button type="button" className="btn btn-link" onClick={goHome}>log Out</button>
                 </div>
             </div>
             <div className='dashboard__content'>
@@ -33,4 +33,7 @@ function Dashboard({user}){
     )
 }
 
+Dashboard.propTypes = {
+    user: PropTypes.func.isRequired // Definir el tipo de la prop 'callback' como una función requerida
+};
 export default Dashboard;

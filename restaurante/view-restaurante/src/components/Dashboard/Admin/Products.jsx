@@ -23,7 +23,7 @@ function DashboardAdminProducts(){
         fetch(`http://localhost:4000/v1/restaurant/product`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({"id": 1, "name": name, "price": price, "activate": true})
+            body: JSON.stringify({"name": name, "price": price, "activate": true})
         })
         .then(response => {
             setLoading(false);
@@ -44,7 +44,7 @@ function DashboardAdminProducts(){
 
     const deleteProduct = async (name) => {
         try {
-            const response = await fetch(`http://localhost:4000/v1/restaurant/product?name=${name}`, {
+            const response = await fetch(`http://localhost:4000/v1/restaurant/product`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' }
             });

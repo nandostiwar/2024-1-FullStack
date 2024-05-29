@@ -1,48 +1,57 @@
 const fs = require('fs/promises');
 const path = require('path');
+const pool = require ("../Database/mongoDB");
 
-const getAllSales = async (req, res)=>{
-    const sale = await fs.readFile(path.join(__dirname,'../../db/sales.json'));
-    const salesJson = JSON.parse(sale)
-    res.json(salesJson);
-}
-
-const createSales = async (req, res)=>{
+// buscar ventas
+const  getAllSales = async (req, res) => {
     try {
-        const allSales = await fs.readFile(path.join(__dirname,'../../db/sales.json'));
-        const objSales = JSON.parse(allSales);
-
-        objSales.push(req.body);
-
-        await fs.writeFile(path.join(__dirname, '../../db/sales.json'), JSON.stringify(objSales));
-
-        res.json(req.body);
+        const salesCollection = pool.db('Restaurantejf').collection('sales');
+        // Obtener todas las ventas
+        const sales = await salesCollection.find().toArray();
+        res.json(sales);
     } catch (error) {
-        console.error("Error al crear la orden:", error);
-        res.status(500).json({ error: "Error al crear orden" });
+        console.error("Error al obtener las ventas:", error);
+        res.status(500).json({ error: "Error al obtener las ventas" });
     }
 }
-
+// crear ventas
+const createSales = async (req, res) => {
+    try {
+        const salesCollection = pool.db('Restaurantejf').collection('sales');
+        await salesCollection.insertOne(req.body);
+        res.json(req.body);
+    } catch (error) {
+        console.error("Error al crear la venta:", error);
+        res.status(500).json({ error: "Error al crear la venta" });
+    }
+}
+//actualizar venta
 const updateSale = async (req, res) => {
     try {
-        const id = req.body.id;
-        const updatedSaleData = req.body;
+        const saleData = req.body; // Obtener los datos del cuerpo de la solicitud
+        const saleId = saleData.id; // Asegúrate de que saleId se obtiene correctamente
+        if (!saleId) {
+            return res.status(400).json({ error: "ID de venta no proporcionado" });
+        }
 
-        const allSales = await fs.readFile(path.join(__dirname, '../../db/sales.json'));
-        let objSales = JSON.parse(allSales);
+        const saleCollection = pool.db('Restaurantejf').collection('sales');
 
-        const saleToUpdateIndex = objSales.findIndex(sale => sale.id === id);
+        const result = await saleCollection.updateOne(
+            { sale: saleId }, 
+            { $set: saleData }
+        );
 
-        objSales[saleToUpdateIndex] = { ...objSales[saleToUpdateIndex], ...updatedSaleData };
-
-        await fs.writeFile(path.join(__dirname, '../../db/sales.json'), JSON.stringify(objSales));
-
-        res.json(req.body);
+        if (result.modifiedCount === 1) {
+            const updatedSale = await saleCollection.findOne({ sale: saleId });
+            return res.json(updatedSale); // Devolver dato actualizado
+        } else {
+            return res.status(404).json({ error: "Venta no encontrada" });
+        }
     } catch (error) {
-        console.error("Error al actualizar orden:", error);
-        res.status(500).json({ error: "Error al actualizar orden" });
+        console.error("Error al actualizar la venta:", error);
+        res.status(500).json({ error: "Error al actualizar la venta" });
     }
-}
+};
 
 module.exports = {
     getAllSales,

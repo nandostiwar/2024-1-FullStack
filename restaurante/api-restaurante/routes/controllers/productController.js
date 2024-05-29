@@ -1,70 +1,70 @@
 const fs = require('fs/promises');
 const path = require('path');
+const pool = require ("../Database/mongoDB");
 
-const getAllProducts = async (req, res)=>{
-    const product = await fs.readFile(path.join(__dirname,'../../db/products.json'));
-    const productsJson = JSON.parse(product)
-    res.json(productsJson);
-}
-
-const createProduct = async (req, res)=>{
+// buscar productos
+const getAllProducts = async (req, res) => {
     try {
-        const allProducts = await fs.readFile(path.join(__dirname,'../../db/products.json'));
-        const objProducts = JSON.parse(allProducts);
-
-        const productExists = objProducts.find(product => product.name === req.body.name);
-        if (productExists) {
-            return res.status(400).json({ error: "Ya existe un producto con ese nombre" });
-        }
-
-        objProducts.push(req.body);
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
+        const productCollection = pool.db('Restaurantejf').collection('products');
+        // Obtener todos los productos
+        const products = await productCollection.find().toArray();
+        res.json(products);
+    } catch (error) {
+        console.error("Error al obtener productos:", error);
+        res.status(500).json({ error: "Error al obtener productos" });
+    }
+}
+// crear producto
+const createProduct = async (req, res) => {
+    try {
+        const ProductCollection = pool.db('Restaurantejf').collection('products');
+        // Insert the new product
+        await ProductCollection.insertOne(req.body);
         res.json(req.body);
     } catch (error) {
         console.error("Error al crear producto:", error);
         res.status(500).json({ error: "Error al crear producto" });
     }
 }
-
-const deleteProduct = async (req, res)=>{
+// eliminar producto
+const deleteProduct = async (req, res) => {
     try {
-        const productDelete = req.params.name;
-        const allProducts = await fs.readFile(path.join(__dirname, '../../db/products.json'));
-        let objProducts = JSON.parse(allProducts);
+        const productId = req.body.product; // Obtener el ID del parámetro de consulta
+        const productCollection = pool.db('Restaurantejf').collection('products');
 
-        const indexToDelete = objProducts.findIndex(product => product.name === productDelete);
+        // Eliminar el producto por el ID proporcionado
+        const result = await productCollection.deleteOne({ product: productId });
 
-        objProducts.splice(indexToDelete, 1);
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
-        res.json({ message: "Producto eliminado correctamente" });
+        if (result.deletedCount === 1) {
+            return res.json({ message: "Producto eliminado exitosamente" });
+        } else {
+            return res.status(404).json({ error: "Producto no encontrado" });
+        }
     } catch (error) {
-        console.error("Error al eliminar producto:", error);
-        res.status(500).json({ error: "Error al eliminar producto" });
+        console.error("Error al eliminar Producto:", error);
+        if (error.code === 'ECONNRESET') {
+            return res.status(500).json({ error: "Error de conexión con la base de datos" });
+        }
+        return res.status(500).json({ error: "Error interno del servidor" });
     }
 }
-
+//actualizar producto
 const updateProduct = async (req, res) => {
     try {
-        const name = req.body.name;
-        const updatedProductData = req.body;
-
-        const allProducts = await fs.readFile(path.join(__dirname, '../../db/products.json'));
-        let objProducts = JSON.parse(allProducts);
-
-        const userToUpdateIndex = objProducts.findIndex(product => product.name === name);
-
-        objProducts[userToUpdateIndex] = { ...objProducts[userToUpdateIndex], ...updatedProductData };
-
-        await fs.writeFile(path.join(__dirname, '../../db/products.json'), JSON.stringify(objProducts));
-
-        res.json(req.body);
+        const productData = req.body; // Obtener los datos del cuerpo de la solicitud
+        const productId = productData.product; // Obtener el nombre para buscar
+        const productCollection = pool.db('Restaurantejf').collection('products');
+        const result = await productCollection.updateOne({product: productId}, { $set: productData });
+        
+        if (result.modifiedCount === 1) {
+            const updatedProduct = await productCollection.findOne({ product: productId });
+            return res.json(updatedProduct); // Devolver producto actualizado
+        } else {
+            return res.status(404).json({ error: "Producto no encontrado" });
+        }
     } catch (error) {
-        console.error("Error al actualizar producto:", error);
-        res.status(500).json({ error: "Error al actualizar producto" });
+        console.error("Error al actualizar Producto:", error);
+        res.status(500).json({ error: "Error al actualizar Producto" });
     }
 }
 

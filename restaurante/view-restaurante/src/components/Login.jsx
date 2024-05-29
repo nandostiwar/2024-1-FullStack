@@ -1,6 +1,8 @@
 import './styles/Login.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 function Login({callback}){
     const [username, setUsername] = useState(null);
@@ -36,8 +38,9 @@ function Login({callback}){
         <form onSubmit={validateUser}>
             <div className="state-login">
                 <div className="state-login__left col-7">
-                    <h2>Bienvenidos restaurante El encanto </h2>
-                    <h2>Iniciar sesión</h2>
+                    <h4>Bienvenidos Comidas Ràpidas JF </h4>
+                    <br/>
+                    <h4>LOGIN</h4>
                     <div className="mb-3">
                         <label htmlFor="user" className="form-label">Usuario</label>
                         <input className="form-control" type="text" aria-label="Ingresar usuario" onChange={(e)=> setUsername(e.target.value)}/>
@@ -51,7 +54,7 @@ function Login({callback}){
 
                     <div className="d-grid gap-2">
                         <button className="btn btn-primary-white" type="submit" disabled={loading}>
-                            {loading ? 'Cargando...' : 'Iniciar sesión'}
+                            {loading ? 'Cargando...' : 'Login'}
                         </button>
                     </div>
                 </div>
@@ -61,4 +64,7 @@ function Login({callback}){
     )
 }
 
+Login.propTypes = {
+    callback: PropTypes.func.isRequired // Definir el tipo de la prop 'callback' como una función requerida
+};
 export default Login;

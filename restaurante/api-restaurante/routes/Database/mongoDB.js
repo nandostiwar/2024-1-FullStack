@@ -14,11 +14,10 @@ const client = new MongoClient(uri, {
 const validatedb = async  () => {
     try {
       await  client.connect()
-      console.log('se conecto');
+      console.log('se conecto a mongodb');
     } catch (error) {
       console.error(error);
     }
 }
-
 validatedb()
 module.exports = client;

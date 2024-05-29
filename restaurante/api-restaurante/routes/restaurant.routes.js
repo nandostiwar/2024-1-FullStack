@@ -8,26 +8,23 @@ const salesController = require('./controllers/salesController.js');
 // restaurant
 router.get('/', restaurantController.getRestaurant);
 
-// users
-router
-    .patch('/login', userController.login)
-    .get('/users', userController.getAllUsers)
-    .get('/user/:userId', userController.getUser)
-    .post('/user', userController.createUser)
-    .delete('/user', userController.deleteUser)
-    .put('/user', userController.updateUser);
+//usuarios rutas
+router.patch('/login', userController.login);
+router.get('/users',userController.getAllUsers);
+router.get('/user',userController.getUser);
+router.post('/user',userController.createUser);
+router.delete('/user',userController.deleteUser);
+router.put('/user',userController.updateUser);
 
-// product
-router
-    .get('/products', productController.getAllProducts)
-    .post('/product', productController.createProduct)
-    .delete('/product', productController.deleteProduct)
-    .put('/product', productController.updateProduct);
+// productos rutas
+router.get('/products',productController.getAllProducts);
+router.post('/product',productController.createProduct);
+router.delete('/product',productController.deleteProduct);
+router.put('/product',productController.updateProduct);
 
-// sales
-router
-    .get('/sales', salesController.getAllSales)
-    .post('/sales', salesController.createSales)
-    .put('/sale', salesController.updateSale);
+// ventas rutas
+router.get('/sales',salesController.getAllSales);
+router.post('/sale',salesController.createSales);
+router.put('/sale',salesController.updateSale);
 
 module.exports = router;

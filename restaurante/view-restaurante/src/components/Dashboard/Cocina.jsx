@@ -34,7 +34,7 @@ function DashboardCocina(){
 
     return (
         <div className="dashboardCocina p-2">
-            <h2>Servicios pendientes</h2>
+            <h4>Cocina tiene los Siguientes Pedidos</h4>
 
             <table className="table table-cocina">
                 <thead>

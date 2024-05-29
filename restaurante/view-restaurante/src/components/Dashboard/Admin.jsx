@@ -13,7 +13,7 @@ function DashboardAdmin(){
                     <AdminProducts />
                 </div>
             </div>
-
+            
             <AdminSales />
         </div>
     )

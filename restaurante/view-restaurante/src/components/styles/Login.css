@@ -1,3 +1,8 @@
+:root {
+  --br-color-primary: #cf8e14; 
+}
+
+
 .state-login {
     height: 100vh;
     display: flex;
@@ -11,7 +16,7 @@
 }
 
 .state-login__right {
-    background: center / contain no-repeat url("https://international-experience.es/wp-content/uploads/2019/08/comidas-mundo.jpg");
+    background: center / contain no-repeat url("https://www.shutterstock.com/image-photo/all-fast-food-collection-set-600nw-2353214487.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
