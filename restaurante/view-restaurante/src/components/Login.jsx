@@ -15,7 +15,7 @@ function Login({callback}){
         event.preventDefault();
         setLoading(true);
 
-        fetch(`http://localhost:4000/v1/restaurant/login`, {
+        fetch(`https://restaurante-api-delta.vercel.app/v1/restaurant/login`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"username": username, "password": password})

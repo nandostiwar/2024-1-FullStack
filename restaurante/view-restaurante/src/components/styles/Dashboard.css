@@ -12,7 +12,7 @@
 .dashboard__toolbar_picture {
     width: 60px;
     height: 60px;
-    background: red;
+    background: rgb(20, 20, 19);
     border-radius: 100px;
     background: center / contain no-repeat url("https://www.latercera.com/resizer/Jw37YLm2lX8o_akIpM57enxchxA=/arc-anglerfish-arc2-prod-copesa/public/XQP24CTNQND2TBDZ7AQN54D44Y.jpg");
     background-repeat: no-repeat;

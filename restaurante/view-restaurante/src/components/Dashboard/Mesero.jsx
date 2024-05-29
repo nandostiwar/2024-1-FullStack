@@ -6,7 +6,7 @@ function DashboardMesero({ userName }){
     const [products, setProducts] = useState([]);
     async function getProducts() {
         try {
-            const response = await fetch(`http://localhost:4000/v1/restaurant/products`);
+            const response = await fetch(`https://restaurante-api-delta.vercel.app/v1/restaurant/products`);
             const responseData = await response.json();
             setProducts(responseData);
         } catch (error) {
@@ -76,7 +76,7 @@ function DashboardMesero({ userName }){
         console.log("order", order);
         setLoading(true);
 
-        fetch(`http://localhost:4000/v1/restaurant/sale`, {
+        fetch(`https://restaurante-api-delta.vercel.app/v1/restaurant/sale`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)

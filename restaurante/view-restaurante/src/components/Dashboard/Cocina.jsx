@@ -4,7 +4,7 @@ function DashboardCocina(){
     const [sales, setSales] = useState([]);
     async function getSales() {
         try {
-            const response = await fetch(`http://localhost:4000/v1/restaurant/sales`);
+            const response = await fetch(`https://restaurante-api-delta.vercel.app/v1/restaurant/sales`);
             const responseData = await response.json();
             setSales(responseData);
         } catch (error) {
@@ -15,7 +15,7 @@ function DashboardCocina(){
     const EditOrder = (order) => {
         order.estado = 'listo';
 
-        fetch(`http://localhost:4000/v1/restaurant/sale`, {
+        fetch(`https://restaurante-api-delta.vercel.app/v1/restaurant/sale`, {
             method: 'PUT',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
