@@ -1,0 +1,112 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "username": "admin",
+      "rol": "administrador",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "username": "javi",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 5,
+      "username": "mari",
+      "rol": "mesero",
+      "password": "123456"
+    },
+    {
+      "id": 7,
+      "username": "Julieth",
+      "rol": "cocina",
+      "password": "12345"
+    },
+    {
+      "id": 7,
+      "username": "sebas",
+      "rol": "admin",
+      "password": "123"
+    },
+    {
+      "id": 6,
+      "username": "kano",
+      "rol": "mesero",
+      "password": "12345"
+    },
+    {
+      "id": 7,
+      "username": "umana",
+      "rol": "cocina",
+      "password": "123456"
+    },
+    {
+      "id": 8,
+      "username": "jose",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 9,
+      "username": "foxy",
+      "rol": "mesero",
+      "password": "2134567"
+    },
+    {
+      "id": 10,
+      "username": "josefito",
+      "rol": "cocina",
+      "password": "1234"
+    },
+    {
+      "id": 11,
+      "username": "cesar",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 12,
+      "username": "maryi",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 13,
+      "username": "maryuri",
+      "rol": "admin",
+      "password": "1234567"
+    },
+    {
+      "id": 14,
+      "username": "sraku",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 15,
+      "username": "srako",
+      "rol": "admin",
+      "password": "123456"
+    },
+    {
+      "id": 16,
+      "username": "kanom",
+      "rol": "admin",
+      "password": "1234567"
+    },
+    {
+      "id": 17,
+      "username": "juli",
+      "rol": "admin",
+      "password": "12345"
+    },
+    {
+      "id": 18,
+      "username": "dani",
+      "rol": "admin",
+      "password": "123456"
+    }
+  ]
+}
