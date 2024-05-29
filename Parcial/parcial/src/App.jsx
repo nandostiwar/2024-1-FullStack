@@ -20,7 +20,7 @@ function App() {
 
 
     const getVuelos = async () => {
-        const vuelos = await axios.get('http://localhost:5000/obtenerVuelos');
+        const vuelos = await axion.get('http://localhost:5000/obtenerVuelos');
         setAllVuelos(vuelos.data)
     }
 
