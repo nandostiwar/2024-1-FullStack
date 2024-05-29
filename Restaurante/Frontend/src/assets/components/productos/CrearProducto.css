@@ -75,3 +75,8 @@
   .PrecioOption:hover {
     background-color: #e0e0e0;
   }
+
+  h2 {
+
+    color: black !important;
+  }

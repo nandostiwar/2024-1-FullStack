@@ -1,27 +1,34 @@
 const express = require('express');
 const router = express.Router();
 const restaurant = require('../controllers/restaurant.js');
-const usuarios =require('../db/usuarios.json');
-const productos = require('../db/productos.json');
-const ventas = require('../db/ventas.json');
+
+
+
+const Usuario =require('../db/usuarios.js');
+const Producto = require ('../db/productos.js');
+const Pedido= require('../db/pedidos.js');
+const Venta= require('../db/ventas.js');
 router
-  .get('/usuarios', (req, res) => {
+  .get('/usuarios', async (req, res) => {
     try {
-      res.status(200).json(usuarios.usuarios);
+      const usuarios = await Usuario.find();
+      res.status(200).json(usuarios);
     } catch (error) {
       console.error('Error al obtener usuarios:', error);
       res.status(500).json({ mensaje: 'Error interno del servidor' })
     }
   })
-  .get('/productos', (req, res) => {
-        try {
-          res.status(200).json(productos.productos); 
-        } catch (error) {
-          console.error('Error al obtener productos:', error);
-          res.status(500).json({ mensaje: 'Error interno del servidor' });
-        }
-      })
 
+  .get('/productos', async (req, res) => {
+    try {
+      const productos = await Producto.find();
+      res.status(200).json(productos);
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' })
+    }
+  })
+  
   
   
   .get('/ventasVer', restaurant.obtenerVentas)
@@ -38,7 +45,7 @@ router
   //Rutas para solicitudes de productos
   .get('/productos/:id', restaurant.obtenerProductos)
   .post('/productos/crear',restaurant.crearProducto)
-  .post('/productos',restaurant.editarProducto)
+  .put('/productos/:id',restaurant.editarProducto)
   .delete('/productos/:id', restaurant.eliminarProducto)  
 
   //Rutas para solicitudes de pedidos

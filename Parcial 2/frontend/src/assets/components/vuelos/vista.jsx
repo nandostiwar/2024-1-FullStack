@@ -1,7 +1,7 @@
-import React, { useState , useEffect } from 'react';
+import  { useState , useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import DatePicker from 'react-datepicker'; // Importa react-datepicker
-import 'react-datepicker/dist/react-datepicker.css'; // Importa los estilos de react-datepicker
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'; 
 
 const TicketForm = () => {
   const [origin, setOrigin] = useState('');
@@ -16,7 +16,7 @@ const TicketForm = () => {
       fetch(`http://localhost:3000/api/vuelos/paises?query=${origin}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data); // Muestra los datos recibidos en la consola
+          console.log(data); 
           setOriginSuggestions(data);
         })
         .catch(error => console.error('Error fetching origin suggestions:', error));
@@ -28,7 +28,7 @@ const TicketForm = () => {
       fetch(`http://localhost:3000/api/vuelos/paises?query=${destination}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data); // Muestra los datos recibidos en la consola
+          console.log(data); 
           setDestinationSuggestions(data);
         })
         .catch(error => console.error('Error fetching destination suggestions:', error));
@@ -38,7 +38,7 @@ const TicketForm = () => {
 const handleSaveTicket = async () => {
   if (origin && destination && date) {
     try {
-      // Obtener la fecha y hora actual
+      
       const fechaActual = new Date();
 
       const response = await fetch('http://localhost:3000/api/vuelos', {
@@ -46,7 +46,7 @@ const handleSaveTicket = async () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        // Enviar la fecha y hora actual al servidor
+        
         body: JSON.stringify({ origin, destination, date: fechaActual }),
       });
 
@@ -57,7 +57,7 @@ const handleSaveTicket = async () => {
       const newTicket = await response.json();
       setSavedTickets([...savedTickets, newTicket]);
       
-      // Alerta de éxito
+      
       alert('El boleto se ha creado con éxito');
 
     } catch (error) {

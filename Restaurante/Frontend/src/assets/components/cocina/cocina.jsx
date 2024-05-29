@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './cocina.css';
 
@@ -25,7 +25,9 @@ const Cocina = () => {
   }, []);
 
   const handleMarcarComoListo = async (id) => {
+    console.log("ID del pedido:", id);
     try {
+        // Realizar la petición PATCH para marcar el pedido como listo
         const response = await fetch(`http://localhost:4000/restaurante/pedidos/${id}`, {
             method: 'PATCH',
             headers: {
@@ -38,7 +40,8 @@ const Cocina = () => {
             throw new Error('Error al marcar el pedido como listo');
         }
 
-        const pedidoListo = pedidos.find(pedido => pedido.id === id);
+        // Si la petición PATCH fue exitosa, procedemos a agregar la venta a la colección de ventas
+        const pedidoListo = pedidos.find(pedido => pedido._id === id); // Asegúrate de que el ID sea accedido correctamente
 
         const ventaResponse = await fetch('http://localhost:4000/restaurante/ventas', {
             method: 'POST',
@@ -56,13 +59,15 @@ const Cocina = () => {
             throw new Error('Error al agregar la venta a la base de datos de ventas');
         }
 
-        
-        setPedidos(pedidos.filter(pedido => pedido.id !== id));        
+        // Si la venta se agregó correctamente, actualizamos la lista de pedidos en la interfaz eliminando el pedido marcado como listo
+        setPedidos(pedidos.filter(pedido => pedido._id !== id)); // Asegúrate de que el ID sea accedido correctamente
         
     } catch (error) {
         console.error('Error al marcar el pedido como listo:', error);
     }
 };
+
+  
 
   const handleLogout = () => {
     

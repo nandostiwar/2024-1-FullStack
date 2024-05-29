@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import './EditarUsuario.css';
@@ -8,7 +8,7 @@ const EditarUsuario = () => {
   const [selectedUser, setSelectedUser] = useState('');
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [newRol, setNewRol] = useState('admin');
+  const [newRol, setNewRol] = useState('administrador');
 
   useEffect(() => {
     const fetchUsuarios = async () => {
@@ -16,6 +16,7 @@ const EditarUsuario = () => {
         const response = await fetch('http://localhost:4000/restaurante/usuarios');
         const data = await response.json();
         setUsuarios(data);
+        
       } catch (error) {
         console.error('Error al obtener usuarios:', error);
       }
@@ -29,35 +30,26 @@ const EditarUsuario = () => {
       alert('Por favor selecciona un usuario');
       return;
     }
-  
+
+
     try {
       const response = await fetch(`http://localhost:4000/restaurante/usuarios/${selectedUser}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ newUsername: newUsername, newPassword: newPassword, newRol: newRol }), // Ajusta las claves aquí
-    });
+        },
+        body: JSON.stringify({ newUsername, newPassword, newRol }),
+      });
       if (!response.ok) {
         throw new Error('Error al actualizar usuario');
       }
       const data = await response.json();
       console.log('Usuario actualizado:', data);
-      
-      setUsuarios((prevUsuarios) => {
-        return prevUsuarios.map((usuario) => {
-          if (usuario.id === selectedUser) {
-            return { ...usuario, username: newUsername, rol: newRol };
-          } else {
-            return usuario;
-          }
-        });
-      });
 
       setSelectedUser('');
       setNewUsername('');
       setNewPassword('');
-      setNewRol('admin');
+      setNewRol('administrador');
     } catch (error) {
       console.error('Error al actualizar usuario:', error);
       alert('Error al actualizar usuario. Por favor, inténtalo de nuevo.');
@@ -83,7 +75,7 @@ const EditarUsuario = () => {
             <select className="FormSelect" value={selectedUser} onChange={handleUserSelect}>
               <option value="">Seleccionar usuario</option>
               {usuarios.map((usuario) => (
-                <option key={usuario.id} value={usuario.id}>{usuario.username}</option>
+                <option key={usuario._id} value={usuario._id}>{usuario.username}</option>
               ))}
             </select>
           </label>
@@ -104,14 +96,13 @@ const EditarUsuario = () => {
           <label className="FormLabel">
             Nuevo rol:
             <select className="FormSelect" value={newRol} onChange={(e) => setNewRol(e.target.value)}>
-              <option value="admin">Admin</option>
+              <option value="administrador">administrador</option>
               <option value="mesero">Mesero</option>
               <option value="cocina">Cocina</option>
             </select>
           </label>
         </div>
         <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Usuario</button>
-
       </form>
     </div>
   );

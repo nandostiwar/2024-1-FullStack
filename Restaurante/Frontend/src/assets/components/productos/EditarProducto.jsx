@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+// EditarProducto.jsx
+
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'; 
 import './EditarProducto.css';
 
 const EditarProducto = () => {
-
-
   const [productos, setProductos] = useState([]);
   const [productoSeleccionado, setProductoSeleccionado] = useState('');
   const [producto, setProducto] = useState({
@@ -31,53 +31,62 @@ const EditarProducto = () => {
 
   const handleChangeProducto = (e) => {
     const { value } = e.target;
+    console.log('Producto seleccionado:', value);
     setProductoSeleccionado(value);
-  
+    
     // Obtener los datos del producto seleccionado
     const productoSeleccionadoData = productos.find(prod => prod.id === value);
+    console.log('Datos del producto seleccionado:', productoSeleccionadoData);
     if (productoSeleccionadoData) {
       setProducto(productoSeleccionadoData);
     }
   };
+  
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProducto({ ...producto, [name]: value });
-    console.log();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(productoSeleccionado)
-
+    
+    console.log('Producto seleccionado:', productoSeleccionado);
     const idParseado = parseInt(productoSeleccionado);
-
-    const pedidoEditar = {
-      nuevoNombre: producto.nombre, 
-      nuevoPrecio: producto.precio,
-      id: idParseado
-    }
-
-    console.log('pedidoEditar');
-    console.log(pedidoEditar);
-
-    try {
-      const response = await fetch(`http://localhost:4000/restaurante/productos`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(pedidoEditar),
-      });
-      const data = await response.json();
-      // Manejar la respuesta del backend
-    } catch (error) {
-      console.error('Error al editar producto:', error);
-      // Mostrar mensaje de error 
+    console.log('ID parseado:', idParseado);
+    
+    if (!isNaN(idParseado) && productoSeleccionado !== '') {
+      const pedidoEditar = {
+        nuevoNombre: producto.nombre, 
+        nuevoPrecio: producto.precio,
+        id: idParseado
+      };
+  
+      try {
+        const response = await fetch(`http://localhost:4000/restaurante/productos/${idParseado}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(pedidoEditar),
+        });
+  
+        if (response.ok) {
+          alert('Producto editado exitosamente');
+        } else {
+          throw new Error('Error al editar producto');
+        }
+      } catch (error) {
+        console.error('Error al editar producto:', error);
+        alert('Error al editar producto. Por favor, inténtalo de nuevo.');
+      }
+    } else {
+      alert('Seleccione un producto válido');
     }
   };
   
-
+  
   return (
     <div className="ProductoContainer">
       <div className="BackButtonContainer">
@@ -110,7 +119,7 @@ const EditarProducto = () => {
             <input className="FormInput" type="text" name="precio" value={producto.precio} onChange={handleChange} />
           </label>
         </div>
-        <button className="FormButton GuardarUsuarioButton" type="submit">Guardar Producto</button>
+        <button className="GuardarProductoButton" type="submit">Guardar Producto</button>
       </form>
     </div>
   );

@@ -1,54 +1,63 @@
+/* EditarProducto.css */
+
 .ProductoContainer {
-    width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.BackButtonContainer {
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FormGroup {
+  margin-bottom: 15px;
+}
+
+.FormLabel {
+  font-weight: bold;
+}
+
+.FormInput,
+.FormSelect {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.FormButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745; /* Color verde */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.FormButton:hover {
+  background-color: #218838;
   
-  .BackButtonContainer {
-    margin-bottom: 20px;
-  }
   
-  .BackButton {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 24px;
-  }
-  
-  .BackButton:hover {
-    color: #0056b3;
-  }
-  
-  .FormGroup {
-    margin-bottom: 20px;
-  }
-  
-  .FormLabel {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .FormInput {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .FormButton {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .FormButton:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.ArrowIcon {
+  font-size: 20px;
+  vertical-align: middle;
+}

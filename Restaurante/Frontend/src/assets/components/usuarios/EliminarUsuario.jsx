@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import './EliminarUsuario.css';
 
 const EliminarUsuario = () => {
   const [usuarios, setUsuarios] = useState([]);
-  const [selectedUser, setSelectedUser] = useState('');
+  const [selectedUserId, setSelectedUserId] = useState(''); // Cambiado el nombre a selectedUserId
 
   useEffect(() => {
     // Aquí realizar la llamada para obtener la lista de usuarios desde el backend
@@ -23,21 +23,21 @@ const EliminarUsuario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedUser) {
+    if (!selectedUserId) { // Cambiado a selectedUserId
       alert('Por favor selecciona un usuario');
       return;
     }
 
     try {
-      const response = await fetch(`http://localhost:4000/restaurante/usuarios/${selectedUser}`, {
+      const response = await fetch(`http://localhost:4000/restaurante/usuarios/${selectedUserId}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
         throw new Error('Error al eliminar usuario');
       }
       // Eliminar el usuario del estado local después de la eliminación
-      setUsuarios((prevUsuarios) => prevUsuarios.filter((usuario) => usuario.id !== selectedUser));
-      setSelectedUser('');
+      setUsuarios((prevUsuarios) => prevUsuarios.filter((usuario) => usuario._id !== selectedUserId)); // Cambiado a _id
+      setSelectedUserId('');
     } catch (error) {
       console.error('Error al eliminar usuario:', error);
       alert('Error al eliminar usuario. Por favor, inténtalo de nuevo.');
@@ -45,7 +45,7 @@ const EliminarUsuario = () => {
   };
 
   const handleUserSelect = (e) => {
-    setSelectedUser(e.target.value);
+    setSelectedUserId(e.target.value); // Cambiado a selectedUserId
   };
 
   return (
@@ -60,10 +60,10 @@ const EliminarUsuario = () => {
         <div className="FormGroup">
           <label className="FormLabel">
             Usuario:
-            <select className="FormSelect" value={selectedUser} onChange={handleUserSelect}>
+            <select className="FormSelect" value={selectedUserId} onChange={handleUserSelect}> {/* Cambiado a selectedUserId */}
               <option value="">Seleccionar usuario</option>
               {usuarios.map((usuario) => (
-                <option key={usuario.id} value={usuario.id}>{usuario.username}</option>
+                <option key={usuario._id} value={usuario._id}>{usuario.username}</option> 
               ))}
             </select>
           </label>

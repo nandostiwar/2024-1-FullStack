@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi'; // Importa el icono de flecha izquierda
 import './CrearProducto.css';
 
 const CrearProducto = () => {
   const [producto, setProducto] = useState({
-    id: Math.floor(Math.random() * 1000) + 1,
     nombre: '',
     precio: ''
   });
@@ -19,7 +18,6 @@ const CrearProducto = () => {
     e.preventDefault();
     try {
       const response = await fetch('http://localhost:4000/restaurante/productos/crear', {
-
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,10 +25,21 @@ const CrearProducto = () => {
         body: JSON.stringify(producto),
       });
       const data = await response.json();
-      // Manejar la respuesta del backend
+      if (response.ok) {
+        // Mostrar una alerta si el producto se creó exitosamente
+        alert('Producto creado exitosamente');
+        // Limpiar el estado del formulario después de crear el producto
+        setProducto({
+          nombre: '',
+          precio: ''
+        });
+      } else {
+        throw new Error(data.message || 'Error al crear el producto');
+      }
     } catch (error) {
       console.error('Error al crear producto:', error);
       // Mostrar mensaje de error al usuario
+      alert('Error al crear el producto. Por favor, inténtalo de nuevo.');
     }
   };
 

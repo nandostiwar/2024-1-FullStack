@@ -22,7 +22,7 @@ const CrearUsuario = () => {
       const data = await response.json();
       setUsername('');
       setPassword('');
-      setRol('admin'); 
+      setRol('administrador'); 
 
 
       // Manejar la respuesta del backend
@@ -57,7 +57,7 @@ const CrearUsuario = () => {
           <label className="FormLabel">
             Rol:
             <select className="FormSelect" value={rol} onChange={(e) => setRol(e.target.value)}>
-              <option value="admin">Admin</option>
+              <option value="admin">administrador</option>
               <option value="mesero">Mesero</option>
               <option value="cocina">Cocina</option>
             </select>
