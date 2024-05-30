@@ -1,4 +1,5 @@
 .sidebar-container {
+  
   width: 250px;
   height: 100vh;
   background-color: #fff;
@@ -14,29 +15,11 @@
   z-index: 1000;
 }
 
+
 /* Agrega una clase para el sidebar colapsado */
 .sidebar-container.collapsed {
   width: 60px; /* Ancho reducido */
   padding-top: 20px; /* Ajuste de espaciado */
-}
-
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 999;
-}
-
-.video-container video {
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .sidebar-group {

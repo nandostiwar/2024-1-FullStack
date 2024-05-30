@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AiOutlineUser, AiOutlineShop, AiOutlineDollar } from 'react-icons/ai';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
@@ -24,10 +24,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="video-container">
-        <video autoPlay loop muted>
-          <source src="./src/1109982_Salt_Seasoning_Unknown_1920x1080.mp4" type="video/mp4" />
-        </video>
+      <div className="background-image">
+        
       </div>
       <div className={`sidebar-container ${sidebarVisible ? 'visible' : 'hidden'} ${expanded ? '' : 'collapsed'}`}>
         <div className="sidebar-toggle" onClick={toggleSidebar}>

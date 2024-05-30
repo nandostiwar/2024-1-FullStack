@@ -1,5 +1,5 @@
 import './Login.css'
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Logueo = () => {
@@ -12,7 +12,7 @@ const Logueo = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:4000/restaurante/login', {
+    const response = await fetch('https://restauranteback.vercel.app/restaurante/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

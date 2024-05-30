@@ -15,7 +15,7 @@ const PerfilMesero = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await fetch('http://localhost:4000/restaurante/productos');
+        const response = await fetch('https://restauranteback.vercel.app/restaurante/productos');
         if (!response.ok) {
           throw new Error('Error al cargar los productos: ' + response.statusText);
         }
@@ -97,7 +97,7 @@ const PerfilMesero = () => {
         estado: estadoPedido
       };
       
-      const response = await fetch('http://localhost:4000/restaurante/pedidos', {
+      const response = await fetch('https://restauranteback.vercel.app/restaurante/pedidos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const Cocina = () => {
   useEffect(() => {
     const fetchPedidos = async () => {
       try {
-        const response = await fetch('http://localhost:4000/restaurante/pedidos');
+        const response = await fetch('https://restauranteback.vercel.app/restaurante/pedidos');
         if (!response.ok) {
           throw new Error('Error al cargar los pedidos: ' + response.statusText);
         }
@@ -28,7 +28,7 @@ const Cocina = () => {
     console.log("ID del pedido:", id);
     try {
         // Realizar la petición PATCH para marcar el pedido como listo
-        const response = await fetch(`http://localhost:4000/restaurante/pedidos/${id}`, {
+        const response = await fetch(`https://restauranteback.vercel.app/restaurante/pedidos/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const Cocina = () => {
         // Si la petición PATCH fue exitosa, procedemos a agregar la venta a la colección de ventas
         const pedidoListo = pedidos.find(pedido => pedido._id === id); // Asegúrate de que el ID sea accedido correctamente
 
-        const ventaResponse = await fetch('http://localhost:4000/restaurante/ventas', {
+        const ventaResponse = await fetch('https://restauranteback.vercel.app/restaurante/ventas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

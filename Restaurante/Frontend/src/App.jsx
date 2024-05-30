@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes,  } from 'react-router-dom';
 import Logueo from '../src/assets/components/login/Login';
 import Sidebar from '../src/assets/components/Administrador/Admin';
 import CrearUsuario from './assets/components/usuarios/CrearUsuario';
@@ -28,7 +28,7 @@ function App() {
           <Route path="/admin/total-ventas" element={<TotalVentas />} />
           <Route path='/perfil-mesero' element={<PerfilMesero />} />
           <Route path='/perfil-cocina' element={<PerfilCocina />} />
-          <Route path="/*" element={<Navigate to="/login" />} />
+          <Route path="/*" element={< Logueo/>} />
         </Routes>
       </Router>
     </>

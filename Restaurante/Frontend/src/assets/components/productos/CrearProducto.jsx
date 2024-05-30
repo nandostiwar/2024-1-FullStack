@@ -17,7 +17,7 @@ const CrearProducto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/restaurante/productos/crear', {
+      const response = await fetch('https://restauranteback.vercel.app/restaurante/productos/crear', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

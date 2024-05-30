@@ -10,7 +10,7 @@ const EliminarProducto = () => {
   // Función para cargar los datos del producto desde el backend
   const cargarProductos = async () => {
     try {
-      const response = await fetch('http://localhost:4000/restaurante/productos');
+      const response = await fetch('https://restauranteback.vercel.app/restaurante/productos');
       const data = await response.json();
       setProductos(data);
     } catch (error) {
@@ -26,7 +26,7 @@ const EliminarProducto = () => {
   const handleEliminar = async () => {
     console.log(`Eliminando producto con ID: ${selectedProductId}`);
     try {
-      const response = await fetch(`http://localhost:4000/restaurante/productos/${selectedProductId}`, {
+      const response = await fetch(`https://restauranteback.vercel.app/restaurante/productos/${selectedProductId}`, {
         method: 'DELETE',
       });
       if (!response.ok) {

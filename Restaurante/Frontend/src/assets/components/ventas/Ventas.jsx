@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Ventas.css';
 
@@ -7,7 +7,7 @@ const TotalVentas = () => {
 
   const obtenerVentas = async () => {
     try {
-      const response = await fetch('http://localhost:4000/restaurante/ventasVer', {
+      const response = await fetch('https://restauranteback.vercel.app/restaurante/ventasVer', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
