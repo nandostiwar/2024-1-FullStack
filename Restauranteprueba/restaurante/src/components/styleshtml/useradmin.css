@@ -1,0 +1,57 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff; /* Cambiado a blanco */
+  font-family: cursive; /* Cambiado a letra cursiva */
+}
+
+h1, h2, h5 {
+  font-family: cursive; /* Cambiado a letra cursiva */
+  color: #333;
+}
+
+input[type="text"], input[type="password"], select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: cursive; /* Cambiado a letra cursiva */
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Cambiado a verde */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: cursive; /* Cambiado a letra cursiva */
+}
+
+button:hover {
+  background-color: #45a049; /* Cambiado el color al pasar el cursor */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50; /* Cambiado a verde */
+  color: #fff;
+}
